@@ -35,7 +35,7 @@ export const metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
-  
+
   authors: [{ name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` }],
   creator: "Ubaid Bin Waris",
   robots: "index, follow",
@@ -48,7 +48,7 @@ export const metadata = {
     title: "Ubaid Bin Waris | Full Stack Developer",
     description:
       "Discover the work and skills of Ubaid Bin Waris, a creative and results-driven full stack web developer.",
-    url: "https://yourdomain.com",
+    url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}`, // Replace with your actual domain URL
     siteName: "Ubaid Bin Waris Portfolio",
     images: [
       {
