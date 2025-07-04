@@ -30,6 +30,12 @@ export const metadata = {
     "Tailwind CSS",
     "Developer Portfolio"
   ],
+   icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
+  },
+  
   authors: [{ name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` }],
   creator: "Ubaid Bin Waris",
   robots: "index, follow",
