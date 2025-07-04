@@ -5,3 +5,7 @@
 .font-code {
   font-family: 'Source Code Pro', monospace;
 }
+
+body{
+  scroll-behavior: smooth;
+}
