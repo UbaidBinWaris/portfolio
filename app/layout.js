@@ -1,11 +1,10 @@
-import { Geist, Geist_Mono,  } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -28,14 +27,16 @@ export const metadata = {
     "Node.js",
     "MongoDB",
     "Tailwind CSS",
-    "Developer Portfolio"
+    "Developer Portfolio",
   ],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
-  authors: [{ name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` }],
+  authors: [
+    { name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` },
+  ],
   creator: "Ubaid Bin Waris",
   robots: "index, follow",
   openGraph: {
@@ -49,11 +50,11 @@ export const metadata = {
         url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/me.jpg`,
         width: 1200,
         height: 630,
-        alt: "Ubaid Bin Waris Portfolio Preview"
-      }
+        alt: "Ubaid Bin Waris Portfolio Preview",
+      },
     ],
     locale: "en_US",
-    type: "website"
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -61,8 +62,8 @@ export const metadata = {
     description:
       "Explore the portfolio of Ubaid Bin Waris, a full stack developer with expertise in React, Next.js, Node.js, and more.",
     creator: "@ubaidbinwaris",
-    images: [`${process.env.NEXT_PUBLIC_DOMAIN_URL}/og-image.jpg`]
-  }
+    images: [`${process.env.NEXT_PUBLIC_DOMAIN_URL}/og-image.jpg`],
+  },
 };
 
 export default function RootLayout({ children }) {
