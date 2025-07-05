@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,11 +10,16 @@ export const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  // Lock scroll on open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }, [isOpen]);
+
+  // Handle scroll background
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -30,20 +36,18 @@ export const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-[#0A1930] shadow-lg" : "bg-transparent"
       }`}
-      aria-label="Main navigation"
     >
       <div className="flex items-center justify-between px-6 py-4 md:px-10 text-[#63B8B2]">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-100">
-      <Link
-        href="#home"
-        className={`hover:text-[#63B8B2] transition-colors duration-200 ${
-          isScrolled ? "text-white" : "text-[#63B8B2]"
-        }`}
-        aria-label="Home"
-      >
-        My Portfolio
-      </Link>
+          <Link
+            href="#home"
+            className={`hover:text-[#63B8B2] transition-colors duration-200 ${
+              isScrolled ? "text-white" : "text-[#63B8B2]"
+            }`}
+          >
+            My Portfolio
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -54,11 +58,11 @@ export const Navbar = () => {
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            <Menu size={28} />
           </button>
         </div>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Nav */}
         <div className="hidden md:flex items-center">
           <ul className="flex space-x-8 text-lg font-medium">
             {navLinks.map(({ href, label, index }) => (
@@ -73,45 +77,95 @@ export const Navbar = () => {
             ))}
           </ul>
           <Link
-            href="/resume.pdf"
             className="ml-8 px-6 py-2 border-2 border-[#63B8B2] rounded-xl text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
-            aria-label="Download Resume"
-            download
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Resume
           </Link>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden bg-[#0A1930] shadow-lg px-6 py-4">
-          <ul className="flex flex-col items-center space-y-4 text-lg font-medium">
+      {/* Mobile Sidebar Overlay */}
+      {/* Mobile Sidebar with Background Blur */}
+      <div
+        className={`fixed inset-0 z-40 transition-opacity duration-500 ${
+          isOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+      >
+        {/* Blurred Background */}
+        <div
+          className="absolute inset-0 bg-black/30 backdrop-blur-sm"
+          onClick={toggleMenu}
+        ></div>
+
+        {/* Sidebar Panel - Slide in from Right */}
+        <div
+          className={`absolute top-0 right-0 h-full w-[90vw] bg-[#0A1930] shadow-xl p-6 transform transition-transform duration-500 ease-in-out ${
+            isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Close Button */}
+          <button
+            onClick={toggleMenu}
+            className="text-[#63B8B2] mb-4"
+            aria-label="Close menu"
+          >
+            <X size={28} />
+          </button>
+
+          {/* Profile Image */}
+          <div className="flex justify-center mb-4">
+            <Image
+              src="/me.jpg"
+              width={800}
+              height={800}
+              alt="Ubaid Bin Waris"
+              className="w-[70vw] h-[70vw] rounded-full border-2 border-[#63B8B2] object-cover"
+            />
+          </div>
+
+          {/* Name Heading */}
+          <div className="flex justify-center items-center gap-x-2 px-4 mb-8">
+            <span className="text-[#63B8B2] text-2xl md:text-3xl">&lt;</span>
+            <h2 className="text-xl md:text-2xl font-semibold tracking-wider whitespace-nowrap text-white">
+              Ubaid Bin Waris
+            </h2>
+            <span className="text-[#63B8B2] text-2xl md:text-3xl">&gt;</span>
+          </div>
+
+          {/* Navigation Links */}
+          <ul className="flex flex-col space-y-6 text-lg font-medium text-start px-4">
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-gray-200 hover:text-[#63B8B2] transition-colors duration-200"
                   onClick={toggleMenu}
+                  className="text-gray-200 hover:text-[#63B8B2] transition-colors duration-200"
                 >
-                  {index}. {label}
+                  <span className="text-[#63B8B2]">{index}.</span> {label}
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/resume.pdf"
-                className="mt-2 px-6 py-2 border-2 border-[#63B8B2] rounded-full text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
-                onClick={toggleMenu}
-                download
-                aria-label="Download Resume"
-              >
-                Resume
-              </Link>
-            </li>
           </ul>
+
+          {/* Resume Button */}
+          <div className="mt-12 px-4">
+            <Link
+              className="block text-center px-6 py-2 border-2 border-[#63B8B2] rounded-full text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={toggleMenu}
+            >
+              Resume
+            </Link>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

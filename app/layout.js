@@ -30,29 +30,23 @@ export const metadata = {
     "Tailwind CSS",
     "Developer Portfolio"
   ],
-   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
-
-  authors: [{ name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` }],
-  creator: "Ubaid Bin Waris",
-  robots: "index, follow",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png"
+    apple: "/apple-touch-icon.png",
   },
+  authors: [{ name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` }],
+  creator: "Ubaid Bin Waris",
+  robots: "index, follow",
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer",
     description:
       "Discover the work and skills of Ubaid Bin Waris, a creative and results-driven full stack web developer.",
-    url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}`, // Replace with your actual domain URL
+    url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}`,
     siteName: "Ubaid Bin Waris Portfolio",
     images: [
       {
-        url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/me.jpg`, // Replace with actual image URL
+        url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}/me.jpg`,
         width: 1200,
         height: 630,
         alt: "Ubaid Bin Waris Portfolio Preview"
@@ -66,11 +60,10 @@ export const metadata = {
     title: "Ubaid Bin Waris | Full Stack Developer Portfolio",
     description:
       "Explore the portfolio of Ubaid Bin Waris, a full stack developer with expertise in React, Next.js, Node.js, and more.",
-    creator: "@ubaidbinwaris", // Replace with your Twitter handle if available
-    images: [`${process.env.NEXT_PUBLIC_DOMAIN_URL}/og-image.jpg`] // Replace with actual image
+    creator: "@ubaidbinwaris",
+    images: [`${process.env.NEXT_PUBLIC_DOMAIN_URL}/og-image.jpg`]
   }
 };
-
 
 export default function RootLayout({ children }) {
   return (
