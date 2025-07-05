@@ -74,7 +74,7 @@ export const Navbar = () => {
           </ul>
           <Link
             href="/resume.pdf"
-            className="ml-8 px-6 py-2 border-2 border-[#63B8B2] rounded-full text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
+            className="ml-8 px-6 py-2 border-2 border-[#63B8B2] rounded-xl text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
             aria-label="Download Resume"
             download
           >
