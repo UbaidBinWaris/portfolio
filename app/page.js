@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar";
 export default function Home() {
   return (
     <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
-      <div className="relative">
+      <div className="relative overflow-hidden w-full h-screen">
 
       <Navbar />
       <Hero />

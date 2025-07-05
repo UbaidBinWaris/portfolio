@@ -33,17 +33,17 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
+      className={`fixed w-full overflow-x-hidden  z-50 transition-all duration-300 ${
         isScrolled ? "bg-[#0A1930] shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between px-6 py-4 md:px-10 text-[#63B8B2]">
+      <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-10 py-4 text-[#63B8B2] overflow-hidden">
         {/* Logo */}
         <div className="text-2xl font-bold text-gray-100">
           <Link
             href="#home"
             className={`hover:text-[#63B8B2] transition-colors duration-200 ${
-              isScrolled ? "text-white" : "text-[#63B8B2]"
+              isScrolled ? "text-[#63B8B2]" : "text-white"
             }`}
           >
             My Portfolio
@@ -121,17 +121,17 @@ export const Navbar = () => {
           <div className="flex justify-center mb-4">
             <Image
               src="/me.jpg"
-              width={800}
-              height={800}
+              width={300}
+              height={300}
               alt="Ubaid Bin Waris"
-              className="w-[70vw] h-[70vw] rounded-full border-2 border-[#63B8B2] object-cover"
+              className="w-[60vw] max-w-[200px] aspect-square rounded-full border-2 border-[#63B8B2] object-cover"
             />
           </div>
 
           {/* Name Heading */}
           <div className="flex justify-center items-center gap-x-2 px-4 mb-8">
             <span className="text-[#63B8B2] text-2xl md:text-3xl">&lt;</span>
-            <h2 className="text-xl md:text-2xl font-semibold tracking-wider whitespace-nowrap text-white">
+            <h2 className="text-base xs:text-lg sm:text-xl md:text-2xl font-semibold tracking-wide whitespace-nowrap text-white text-center break-words">
               Ubaid Bin Waris
             </h2>
             <span className="text-[#63B8B2] text-2xl md:text-3xl">&gt;</span>

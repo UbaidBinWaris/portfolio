@@ -8,4 +8,35 @@
 
 body{
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #63B8B2 #0A1930;
+}
+
+
+
+
+/* Scrollbar base size */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track background */
+::-webkit-scrollbar-track {
+  background: #0A1930;
+}
+
+/* Rounded, stylish scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background-color: #63B8B2;
+  border-radius: 9999px; /* Ensures fully rounded top and bottom */
+  border: 1px solid #0A1930;
+}
+
+/* Hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #85D1CC;
 }
