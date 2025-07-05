@@ -38,7 +38,7 @@ export const Navbar = () => {
       <Link
         href="#home"
         className={`hover:text-[#63B8B2] transition-colors duration-200 ${
-          isScrolled ? "text-[#63B8B2]" : "text-white"
+          isScrolled ? "text-white" : "text-[#63B8B2]"
         }`}
         aria-label="Home"
       >
