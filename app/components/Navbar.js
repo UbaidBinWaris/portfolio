@@ -33,13 +33,13 @@ export const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full overflow-x-hidden  z-50 transition-all duration-300 ${
+      className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-[#0A1930] shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="flex items-center justify-between w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-10 py-4 text-[#63B8B2] overflow-hidden">
+      <div className="flex items-center justify-between mx-auto px-10 sm:px-6 md:px-20 py-4 text-[#63B8B2]">
         {/* Logo */}
-        <div className="text-2xl font-bold text-gray-100">
+        <div className="text-2xl font-bold text-gray-400">
           <Link
             href="#home"
             className={`hover:text-[#63B8B2] transition-colors duration-200 ${
