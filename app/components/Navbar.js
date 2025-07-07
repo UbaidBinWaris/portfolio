@@ -36,7 +36,7 @@ export const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0A1930] shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-[#0A1930] shadow-xl" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between mx-auto px-10 sm:px-6 md:px-20 py-4 text-[#63B8B2]">
