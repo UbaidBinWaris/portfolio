@@ -69,9 +69,9 @@ export const Navbar = () => {
               <li key={href}>
                 <Link
                   href={href}
-                  className="hover:text-gray-400 transition-colors duration-200"
+                  className="transition-colors duration-200"
                 >
-                  {index}. <span className="text-gray-200">{label}</span>
+                  {index}. <span className="text-gray-200 hover:text-[#63B8B2]">{label}</span>
                 </Link>
               </li>
             ))}
