@@ -35,7 +35,8 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-opacity-50 z-10" />
 
       <div className="flex gap-16 flex-col md:flex-row justify-between px-10 items-center w-full h-full z-20">
-        <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left md:max-w-1/2">
+        {/* <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left md:max-w-1/2"> */}
+        <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left w-full md:w-[60%]">
           <motion.div
             variants={textVariants}
             initial="hidden"
@@ -56,7 +57,7 @@ export const Hero = () => {
             animate="visible"
             transition={{ delay: 0.3 }} // Slight delay for staggered effect
           >
-            <p className="text-lg md:text-xl px-4 mt-6 text-justify flex flex-col gap-3  text-gray-600">
+            <p className="text-lg flex flex-col gap-4 md:text-xl px-4 mt-6 text-justify text-gray-600 max-w-2xl">
               &lt;p&gt;
               <span className="text-gray-100">
                 Full Stack Developer dedicated to performance, responsive
@@ -67,18 +68,19 @@ export const Hero = () => {
             </p>
           </motion.div>
         </div>
-        <div className="flex max-h-1/2 border-[#0A1930]">
+        <div className="flex flex-col md:w-[40%] w-full justify-center border-[#0A1930] text-gray-600 ">
+          {/* Profile Image */}
+          &lt;Image
           <Image
             src="/me.jpg"
             alt="Profile Picture"
             width={450}
             height={300}
-            className="border-white shadow-lg object-cover"
+            className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
           />
+          <span>&gt;</span>
         </div>
       </div>
-
-
     </section>
   );
 };
