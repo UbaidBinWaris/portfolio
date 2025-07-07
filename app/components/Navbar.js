@@ -26,9 +26,11 @@ export const Navbar = () => {
 
   const navLinks = [
     { href: "#home", label: "Home", index: 0 },
-    { href: "#experience", label: "Experience", index: 1 },
+    { href: "#experiences", label: "Experiences", index: 1 },
     { href: "#projects", label: "Projects", index: 2 },
-    { href: "#contact", label: "Contact", index: 3 },
+    { href: "#about", label: "About", index: 3 },
+    { href: "#contact", label: "Contact", index: 4 },
+
   ];
 
   return (
