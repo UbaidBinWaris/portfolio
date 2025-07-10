@@ -26,15 +26,17 @@ export const Navbar = () => {
 
   const navLinks = [
     { href: "#home", label: "Home", index: 0 },
-    { href: "#about", label: "About", index: 1 },
+    { href: "#experiences", label: "Experiences", index: 1 },
     { href: "#projects", label: "Projects", index: 2 },
-    { href: "#contact", label: "Contact", index: 3 },
+    { href: "#about", label: "About", index: 3 },
+    { href: "#contact", label: "Contact", index: 4 },
+
   ];
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0A1930] shadow-lg" : "bg-transparent"
+        isScrolled ? "bg-[#0A1930] shadow-xl" : "bg-transparent"
       }`}
     >
       <div className="flex items-center justify-between mx-auto px-10 sm:px-6 md:px-20 py-4 text-[#63B8B2]">
@@ -42,7 +44,7 @@ export const Navbar = () => {
         <div className="text-2xl font-bold text-gray-400">
           <Link
             href="#home"
-            className={`hover:text-[#63B8B2] transition-colors duration-200 ${
+            className={`hover:text-[#63B8B2] transition-colors custom-pointer duration-200 ${
               isScrolled ? "text-[#63B8B2]" : "text-white"
             }`}
           >
@@ -54,7 +56,7 @@ export const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-[#63B8B2] p-2 rounded-md hover:bg-[#1f375c] transition-colors duration-200"
+            className="text-[#63B8B2] p-2 custom-pointer rounded-md hover:bg-[#1f375c] transition-colors duration-200"
             aria-label={isOpen ? "Close menu" : "Open menu"}
             aria-expanded={isOpen}
           >
@@ -64,20 +66,20 @@ export const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center">
-          <ul className="flex space-x-8 text-lg font-medium">
+          <ul className="flex space-x-8 text-lg font-medium ">
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className="hover:text-gray-400 transition-colors duration-200"
+                  className="transition-colors duration-200 custom-pointer"
                 >
-                  {index}. <span className="text-gray-200">{label}</span>
+                  {index}. <span className="text-gray-200 hover:text-[#63B8B2]">{label}</span>
                 </Link>
               </li>
             ))}
           </ul>
           <Link
-            className="ml-8 px-6 py-2 border-2 border-[#63B8B2] rounded-xl text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
+            className="ml-8 px-6 py-2 border-2 border-[#63B8B2] custom-pointer rounded-xl text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -111,7 +113,7 @@ export const Navbar = () => {
           {/* Close Button */}
           <button
             onClick={toggleMenu}
-            className="text-[#63B8B2] mb-4"
+            className="text-[#63B8B2] custom-pointer mb-4"
             aria-label="Close menu"
           >
             <X size={28} />
@@ -144,7 +146,7 @@ export const Navbar = () => {
                 <Link
                   href={href}
                   onClick={toggleMenu}
-                  className="text-gray-200 hover:text-[#63B8B2] transition-colors duration-200"
+                  className="text-gray-200 custom-pointer hover:text-[#63B8B2] transition-colors duration-200"
                 >
                   <span className="text-[#63B8B2]">{index}.</span> {label}
                 </Link>
@@ -155,7 +157,7 @@ export const Navbar = () => {
           {/* Resume Button */}
           <div className="mt-12 px-4">
             <Link
-              className="block text-center px-6 py-2 border-2 border-[#63B8B2] rounded-full text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
+              className="block custom-pointer text-center px-6 py-2 border-2 border-[#63B8B2] rounded-full text-[#63B8B2] hover:bg-[#63B8B2] hover:text-white transition-all duration-300 hover:scale-105 shadow-md"
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"

@@ -1,22 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200..900&display=swap");
 
 @import "tailwindcss";
 
 .font-code {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
 }
 
-body{
+body {
   scroll-behavior: smooth;
   overflow-x: hidden;
+
+  /* cursor: url("/Cursor/c.svg"), auto; */
+  /* cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A1930'><path fill-rule='evenodd' clip-rule='evenodd' d='M1.50001 4.07491C0.897091 2.46714 2.46715 0.897094 4.07491 1.50001L21.2155 7.92774C23.1217 8.64256 22.8657 11.4162 20.8609 11.77L13.1336 13.1336L11.77 20.8609C11.4162 22.8657 8.64255 23.1217 7.92774 21.2155L1.50001 4.07491ZM3.37267 3.37267L9.8004 20.5133L11.164 12.786C11.3101 11.9582 11.9582 11.3101 12.786 11.164L20.5133 9.8004L3.37267 3.37267Z' fill='%23f3f4f6'/></svg>") 4 4, auto;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230A1930'><path fill-rule='evenodd' clip-rule='evenodd' d='M1.50001 4.07491C0.897091 2.46714 2.46715 0.897094 4.07491 1.50001L21.2155 7.92774C23.1217 8.64256 22.8657 11.4162 20.8609 11.77L13.1336 13.1336L11.77 20.8609C11.4162 22.8657 8.64255 23.1217 7.92774 21.2155L1.50001 4.07491ZM3.37267 3.37267L9.8004 20.5133L11.164 12.786C11.3101 11.9582 11.9582 11.3101 12.786 11.164L20.5133 9.8004L3.37267 3.37267Z' fill='%23f3f4f6'/></svg>") 4 4, auto; */
+
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%230A1930'><path fill-rule='evenodd' clip-rule='evenodd' d='M1.50001 4.07491C0.897091 2.46714 2.46715 0.897094 4.07491 1.50001L21.2155 7.92774C23.1217 8.64256 22.8657 11.4162 20.8609 11.77L13.1336 13.1336L11.77 20.8609C11.4162 22.8657 8.64255 23.1217 7.92774 21.2155L1.50001 4.07491ZM3.37267 3.37267L9.8004 20.5133L11.164 12.786C11.3101 11.9582 11.9582 11.3101 12.786 11.164L20.5133 9.8004L3.37267 3.37267Z' fill='%23f3f4f6'/></svg>") 4 4, auto;
+
+
+  /* cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1024 1024' width='32' height='32' fill='%23000'><path d='M511.552 128c-35.584 0-64.384 28.8-64.384 64.448v516.48L274.048 570.88a94.272 94.272 0 0 0-112.896-3.456 44.416 44.416 0 0 0-8.96 62.208L332.8 870.4A64 64 0 0 0 384 896h512V575.232a64 64 0 0 0-45.632-61.312l-205.952-61.76A96 96 0 0 1 576 360.192V192.448C576 156.8 547.2 128 511.552 128zM359.04 556.8l24.128 19.2V192.448a128.448 128.448 0 1 1 256.832 0v167.744a32 32 0 0 0 22.784 30.656l206.016 61.76A128 128 0 0 1 960 575.232V896a64 64 0 0 1-64 64H384a128 128 0 0 1-102.4-51.2L101.056 668.032A108.416 108.416 0 0 1 128 512.512a158.272 158.272 0 0 1 185.984 8.32L359.04 556.8z' fill='%23000'/></svg>") 8 8, pointer; */
+
+
 }
+
+
+.custom-pointer {
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 1024 1024'>\
+<path d='M511.552 128c-35.584 0-64.384 28.8-64.384 64.448v516.48L274.048 570.88a94.272 94.272 0 0 0-112.896-3.456 44.416 44.416 0 0 0-8.96 62.208L332.8 870.4A64 64 0 0 0 384 896h512V575.232a64 64 0 0 0-45.632-61.312l-205.952-61.76A96 96 0 0 1 576 360.192V192.448C576 156.8 547.2 128 511.552 128zM359.04 556.8l24.128 19.2V192.448a128.448 128.448 0 1 1 256.832 0v167.744a32 32 0 0 0 22.784 30.656l206.016 61.76A128 128 0 0 1 960 575.232V896a64 64 0 0 1-64 64H384a128 128 0 0 1-102.4-51.2L101.056 668.032A108.416 108.416 0 0 1 128 512.512a158.272 158.272 0 0 1 185.984 8.32L359.04 556.8z' fill='none' stroke='white' stroke-width='60'/>\
+</svg>") 8 8, pointer;
+}
+
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: #63B8B2 #0A1930;
+  scrollbar-color: #63b8b2 #0a1930;
+
+  user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
 }
-
-
-
 
 /* Scrollbar base size */
 ::-webkit-scrollbar {
@@ -26,17 +49,17 @@ body{
 
 /* Track background */
 ::-webkit-scrollbar-track {
-  background: #0A1930;
+  background: #0a1930;
 }
 
 /* Rounded, stylish scrollbar handle */
 ::-webkit-scrollbar-thumb {
-  background-color: #63B8B2;
+  background-color: #63b8b2;
   border-radius: 9999px; /* Ensures fully rounded top and bottom */
-  border: 1px solid #0A1930;
+  border: 1px solid #0a1930;
 }
 
 /* Hover effect */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #85D1CC;
+  background-color: #85d1cc;
 }
