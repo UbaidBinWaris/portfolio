@@ -31,13 +31,13 @@ export const Hero = () => {
               I am a Full Stack Developer with a passion for creating dynamic and responsive web applications. I specialize in both front-end and back-end development, ensuring seamless user experiences.
             </p>
           </div>
-        <div className="flex h-1/2 border-white">
+        <div className="flex h-1/2 border-white bg-black/30 ">
           <Image
             src="/me.jpg"
             alt="Profile Picture"
             width={450}
             height={300}
-            className=" border-white shadow-lg object-cover"
+            className=" border-white shadow-lg object-cover -z-10"
           />
         </div>
       </div>
