@@ -21,7 +21,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen w-full flex overflow-hidden text-white">
+    <section className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white">
       {/* Background video */}
       <video
         src="/bgvideo.mp4"
