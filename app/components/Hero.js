@@ -69,9 +69,9 @@ export const Hero = () => {
             </p>
           </motion.div>
         </div>
-        <div className="flex flex-col md:w-[40%] w-full justify-center border-[#0A1930] text-gray-600 ">
+        <div className="flex flex-col md:w-[40%] w-full justify-center items-center border-[#0A1930] text-gray-600 ">
           {/* Profile Image */}
-          &lt;Image
+          <span className="w-[90%] md:w-[47%] text-end">&lt;Image</span>
           <Image
             src="/me.jpg"
             alt="Profile Picture"
@@ -79,7 +79,6 @@ export const Hero = () => {
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
           />
-          <span>&gt;</span>
         </div>
       </div>
     </section>
