@@ -1,3 +1,4 @@
+
 "use client";
 import React from "react";
 import Image from "next/image";
@@ -20,7 +21,7 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen w-full flex overflow-hidden text-white">
+    <section className="relative h-screen w-full flex overflow-hidden text-white">
       {/* Background video */}
       <video
         src="/bgvideo.mp4"
@@ -34,9 +35,9 @@ export const Hero = () => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-opacity-50 z-10" />
 
-      <div className="flex gap-16 flex-col md:flex-row mx-auto justify-between px-10 items-center w-full h-full z-20">
+      <div className="flex gap-16 flex-col md:flex-row justify-between px-10 items-center w-full h-full z-20">
         {/* <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left md:max-w-1/2"> */}
-        <div className="flex h-1/2 mx-auto flex-col justify-center items-center mt-20 md:items-start text-center md:text-left w-full md:w-[60%]">
+        <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left w-full md:w-[60%]">
           <motion.div
             variants={textVariants}
             initial="hidden"
@@ -68,7 +69,7 @@ export const Hero = () => {
             </p>
           </motion.div>
         </div>
-        <div className="flex flex-col md:w-[40%] w-full justify-center items-center border-[#0A1930] text-gray-600 ">
+        <div className="flex flex-col md:w-[40%] w-full justify-center border-[#0A1930] text-gray-600 ">
           {/* Profile Image */}
           &lt;Image
           <Image
@@ -78,6 +79,7 @@ export const Hero = () => {
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
           />
+          <span>&gt;</span>
         </div>
       </div>
     </section>
