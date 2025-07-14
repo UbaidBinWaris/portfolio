@@ -69,7 +69,12 @@ export const Navbar = () => {
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
-                  href={href}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                  }}
                   className="transition-colors duration-200 custom-pointer"
                 >
                   {index}.{" "}
@@ -146,8 +151,13 @@ export const Navbar = () => {
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
-                  href={href}
-                  onClick={toggleMenu}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                    toggleMenu();
+                  }}
                   className="text-gray-200 custom-pointer hover:text-[#63B8B2] transition-colors duration-200"
                 >
                   <span className="text-[#63B8B2]">{index}.</span> {label}

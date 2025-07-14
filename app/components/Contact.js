@@ -4,7 +4,7 @@ import contactLinks from "@/app/data/contactLinks";
 
 const Contact = () => {
   return (
-    <section className="w-full bg-[#0A1930] py-16 px-8 flex flex-col items-center justify-center">
+    <section id="contact" className="w-full bg-[#0A1930] py-16 px-8 flex flex-col items-center justify-center">
       <h2 className="text-3xl font-bold text-[#63B8B2] mb-8">Contact Me</h2>
 
       <div className="flex flex-wrap justify-center gap-6">

@@ -4,7 +4,7 @@ import experienceData from "@/app/data/experienceData";
 
 export const Experience = () => {
   return (
-    <section className="w-full bg-[#0A1930] p-8 flex flex-col items-start justify-start">
+    <section id="experiences" className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-start">
       <h2 className="text-3xl font-bold text-[#63B8B2] m-5">Experiences</h2>
       <div className="w-full max-w-7xl mx-auto">
         {/* Group wrapper to control hover effects */}
@@ -13,7 +13,7 @@ export const Experience = () => {
             <div
               key={exp.id}
               className="experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg transition-all duration-300 min-h-[300px] 
-                         hover:scale-[1.03] group-hover:blur-sm hover:!blur-none"
+                         hover:scale-[1.03] group-hover:blur-sm hover:!blur-none custom-pointer"
             >
               <div>
                 <h3 className="text-xl font-semibold text-[#63B8B2]">
