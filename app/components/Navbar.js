@@ -30,7 +30,6 @@ export const Navbar = () => {
     { href: "#projects", label: "Projects", index: 2 },
     { href: "#about", label: "About", index: 3 },
     { href: "#contact", label: "Contact", index: 4 },
-
   ];
 
   return (
@@ -73,7 +72,10 @@ export const Navbar = () => {
                   href={href}
                   className="transition-colors duration-200 custom-pointer"
                 >
-                  {index}. <span className="text-gray-200 hover:text-[#63B8B2]">{label}</span>
+                  {index}.{" "}
+                  <span className="text-gray-200 hover:text-[#63B8B2]">
+                    {label}
+                  </span>
                 </Link>
               </li>
             ))}

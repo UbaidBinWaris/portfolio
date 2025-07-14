@@ -1,4 +1,3 @@
-
 "use client";
 import React from "react";
 import Image from "next/image";
@@ -45,7 +44,7 @@ export const Hero = () => {
           >
             <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold  text-gray-600 text-center whitespace-nowrap">
               &lt;h1&gt;
-              <span className="text-[clamp(1.5rem, 5vw, 4rem)] font-bold text-gray-100 px-2 letter-spacing">
+              <span className="text-[clamp(1.5rem, 5vw, 4rem)] font-bold  px-2 tracking-wide hover:text-white hover:cursor-pointer text-[#63B8B2]">
                 Ubaid Bin Waris
               </span>
               &lt;/h1&gt;
