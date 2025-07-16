@@ -57,9 +57,9 @@ export const Experience = () => {
           {experienceData.map((exp, index) => (
             <div
               key={exp.id}
+              className="flex flex-col items-center group/card"
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className="flex flex-col items-center"
             >
               {/* Top Hover Info (only on md and up) */}
               <div
@@ -72,8 +72,10 @@ export const Experience = () => {
 
               {/* Card */}
               <div
-                className={`experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg w-full h-[350px] transition-all duration-300 
-  group-hover:blur-sm hover:!blur-none hover:scale-105`}
+                className={`experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg w-full h-[350px] transition-all duration-300
+                ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm" : ""}
+                ${hoveredIndex === index ? "scale-105 z-10" : ""}
+              `}
               >
                 {/* Top Section */}
                 <div>
