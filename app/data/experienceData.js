@@ -19,7 +19,7 @@ const experienceData = [
   },
   {
     id: 3,
-    title: "Intern – Web Developer",
+    title: "Intern ",
     company: "Higher Education Commission",
     duration: "Jun 2023 – Aug 2023",
     description:
