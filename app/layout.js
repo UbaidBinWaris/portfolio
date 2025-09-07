@@ -30,15 +30,17 @@ export const metadata = {
     "Developer Portfolio",
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", type: "image/x-icon" },
+    ],
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
   },
   authors: [
     { name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` },
   ],
   creator: "Ubaid Bin Waris",
-  robots: "index, follow",
+  robots: "noindex",
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer",
     description:
@@ -69,6 +71,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
       >
