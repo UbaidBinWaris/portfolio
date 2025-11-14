@@ -40,7 +40,17 @@ export const metadata = {
     { name: "Ubaid Bin Waris", url: `${process.env.NEXT_PUBLIC_DOMAIN_URL}` },
   ],
   creator: "Ubaid Bin Waris",
-  robots: "noindex",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer",
     description:
