@@ -49,6 +49,7 @@ export const Experience = () => {
     <section
       id="experiences"
       className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-start"
+      aria-label="Professional experience and work history"
     >
       <h2 className="text-3xl font-bold text-[#63B8B2] m-5">Experiences</h2>
       <div className="w-full max-w-7xl mx-auto">

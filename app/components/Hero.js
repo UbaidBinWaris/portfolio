@@ -20,7 +20,10 @@ export const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white">
+    <section 
+      className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white"
+      aria-label="Hero section"
+    >
       {/* Background video */}
       <video
         src="/bgvideo.mp4"
@@ -29,6 +32,7 @@ export const Hero = () => {
         muted
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
+        aria-hidden="true"
       />
 
       {/* Overlay */}
@@ -73,10 +77,12 @@ export const Hero = () => {
           <span className="w-[90%] md:w-[47%] text-end">&lt;Image</span>
           <Image
             src="/me.jpg"
-            alt="Profile Picture"
+            alt="Ubaid Bin Waris - Full Stack Developer professional portrait"
             width={450}
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
+            priority
+            loading="eager"
           />
         </div>
       </div>
