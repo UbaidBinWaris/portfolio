@@ -1,7 +1,9 @@
 /* TEAM */
-Developer: Ubaid Bin Waris
+Developer: Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin, UbaidBinWaris)
 Site: https://uabidbinwaris.dev
 Twitter: @ubaidbinwaris
+GitHub: github.com/UbaidBinWaris
+LinkedIn: linkedin.com/in/ubaidbinwaris
 Location: Pakistan
 
 /* THANKS */

@@ -1,6 +1,9 @@
 {
-  "name": "portfolio",
+  "name": "ubaidbinwaris-portfolio",
   "version": "0.1.0",
+  "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) - Full Stack Developer",
+  "author": "Ubaid Bin Waris <ubaidbinwaris@example.com> (https://uabidbinwaris.dev)",
+  "keywords": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "portfolio", "full-stack-developer", "react", "nextjs"],
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",

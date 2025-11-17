@@ -7,7 +7,9 @@ const experienceData = [
     company: "GixiAI",
     duration: "Aug 2025 – Present",
     description:
-      "Responsible for designing, developing, and maintaining full-stack web applications. Collaborate with cross-functional teams to implement AI-powered features, manage database operations, and ensure optimal application performance. Handle code reviews, debugging, and deployment processes while following agile development methodologies.",
+      "Design and develop full-stack web applications with AI-powered features. Collaborate with cross-functional teams to manage database operations, optimize performance, and handle deployment processes following agile methodologies.",
+    topMessage: "Building AI-powered solutions!",
+    bottomMessage: "Innovation meets functionality",
   },
   {
     id: 2,
@@ -15,7 +17,9 @@ const experienceData = [
     company: "HH Tech Hub",
     duration: "Jun 2025 – Jul 2025",
     description:
-      "Developed and maintained responsive web applications using HTML, CSS, and JavaScript. Implemented user interface components, ensured cross-browser compatibility, and optimized website performance. Collaborated with design teams to translate mockups into functional web pages and conducted testing to ensure quality deliverables.",
+      "Developed responsive web applications using HTML, CSS, and JavaScript. Implemented UI components with cross-browser compatibility, optimized performance, and collaborated with design teams to deliver quality web pages.",
+    topMessage: "Crafting pixel-perfect interfaces!",
+    bottomMessage: "Design that speaks volumes",
   },
   {
     id: 3,
@@ -23,7 +27,9 @@ const experienceData = [
     company: "BluCentric",
     duration: "Feb 2025 – May 2025",
     description:
-      "Architected and developed end-to-end web applications using Next.js and SQL databases. Managed both frontend and backend development tasks, implemented RESTful APIs, and optimized database queries for performance. Participated in requirement analysis, system design, and maintained comprehensive documentation for development processes.",
+      "Developed end-to-end web applications using Next.js and SQL databases. Managed frontend and backend tasks, implemented RESTful APIs, optimized database queries, and maintained comprehensive documentation for development processes.",
+    topMessage: "Full-stack excellence delivered!",
+    bottomMessage: "End-to-end development mastery",
   },
   {
     id: 4,
@@ -31,7 +37,9 @@ const experienceData = [
     company: "Higher Education Commission",
     duration: "Jun 2023 – Aug 2023",
     description:
-      "Assisted in web development tasks including frontend design and implementation. Supported the IT team with portal maintenance, conducted user interface testing, and documented technical processes. Participated in team meetings, learned industry best practices, and contributed to accessibility improvements across departmental web platforms.",
+      "Assisted in web development and frontend implementation. Supported portal maintenance, conducted UI testing, documented technical processes, and contributed to accessibility improvements across departmental platforms following industry best practices.",
+    topMessage: "Learning and growing every day!",
+    bottomMessage: "Foundation of tech excellence",
   },
 ];
 

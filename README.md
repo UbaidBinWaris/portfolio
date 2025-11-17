@@ -1,4 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ubaid Bin Waris Portfolio (ubaidbinwaris)
+
+**Professional portfolio of Ubaid Bin Waris** - *ubaidbinwaris | ubaid bin waris | ubaidbin | UbaidBinWaris*
+
+Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.
+
+🌐 **Website**: [https://uabidbinwaris.dev](https://uabidbinwaris.dev)  
+💼 **LinkedIn**: [linkedin.com/in/ubaidbinwaris](https://linkedin.com/in/ubaidbinwaris)  
+🐙 **GitHub**: [@UbaidBinWaris](https://github.com/UbaidBinWaris)  
+🐦 **Twitter**: [@ubaidbinwaris](https://twitter.com/ubaidbinwaris)
+
+---
+
+This is a [Next.js](https://nextjs.org) project showcasing the work of **Ubaid Bin Waris** (ubaidbinwaris).
 
 ## Getting Started
 

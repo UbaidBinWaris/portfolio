@@ -2,28 +2,33 @@
 const faqData = [
   {
     id: 1,
-    question: "What services do you offer as a Full Stack Developer?",
-    answer: "I offer comprehensive web development services including frontend development with React and Next.js, backend development with Node.js, database design with MongoDB, API development, performance optimization, and full-stack application architecture."
+    question: "What services do you offer as a Full-Stack Developer?",
+    answer: "I provide end-to-end web development services including frontend UI/UX development, backend API creation, database modeling, cloud deployment, and full system architecture. I build responsive, fast, and scalable web applications tailored to your business needs."
   },
   {
     id: 2,
-    question: "What technologies do you specialize in?",
-    answer: "I specialize in modern JavaScript frameworks including React, Next.js, Node.js, Express, MongoDB, PostgreSQL, Tailwind CSS, TypeScript, and various cloud platforms like Vercel and AWS."
+    question: "Which technologies and tools do you specialize in?",
+    answer: "I work with modern technologies such as Next.js, React, Node.js, Express, MongoDB, PostgreSQL, Tailwind CSS, TypeScript, REST APIs, Git, Docker, and cloud hosting platforms like Vercel and AWS. My tech stack ensures high performance, security, and long-term scalability."
   },
   {
     id: 3,
-    question: "How can I contact you for a project?",
-    answer: "You can reach me through the contact section on this website, via email, LinkedIn, or GitHub. I'm always open to discussing new projects and collaboration opportunities."
+    question: "Can you build a complete website or web application from scratch?",
+    answer: "Yes. I can handle everything from planning and design to development, deployment, and maintenance. Whether it's a business website, dashboard, SaaS product, or full-stack application, I provide complete solutions."
   },
   {
     id: 4,
-    question: "Do you work on freelance projects?",
-    answer: "Yes, I'm available for freelance projects and collaborations. Whether you need a full-stack application, website optimization, or technical consulting, feel free to reach out."
+    question: "What is your development process?",
+    answer: "My workflow includes requirement analysis, UI/UX planning, clean coding, optimization, testing, deployment, and post-launch support. I use an agile approach to ensure transparency, timely updates, and high-quality results."
   },
   {
     id: 5,
-    question: "What is your development process?",
-    answer: "I follow an agile development approach with clear communication, regular updates, code reviews, testing, and documentation. Each project includes planning, development, testing, deployment, and post-launch support."
+    question: "Will my website be mobile-friendly and SEO optimized?",
+    answer: "Absolutely. I ensure every website is fully responsive on all screen sizes, optimized for fast loading speed, follows SEO best practices, and provides a smooth user experience."
+  },
+  {
+    id: 6,
+    question: "How can I contact you for a project?",
+    answer: "You can reach me through the contact form on this website, or via email, LinkedIn, or GitHub. I respond quickly and am always open to discussing new ideas and collaborations."
   }
 ];
 

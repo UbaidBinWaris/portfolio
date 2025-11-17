@@ -77,7 +77,7 @@ export const Hero = () => {
           <span className="w-[90%] md:w-[47%] text-end" suppressHydrationWarning>&lt;Image</span>
           <Image
             src="/me.jpeg"
-            alt="Ubaid Bin Waris - Full Stack Developer professional portrait"
+            alt="Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) - Full Stack Developer professional portrait"
             width={450}
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"

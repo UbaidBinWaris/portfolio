@@ -21,23 +21,38 @@ export const metadata = {
     template: "%s | Ubaid Bin Waris"
   },
   description:
-    "Explore the professional portfolio of Ubaid Bin Waris, a passionate Full Stack Developer with expertise in modern web technologies including React, Next.js, Node.js, and MongoDB. Available for freelance projects and collaborations.",
+    "Explore the professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a passionate Full Stack Developer with expertise in modern web technologies including React, Next.js, Node.js, and MongoDB. Available for freelance projects and collaborations.",
   keywords: [
     "Ubaid Bin Waris",
+    "ubaidbinwaris",
+    "ubaid bin waris",
+    "ubaidbin",
+    "ubaid bin",
+    "ubaid waris",
+    "UbaidBinWaris",
+    "Ubaid",
+    "ubaid developer",
+    "ubaidbinwaris portfolio",
+    "ubaidbinwaris developer",
+    "ubaid bin waris portfolio",
+    "ubaid bin waris developer",
+    "ubaidbin waris",
     "Full Stack Developer",
     "React Developer",
     "Next.js Portfolio",
     "Web Developer",
     "Frontend Developer",
     "Backend Developer",
-    "JavaScript",
-    "Node.js",
-    "MongoDB",
+    "JavaScript Developer",
+    "Node.js Developer",
+    "MongoDB Developer",
     "Tailwind CSS",
     "Developer Portfolio",
     "Software Engineer",
     "Web Development Services",
     "Freelance Developer",
+    "Pakistan Developer",
+    "Pakistani Full Stack Developer",
   ],
   authors: [
     { name: "Ubaid Bin Waris", url: siteUrl },
@@ -68,9 +83,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ubaid Bin Waris | Full Stack Developer Portfolio",
+    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
     description:
-      "Discover the work and skills of Ubaid Bin Waris, a creative and results-driven full stack web developer specializing in React, Next.js, and modern web technologies.",
+      "Discover the work and skills of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a creative and results-driven full stack web developer specializing in React, Next.js, and modern web technologies.",
     url: siteUrl,
     siteName: "Ubaid Bin Waris Portfolio",
     images: [
@@ -87,9 +102,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubaid Bin Waris | Full Stack Developer Portfolio",
+    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
     description:
-      "Explore the portfolio of Ubaid Bin Waris, a full stack developer with expertise in React, Next.js, Node.js, and more.",
+      "Explore the portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a full stack developer with expertise in React, Next.js, Node.js, and more.",
     creator: "@ubaidbinwaris",
     site: "@ubaidbinwaris",
     images: [`${siteUrl}/og-image.jpg`],
@@ -112,6 +127,7 @@ export default function RootLayout({ children }) {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ubaid Bin Waris",
+    "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris", "Ubaid"],
     "url": siteUrl,
     "image": `${siteUrl}/me.jpg`,
     "sameAs": [
@@ -124,7 +140,7 @@ export default function RootLayout({ children }) {
       "@type": "Organization",
       "name": "Freelance"
     },
-    "description": "Passionate Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB",
+    "description": "Passionate Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, and MongoDB",
     "knowsAbout": [
       "React",
       "Next.js",

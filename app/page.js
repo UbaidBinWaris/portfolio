@@ -9,10 +9,11 @@ import Contact from "./components/Contact";
 
 export const metadata = {
   title: "Home",
-  description: "Welcome to Ubaid Bin Waris's portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Explore my projects and get in touch for collaborations.",
+  description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Explore my projects and get in touch for collaborations.",
+  keywords: ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Ubaid Bin Waris", "ubaid developer", "ubaid portfolio", "Full Stack Developer", "React Developer", "Next.js Developer"],
   openGraph: {
-    title: "Ubaid Bin Waris | Full Stack Developer Portfolio",
-    description: "Welcome to Ubaid Bin Waris's portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.",
+    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
+    description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.",
   },
 };
 
@@ -23,11 +24,13 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Ubaid Bin Waris Portfolio",
+    "alternateName": "ubaidbinwaris",
     "url": siteUrl,
-    "description": "Professional portfolio of Ubaid Bin Waris, a Full Stack Developer",
+    "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a Full Stack Developer",
     "author": {
       "@type": "Person",
       "name": "Ubaid Bin Waris",
+      "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris"],
       "jobTitle": "Full Stack Developer",
       "url": siteUrl
     },
@@ -80,9 +83,9 @@ export default function Home() {
     "mainEntity": {
       "@type": "Person",
       "name": "Ubaid Bin Waris",
-      "alternateName": "Ubaid",
+      "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris", "Ubaid"],
       "jobTitle": "Full Stack Developer",
-      "description": "Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB",
+      "description": "Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, and MongoDB",
       "url": siteUrl,
       "image": `${siteUrl}/me.jpg`,
       "sameAs": [

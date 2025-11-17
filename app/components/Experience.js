@@ -52,9 +52,9 @@ export const Experience = () => {
       aria-label="Professional experience and work history"
     >
       <h2 className="text-3xl font-bold text-[#63B8B2] m-5">Experiences</h2>
-      <div className="w-full max-w-7xl mx-auto">
+      <div className="w-full max-w-[1500px] mx-auto">
         {/* Global group to manage sibling hover effect */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 group">
           {experienceData.map((exp, index) => (
             <div
               key={exp.id}
@@ -64,16 +64,16 @@ export const Experience = () => {
             >
               {/* Top Hover Info (only on md and up) */}
               <div
-                className={`hidden md:block mb-2 text-sm text-center text-yellow-300 transition-opacity duration-300 ${
+                className={`hidden md:block mb-3 text-sm text-center text-green-400 transition-opacity duration-300 ${
                   hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               >
-                🚀 Exploring new technologies every day!
+                {exp.topMessage}
               </div>
 
               {/* Card */}
               <div
-                className={`experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg w-full h-[350px] transition-all duration-300
+                className={`experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg w-full h-[430px] transition-all duration-300
                 ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm" : ""}
                 ${hoveredIndex === index ? "scale-105 z-10" : ""}
               `}
@@ -111,7 +111,7 @@ export const Experience = () => {
                   hoveredIndex === index ? "opacity-100" : "opacity-0"
                 }`}
               >
-                📌 Tip: Hover to explore highlights!
+                {exp.bottomMessage}
               </div>
             </div>
           ))}
