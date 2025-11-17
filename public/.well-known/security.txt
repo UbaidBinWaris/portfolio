@@ -1,0 +1,4 @@
+Contact: mailto:ubaidbinwaris@example.com
+Expires: 2026-11-17T23:59:59Z
+Preferred-Languages: en
+Canonical: https://uabidbinwaris.dev/.well-known/security.txt

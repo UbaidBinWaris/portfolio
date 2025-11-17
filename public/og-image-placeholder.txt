@@ -1,0 +1,10 @@
+# Note: This is a placeholder file
+# Please create or copy your og-image.jpg file to /public/og-image.jpg
+# Recommended specifications:
+# - Size: 1200x630 pixels
+# - Format: JPEG or PNG
+# - File size: < 1MB
+# - Content: Your professional photo or portfolio branding
+# 
+# You can create one at: https://www.canva.com (use Open Graph template)
+# Or use your existing me.jpg and rename it to og-image.jpg

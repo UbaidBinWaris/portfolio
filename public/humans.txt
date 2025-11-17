@@ -1,0 +1,16 @@
+/* TEAM */
+Developer: Ubaid Bin Waris
+Site: https://uabidbinwaris.dev
+Twitter: @ubaidbinwaris
+Location: Pakistan
+
+/* THANKS */
+Next.js Team - For the amazing framework
+Vercel - For the hosting platform
+Open Source Community - For the incredible tools
+
+/* SITE */
+Last update: 2025/11/17
+Standards: HTML5, CSS3, ES6+
+Components: React 19, Next.js 15
+IDE: VS Code
