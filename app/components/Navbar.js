@@ -129,7 +129,7 @@ export const Navbar = () => {
           {/* Profile Image */}
           <div className="flex justify-center mb-4">
             <Image
-              src="/me.jpg"
+              src="/me.jpeg"
               width={300}
               height={300}
               alt="Ubaid Bin Waris"

@@ -31,7 +31,7 @@ export const FAQSection = () => {
           >
             <button
               onClick={() => toggleFAQ(faq.id)}
-              className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#1d3557] transition-colors"
+              className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-[#1d3557] transition-colors custom-pointer"
               aria-expanded={openId === faq.id}
               aria-controls={`faq-answer-${faq.id}`}
             >
