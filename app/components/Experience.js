@@ -1,46 +1,6 @@
-// "use client";
-// import React from "react";
-// import experienceData from "@/app/data/experienceData";
-
-// export const Experience = () => {
-//   return (
-//     <section id="experiences" className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-start">
-//       <h2 className="text-3xl font-bold text-[#63B8B2] m-5">Experiences</h2>
-//       <div className="w-full max-w-7xl mx-auto">
-//         {/* Group wrapper to control hover effects */}
-//         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 group">
-//           {experienceData.map((exp, index) => (
-//             <div
-//               key={exp.id}
-//               className="experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg transition-all duration-300 min-h-[300px]
-//                          hover:scale-[1.03] group-hover:blur-sm hover:!blur-none custom-pointer"
-//             >
-//               <div>
-//                 <h3 className="text-xl font-semibold text-[#63B8B2]">
-//                   {exp.title}
-//                 </h3>
-//                 <p className="text-sm text-gray-400">{exp.company}</p>
-//                 <p className="text-sm text-gray-500 italic mb-4">
-//                   {exp.duration}
-//                 </p>
-//               </div>
-//               <p className="text-gray-300 text-justify mt-auto flex flex-col gap-2">
-//                 <span className="text-gray-600 font-medium">&lt;description&gt;</span>
-//                 {exp.description}
-//                 <span className="text-gray-600 font-medium">&lt;/description&gt;</span>
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Experience;
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useScroll, useMotionValueEvent, useTransform, motion} from "framer-motion";
 import experienceData from "@/app/data/experienceData";
 
 export const Experience = () => {
@@ -63,7 +23,7 @@ export const Experience = () => {
   // Track scroll progress of this section
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end start"]
+    offset: ["start center", "end start"]
   });
 
   // Brief scroll pause when entering section (only once, desktop only)
