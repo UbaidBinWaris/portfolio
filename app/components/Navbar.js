@@ -69,11 +69,14 @@ export const Navbar = () => {
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
-                  href="#"
+                  href={href}
                   onClick={(e) => {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                    if (target) {
+                      // Instant scroll to avoid pin issues
+                      target.scrollIntoView({ behavior: "instant", block: "start" });
+                    }
                   }}
                   className="transition-colors duration-200 custom-pointer"
                 >
@@ -151,11 +154,14 @@ export const Navbar = () => {
             {navLinks.map(({ href, label, index }) => (
               <li key={href}>
                 <Link
-                  href="#"
+                  href={href}
                   onClick={(e) => {
                     e.preventDefault();
                     const target = document.querySelector(href);
-                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                    if (target) {
+                      // Instant scroll to avoid pin issues
+                      target.scrollIntoView({ behavior: "instant", block: "start" });
+                    }
                     toggleMenu();
                   }}
                   className="text-gray-200 custom-pointer hover:text-[#63B8B2] transition-colors duration-200"

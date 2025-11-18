@@ -44,10 +44,11 @@ export const Experience = () => {
         delay: Math.random() * 5,
         opacity: Math.random() * 0.8 + 0.2
       })),
-      shooting: Array.from({ length: 3 }, (_, i) => ({
-        left: 20 + Math.random() * 60,
-        top: Math.random() * 50,
-        delay: i * 8 + Math.random() * 5
+      shooting: Array.from({ length: 5 }, () => ({
+        left: Math.random() * 80,
+        top: Math.random() * 60,
+        delay: Math.random() * 10,
+        duration: 2 + Math.random() * 2
       }))
     });
   }, []);
@@ -67,13 +68,81 @@ export const Experience = () => {
   useEffect(() => {
     // Ensure we're in browser environment and component is mounted
     if (typeof window === 'undefined' || !isMounted) return;
-    if (isMobile) return; // Skip complex animations on mobile
 
     const ctx = gsap.context(() => {
       const heading = headingRef.current;
       const cards = cardsContainerRef.current?.querySelectorAll('.experience-card-wrapper');
       
       if (!heading || !cards || cards.length === 0) return;
+
+      // Mobile: Simple but unique "code compilation" effect
+      if (isMobile) {
+        // Heading: Glitch-in effect like code compiling
+        gsap.fromTo(heading, 
+          {
+            opacity: 0,
+            scale: 0.95,
+            filter: "blur(10px)"
+          },
+          {
+            opacity: 1,
+            scale: 1,
+            filter: "blur(0px)",
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: heading,
+              start: "top 80%",
+              toggleActions: "play none none reverse"
+            }
+          }
+        );
+
+        // Cards: Sequential "code loading" effect with matrix-style appearance
+        cards.forEach((card, index) => {
+          gsap.fromTo(card,
+            {
+              opacity: 0,
+              y: 50,
+              rotateX: -15,
+              filter: "brightness(0.3) blur(5px)"
+            },
+            {
+              opacity: 1,
+              y: 0,
+              rotateX: 0,
+              filter: "brightness(1) blur(0px)",
+              duration: 0.6,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: card,
+                start: "top 85%",
+                toggleActions: "play none none reverse"
+              },
+              delay: index * 0.1 // Stagger effect
+            }
+          );
+
+          // Add subtle hover pulse on mobile
+          card.addEventListener('touchstart', () => {
+            gsap.to(card, {
+              scale: 0.98,
+              duration: 0.2,
+              ease: "power2.inOut"
+            });
+          });
+
+          card.addEventListener('touchend', () => {
+            gsap.to(card, {
+              scale: 1,
+              duration: 0.2,
+              ease: "power2.inOut"
+            });
+          });
+        });
+
+        return; // Exit early for mobile
+      }
 
       // Set initial states
       gsap.set(heading, {
@@ -96,7 +165,7 @@ export const Experience = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=7000", // Increased for slower animation
+          end: "+=5500", // Increased for slower animation
           pin: true,
           pinSpacing: true, // Ensure proper spacing after unpin
           scrub: 1.5, // Increased scrub for smoother, slower feel
@@ -121,7 +190,7 @@ export const Experience = () => {
         y: 0,
         x: "-40%",
         xPercent: 0,
-        duration: 0.4,
+        duration: 0.3,
         ease: "power2.inOut"
       })
       
@@ -135,7 +204,7 @@ export const Experience = () => {
           each: 0.075,
           from: "start"
         },
-        duration: 0.6,
+        duration: 0.7,
         ease: "power2.out"
       }, ">-0.1");
 
@@ -219,7 +288,9 @@ export const Experience = () => {
                 style={{
                   left: `${star.left}%`,
                   top: `${star.top}%`,
-                  animationDelay: `${star.delay}s`
+                  animationDelay: `${star.delay}s`,
+                  animationDuration: `${star.duration}s`,
+                  opacity: 0
                 }}
               />
             ))}
