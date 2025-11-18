@@ -15,6 +15,7 @@ export const Experience = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const [stars, setStars] = useState({ small: [], medium: [], large: [], shooting: [] });
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const cardsContainerRef = useRef(null);
@@ -22,6 +23,33 @@ export const Experience = () => {
   // Check if mounted (client-side only)
   useEffect(() => {
     setIsMounted(true);
+    
+    // Generate star positions only on client side to avoid hydration mismatch
+    setStars({
+      small: Array.from({ length: 50 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 3,
+        opacity: Math.random() * 0.7 + 0.3
+      })),
+      medium: Array.from({ length: 30 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 4,
+        opacity: Math.random() * 0.6 + 0.4
+      })),
+      large: Array.from({ length: 15 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 5,
+        opacity: Math.random() * 0.8 + 0.2
+      })),
+      shooting: Array.from({ length: 3 }, (_, i) => ({
+        left: 20 + Math.random() * 60,
+        top: Math.random() * 50,
+        delay: i * 8 + Math.random() * 5
+      }))
+    });
   }, []);
   
   // Check if mobile on mount
@@ -58,9 +86,9 @@ export const Experience = () => {
       });
       
       gsap.set(cards, {
-        opacity: 0,
-        y: 100,
-        scale: 0.8
+        opacity: 1,
+        x: "500%",
+        scale: 1
       });
 
       // Create animation timeline
@@ -68,7 +96,7 @@ export const Experience = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: "+=4000", // Increased for slower animation
+          end: "+=7000", // Increased for slower animation
           pin: true,
           pinSpacing: true, // Ensure proper spacing after unpin
           scrub: 1.5, // Increased scrub for smoother, slower feel
@@ -93,24 +121,22 @@ export const Experience = () => {
         y: 0,
         x: "-40%",
         xPercent: 0,
-        duration: 0.6,
+        duration: 0.4,
         ease: "power2.inOut"
       })
       
       // Step 2: Small pause (40-50% of scroll)
       .to({}, { duration: 0.1 })
       
-      // Step 3: Cards fade in with stagger (50-100% of scroll)
+      // Step 3: Cards slide in from right to left one by one (50-100% of scroll)
       .to(cards, {
-        opacity: 1,
-        y: 0,
-        scale: 1,
+        x: 0,
         stagger: {
-          each: 0.1,
+          each: 0.075,
           from: "start"
         },
-        duration: 0.3,
-        ease: "back.out(1.2)"
+        duration: 0.6,
+        ease: "power2.out"
       }, ">-0.1");
 
     }, sectionRef);
@@ -124,10 +150,82 @@ export const Experience = () => {
     <section
       ref={sectionRef}
       id="experiences"
-      className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-center relative"
+      className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-center relative overflow-hidden"
       style={{ minHeight: '100vh' }}
       aria-label="Professional experience and work history"
     >
+      {/* Animated Starfield Background - Only render on client */}
+      {isMounted && (
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Nebula Background Gradient */}
+          <div className="absolute inset-0 bg-gradient-radial from-[#1a2f4a]/30 via-transparent to-transparent opacity-50" />
+          
+          {/* Stars Layer 1 - Small distant stars */}
+          <div className="stars-layer-1 absolute inset-0">
+            {stars.small.map((star, i) => (
+              <div
+                key={`star-small-${i}`}
+                className="absolute w-[1px] h-[1px] bg-white rounded-full animate-twinkle"
+                style={{
+                  left: `${star.left}%`,
+                  top: `${star.top}%`,
+                  animationDelay: `${star.delay}s`,
+                  opacity: star.opacity
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Stars Layer 2 - Medium stars */}
+          <div className="stars-layer-2 absolute inset-0">
+            {stars.medium.map((star, i) => (
+              <div
+                key={`star-medium-${i}`}
+                className="absolute w-[2px] h-[2px] bg-[#63B8B2] rounded-full animate-twinkle"
+                style={{
+                  left: `${star.left}%`,
+                  top: `${star.top}%`,
+                  animationDelay: `${star.delay}s`,
+                  opacity: star.opacity,
+                  boxShadow: '0 0 3px rgba(99, 184, 178, 0.5)'
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Stars Layer 3 - Larger glowing stars */}
+          <div className="stars-layer-3 absolute inset-0">
+            {stars.large.map((star, i) => (
+              <div
+                key={`star-large-${i}`}
+                className="absolute w-[3px] h-[3px] bg-white rounded-full animate-pulse-slow"
+                style={{
+                  left: `${star.left}%`,
+                  top: `${star.top}%`,
+                  animationDelay: `${star.delay}s`,
+                  opacity: star.opacity,
+                  boxShadow: '0 0 6px rgba(255, 255, 255, 0.8), 0 0 10px rgba(99, 184, 178, 0.4)'
+                }}
+              />
+            ))}
+          </div>
+          
+          {/* Shooting Stars */}
+          <div className="shooting-stars absolute inset-0">
+            {stars.shooting.map((star, i) => (
+              <div
+                key={`shooting-${i}`}
+                className="absolute w-[2px] h-[2px] bg-white rounded-full animate-shooting-star"
+                style={{
+                  left: `${star.left}%`,
+                  top: `${star.top}%`,
+                  animationDelay: `${star.delay}s`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      )}
       <h2 
         ref={headingRef}
         className="text-3xl font-bold text-[#63B8B2] m-5 will-change-transform"
