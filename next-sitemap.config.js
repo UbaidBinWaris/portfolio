@@ -4,7 +4,7 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   sitemapSize: 7000,
-  changefreq: 'weekly',
+  changefreq: 'daily',
   priority: 1.0,
   exclude: ['/api/*', '/admin/*'],
   robotsTxtOptions: {
@@ -12,11 +12,12 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/'],
+        disallow: ['/api/', '/admin/', '/*.xml$'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
+        disallow: ['/api/', '/admin/', '/*.xml$'],
       },
     ],
     additionalSitemaps: [],

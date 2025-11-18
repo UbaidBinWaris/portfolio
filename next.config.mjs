@@ -49,6 +49,15 @@ const nextConfig = {
             value: 'camera=(), microphone=(), geolocation=()'
           }
         ]
+      },
+      {
+        source: '/:path*.xml',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex'
+          }
+        ]
       }
     ];
   },
