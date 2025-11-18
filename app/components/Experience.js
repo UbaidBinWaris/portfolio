@@ -39,21 +39,72 @@
 
 // export default Experience;
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import experienceData from "@/app/data/experienceData";
 
 export const Experience = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [hasSnapped, setHasSnapped] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const sectionRef = useRef(null);
+  
+  // Check if mobile on mount
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Mobile if < 768px
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Track scroll progress of this section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Brief scroll pause when entering section (only once, desktop only)
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    // Only on desktop, when heading comes into view (earlier trigger)
+    if (!isMobile && latest > 0.15 && latest < 0.25 && !hasSnapped) {
+      setHasSnapped(true);
+      
+      // Brief pause (800ms) to let animations play
+      document.body.style.overflow = "hidden";
+      
+      setTimeout(() => {
+        document.body.style.overflow = "";
+      }, 800);
+    }
+  });
+
+  // Reset snap state when leaving section
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest < 0.05 || latest > 0.9) {
+      setHasSnapped(false);
+    }
+  });
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   return (
     <section
+      ref={sectionRef}
       id="experiences"
       className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-start"
       aria-label="Professional experience and work history"
     >
       <h2 className="text-3xl font-bold text-[#63B8B2] m-5">Experiences</h2>
+      
       <div className="w-full max-w-[1500px] mx-auto">
-        {/* Global group to manage sibling hover effect */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 group">
           {experienceData.map((exp, index) => (
             <div
