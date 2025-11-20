@@ -84,9 +84,9 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
+    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
     description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js, MongoDB & modern web technologies. Building scalable web applications. Available for freelance projects.",
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
     url: siteUrl,
     siteName: "Ubaid Bin Waris | Full Stack Developer",
     images: [
@@ -103,9 +103,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
+    title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js",
     description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications with modern technologies.",
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
     creator: "@ubaidbinwaris",
     site: "@ubaidbinwaris",
     images: [`${siteUrl}/og-image.jpg`],
