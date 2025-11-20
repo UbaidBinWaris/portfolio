@@ -12,7 +12,7 @@ const contactLinks = [
   {
     id: 2,
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/ubaid-bin-waris-441942284",
+    url: "https://www.linkedin.com/in/ubaidbinwaris",
     icon: <FaLinkedin />,
   },
   {
@@ -24,25 +24,25 @@ const contactLinks = [
   {
     id: 4,
     name: "Portfolio",
-    url: "https://portfolio-beta-hazel.vercel.app/",
+    url: "https://uabidbinwaris.dev",
     icon: <FaGlobe />,
   },
   {
     id: 5,
     name: "Upwork",
-    url: "https://www.upwork.com/freelancers/~your-upwork-profile", // Replace with your actual Upwork profile URL
+    url: "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
     icon: <SiUpwork />,
   },
   {
     id: 6,
     name: "Fiverr",
-    url: "https://www.fiverr.com/your-username", // Replace with your actual Fiverr profile URL
+    url: "https://www.fiverr.com/ubaidwaris655",
     icon: <SiFiverr />,
   },
   {
     id: 7,
     name: "Discord",
-    url: "https://discord.gg/your-discord-invite", // Replace with your actual Discord invite or profile
+    url: "https://discord.com/users/1194654569578373121",
     icon: <FaDiscord />,
   },
 ];

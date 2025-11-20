@@ -165,6 +165,17 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* Social Profile Links for SEO - Helps search engines verify your identity across platforms */}
+        <link rel="me" href="https://github.com/UbaidBinWaris" />
+        <link rel="me" href="https://www.linkedin.com/in/ubaidbinwaris" />
+        <link rel="me" href="https://twitter.com/ubaidbinwaris" />
+        <link rel="me" href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296" />
+        <link rel="me" href="https://www.fiverr.com/ubaidwaris655" />
+        <link rel="me" href="https://discord.com/users/1194654569578373121" />
+        <link rel="me" href="https://uabidbinwaris.dev" />
+        <link rel="author" href="mailto:ubaidwaris34@gmail.com" />
+        
         <meta name="theme-color" content="#0A1930" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
