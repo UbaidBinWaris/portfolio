@@ -8,9 +8,9 @@ import FAQSection from "./components/FAQSection";
 import Contact from "./components/Contact";
 
 export const metadata = {
-  title: "Home",
-  description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Explore my projects and get in touch for collaborations.",
-  keywords: ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Ubaid Bin Waris", "ubaid developer", "ubaid portfolio", "Full Stack Developer", "React Developer", "Next.js Developer"],
+  title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
+  description: "Ubaid Bin Waris (ubaidbinwaris) - Professional Full Stack Developer specializing in React, Next.js, Node.js, MongoDB & modern web technologies. Available for freelance projects & collaborations.",
+  keywords: ["Ubaid Bin Waris", "ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Full Stack Developer", "React Developer", "Next.js Developer", "Node.js Developer", "Web Developer", "JavaScript Expert", "MERN Stack Developer", "Frontend Developer", "Backend Developer", "Freelance Developer Pakistan", "Software Engineer", "TypeScript Developer", "MongoDB Expert", "Tailwind CSS Developer", "API Development", "Web Application Development", "Modern Web Development", "Responsive Web Design", "UI/UX Developer"],
   robots: {
     index: true,
     follow: true,
@@ -20,8 +20,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
-    description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.",
+    title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
+    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js, MongoDB & modern web technologies. Available for freelance projects.",
   },
 };
 

@@ -21,38 +21,39 @@ export const metadata = {
     template: "%s | Ubaid Bin Waris"
   },
   description:
-    "Explore the professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a passionate Full Stack Developer with expertise in modern web technologies including React, Next.js, Node.js, and MongoDB. Available for freelance projects and collaborations.",
+    "Ubaid Bin Waris (ubaidbinwaris) - Expert Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications with modern technologies. Available for freelance projects.",
   keywords: [
     "Ubaid Bin Waris",
     "ubaidbinwaris",
     "ubaid bin waris",
     "ubaidbin",
-    "ubaid bin",
-    "ubaid waris",
-    "UbaidBinWaris",
-    "Ubaid",
-    "ubaid developer",
-    "ubaidbinwaris portfolio",
-    "ubaidbinwaris developer",
-    "ubaid bin waris portfolio",
-    "ubaid bin waris developer",
-    "ubaidbin waris",
     "Full Stack Developer",
     "React Developer",
-    "Next.js Portfolio",
+    "Next.js Developer",
+    "Node.js Developer",
+    "MERN Stack Developer",
+    "JavaScript Expert",
+    "TypeScript Developer",
     "Web Developer",
     "Frontend Developer",
     "Backend Developer",
-    "JavaScript Developer",
-    "Node.js Developer",
-    "MongoDB Developer",
-    "Tailwind CSS",
-    "Developer Portfolio",
-    "Software Engineer",
-    "Web Development Services",
+    "MongoDB Expert",
+    "Tailwind CSS Developer",
     "Freelance Developer",
+    "Software Engineer",
+    "Web Application Development",
+    "API Development",
+    "REST API Developer",
+    "Modern Web Development",
+    "Responsive Web Design",
+    "UI/UX Developer",
+    "Full Stack Engineer",
     "Pakistan Developer",
     "Pakistani Full Stack Developer",
+    "React Native Developer",
+    "Express.js Developer",
+    "Database Design",
+    "Cloud Deployment",
   ],
   authors: [
     { name: "Ubaid Bin Waris", url: siteUrl },
@@ -83,11 +84,11 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
+    title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
     description:
-      "Discover the work and skills of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a creative and results-driven full stack web developer specializing in React, Next.js, and modern web technologies.",
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js, MongoDB & modern web technologies. Building scalable web applications. Available for freelance projects.",
     url: siteUrl,
-    siteName: "Ubaid Bin Waris Portfolio",
+    siteName: "Ubaid Bin Waris | Full Stack Developer",
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,
@@ -102,9 +103,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
+    title: "Ubaid Bin Waris | Expert Full Stack Developer | React, Next.js & Node.js Specialist",
     description:
-      "Explore the portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a full stack developer with expertise in React, Next.js, Node.js, and more.",
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications with modern technologies.",
     creator: "@ubaidbinwaris",
     site: "@ubaidbinwaris",
     images: [`${siteUrl}/og-image.jpg`],
@@ -166,7 +167,6 @@ export default function RootLayout({ children }) {
         <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="theme-color" content="#0A1930" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="canonical" href={siteUrl} />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <script
