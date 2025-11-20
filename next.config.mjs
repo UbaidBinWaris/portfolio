@@ -51,11 +51,37 @@ const nextConfig = {
         ]
       },
       {
-        source: '/:path*.xml',
+        source: '/sitemap.xml',
         headers: [
           {
             key: 'X-Robots-Tag',
-            value: 'noindex'
+            value: 'noindex, nofollow'
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/xml; charset=utf-8'
+          }
+        ]
+      },
+      {
+        source: '/sitemap-:number.xml',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow'
+          },
+          {
+            key: 'Content-Type',
+            value: 'application/xml; charset=utf-8'
+          }
+        ]
+      },
+      {
+        source: '/',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow'
           }
         ]
       }

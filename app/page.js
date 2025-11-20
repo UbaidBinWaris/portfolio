@@ -11,6 +11,14 @@ export const metadata = {
   title: "Home",
   description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB. Explore my projects and get in touch for collaborations.",
   keywords: ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Ubaid Bin Waris", "ubaid developer", "ubaid portfolio", "Full Stack Developer", "React Developer", "Next.js Developer"],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   openGraph: {
     title: "Ubaid Bin Waris (ubaidbinwaris) | Full Stack Developer Portfolio",
     description: "Welcome to Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) portfolio. Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB.",

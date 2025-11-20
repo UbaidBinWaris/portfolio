@@ -3,14 +3,12 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /*.xml$
 
 # Googlebot
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /*.xml$
 
 # Host
 Host: https://uabidbinwaris.dev

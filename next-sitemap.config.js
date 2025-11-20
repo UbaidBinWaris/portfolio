@@ -4,20 +4,20 @@ module.exports = {
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   sitemapSize: 7000,
-  changefreq: 'daily',
+  changefreq: 'weekly',
   priority: 1.0,
-  exclude: ['/api/*', '/admin/*'],
+  exclude: ['/api/*', '/admin/*', '/robots.txt', '/sitemap.xml'],
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/*.xml$'],
+        disallow: ['/api/', '/admin/'],
       },
       {
         userAgent: 'Googlebot',
         allow: '/',
-        disallow: ['/api/', '/admin/', '/*.xml$'],
+        disallow: ['/api/', '/admin/'],
       },
     ],
     additionalSitemaps: [],
@@ -26,7 +26,7 @@ module.exports = {
     // Custom priority and changefreq
     return {
       loc: path,
-      changefreq: config.changefreq,
+      changefreq: path === '/' ? 'weekly' : 'monthly',
       priority: path === '/' ? 1.0 : 0.8,
       lastmod: new Date().toISOString(),
     }

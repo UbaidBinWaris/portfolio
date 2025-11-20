@@ -161,6 +161,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <meta name="theme-color" content="#0A1930" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="canonical" href={siteUrl} />
