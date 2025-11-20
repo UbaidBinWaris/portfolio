@@ -8,7 +8,7 @@ import FAQSection from "./components/FAQSection";
 import Contact from "./components/Contact";
 
 export const metadata = {
-  title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
+  title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js Expert",
   description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance projects.",
   keywords: ["Ubaid Bin Waris", "ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Full Stack Developer", "React Developer", "Next.js Developer", "Node.js Developer", "Web Developer", "JavaScript Expert", "MERN Stack Developer", "Frontend Developer", "Backend Developer", "Freelance Developer Pakistan", "Software Engineer", "TypeScript Developer", "MongoDB Expert", "Tailwind CSS Developer", "API Development", "Web Application Development", "Modern Web Development", "Responsive Web Design", "UI/UX Developer"],
   robots: {
@@ -20,8 +20,24 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
-    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
+    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
+    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+    url: "https://uabidbinwaris.dev",
+    type: "website",
+    images: [
+      {
+        url: "https://uabidbinwaris.dev/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ubaid Bin Waris - Full Stack Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
+    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+    images: ["https://uabidbinwaris.dev/og-image.jpg"],
   },
 };
 
