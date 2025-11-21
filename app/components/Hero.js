@@ -33,6 +33,8 @@ export const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
+        poster="/og-image.jpg"
+        data-noindex="true"
       />
 
       {/* Overlay */}

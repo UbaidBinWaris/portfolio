@@ -78,7 +78,7 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
+      'max-video-preview': 0,
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
@@ -162,9 +162,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
         
         {/* Social Profile Links for SEO - Helps search engines verify your identity across platforms */}
         <link rel="me" href="https://github.com/UbaidBinWaris" />
