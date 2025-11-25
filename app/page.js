@@ -11,6 +11,9 @@ export const metadata = {
   title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js Expert",
   description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance projects.",
   keywords: ["Ubaid Bin Waris", "ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Full Stack Developer", "React Developer", "Next.js Developer", "Node.js Developer", "Web Developer", "JavaScript Expert", "MERN Stack Developer", "Frontend Developer", "Backend Developer", "Freelance Developer Pakistan", "Software Engineer", "TypeScript Developer", "MongoDB Expert", "Tailwind CSS Developer", "API Development", "Web Application Development", "Modern Web Development", "Responsive Web Design", "UI/UX Developer"],
+  alternates: {
+    canonical: 'https://uabidbinwaris.dev',
+  },
   robots: {
     index: true,
     follow: true,

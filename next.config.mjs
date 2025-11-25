@@ -14,6 +14,24 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
+  // Redirects
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://uabidbinwaris.dev/:path*',
+        permanent: true,
+      },
+    ];
+  },
+
   // Security headers
   async headers() {
     return [
@@ -51,6 +69,10 @@ const nextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'index, follow'
+          },
+          {
+            key: 'Link',
+            value: '<https://uabidbinwaris.dev>; rel="canonical"'
           }
         ]
       },
