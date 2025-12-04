@@ -467,6 +467,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **If you find this project helpful, please give it a star!**
 
-Made with ❤️ by [Ubaid Bin Waris](https://uabidbinwaris.dev)
+Made with  by [Ubaid Bin Waris](https://uabidbinwaris.dev)
 
 </div>
