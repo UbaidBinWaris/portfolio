@@ -26,6 +26,7 @@
 - [Configuration](#configuration)
 - [Deployment](#deployment)
 - [SEO & Performance](#seo--performance)
+- [IndexNow Integration](#indexnow-integration)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -91,7 +92,11 @@ portfolio/
 │   │   ├── experienceData.js    # Work history
 │   │   └── faqData.js           # FAQ content
 │   ├── lib/                     # Utility functions
-│   │   └── analytics.js         # Google Analytics setup
+│   │   ├── analytics.js         # Google Analytics setup
+│   │   └── indexnow.js          # IndexNow utility functions
+│   ├── api/                     # API routes
+│   │   └── indexnow/
+│   │       └── route.js         # IndexNow submission endpoint
 │   ├── animations.css           # Custom animations
 │   ├── globals.css              # Global styles
 │   ├── layout.js                # Root layout component
@@ -104,7 +109,10 @@ portfolio/
 │   ├── manifest.json            # PWA manifest
 │   ├── robots.txt               # Search engine instructions
 │   ├── sitemap.xml              # XML sitemap
-│   └── sw.js                    # Service worker file
+│   ├── sw.js                    # Service worker file
+│   └── 34010ce9592af026867e6c742c168f94.txt  # IndexNow API key
+├── scripts/                     # Build scripts
+│   └── submit-indexnow.js       # Auto-submit URLs to IndexNow
 ├── eslint.config.mjs            # ESLint configuration
 ├── jsconfig.json                # JavaScript config
 ├── next-sitemap.config.js       # Sitemap generation config
@@ -133,6 +141,7 @@ portfolio/
 - **Structured Data** - JSON-LD for search engines
 - **Sitemap** - Automatic XML sitemap generation
 - **Robots.txt** - Search engine crawling instructions
+- **IndexNow** - Real-time URL submission to search engines (Bing, Yandex)
 
 ### Performance
 - **Image Optimization** - Next.js automatic image optimization with AVIF/WebP formats
@@ -419,6 +428,127 @@ Test your site with:
 - [Google PageSpeed Insights](https://pagespeed.web.dev/)
 - [GTmetrix](https://gtmetrix.com/)
 - [WebPageTest](https://www.webpagetest.org/)
+
+---
+
+## IndexNow Integration
+
+This portfolio implements **IndexNow** for real-time URL submission to search engines, ensuring your content gets indexed faster by Bing, Yandex, and other participating search engines.
+
+### What is IndexNow?
+
+IndexNow is a protocol that allows websites to instantly notify search engines about content changes (new, updated, or deleted pages) without waiting for crawlers. This results in:
+-  **Faster indexing** - Your changes appear in search results quickly
+-  **Reduced server load** - Less crawling needed
+-  **Better control** - You decide what and when to submit
+
+### Implementation Details
+
+#### 1. **API Key Setup**
+A unique API key is hosted at:
+```
+https://uabidbinwaris.dev/34010ce9592af026867e6c742c168f94.txt
+```
+
+#### 2. **Automatic Submission**
+After every production build, all sitemap URLs are automatically submitted to IndexNow:
+```bash
+npm run build  # Automatically triggers IndexNow submission
+```
+
+The `postbuild` script runs:
+1. `next-sitemap` - Generates sitemap
+2. `submit-indexnow.js` - Submits all URLs to IndexNow
+
+#### 3. **Manual Submission**
+You can manually submit URLs anytime:
+```bash
+npm run indexnow
+```
+
+#### 4. **API Endpoint**
+The portfolio includes an API route for programmatic submissions:
+```javascript
+// POST to /api/indexnow
+{
+  "urls": [
+    "https://uabidbinwaris.dev/",
+    "https://uabidbinwaris.dev/page"
+  ]
+}
+```
+
+### Using the IndexNow Utility
+
+```javascript
+import { 
+  submitUrlToIndexNow, 
+  submitUrlsToIndexNow,
+  submitSitemapToIndexNow 
+} from './app/lib/indexnow';
+
+// Submit a single URL
+await submitUrlToIndexNow('https://uabidbinwaris.dev/new-page');
+
+// Submit multiple URLs
+await submitUrlsToIndexNow([
+  'https://uabidbinwaris.dev/page1',
+  'https://uabidbinwaris.dev/page2'
+]);
+
+// Submit entire sitemap
+await submitSitemapToIndexNow();
+```
+
+### Verifying Submissions
+
+1. Visit [Bing Webmaster Tools](https://www.bing.com/webmasters)
+2. Go to **IndexNow** section
+3. Check your submission history
+4. Monitor indexing status
+
+### Supported Search Engines
+
+IndexNow submissions are shared across:
+- **Microsoft Bing** 
+- **Yandex** 
+- **Seznam.cz** 
+- **Naver** 
+
+### Files Added
+
+```
+app/
+├── api/
+│   └── indexnow/
+│       └── route.js              # API endpoint for submissions
+└── lib/
+    └── indexnow.js               # Utility functions
+
+scripts/
+└── submit-indexnow.js            # Auto-submission script
+
+public/
+└── 34010ce9592af026867e6c742c168f94.txt  # API key file
+```
+
+### Response Codes
+
+- **200 OK** - URLs submitted successfully ✅
+- **202 Accepted** - URLs received and will be processed ✅ (Most common success response)
+- **400 Bad Request** - Invalid format ❌
+- **403 Forbidden** - Invalid API key ❌
+- **422 Unprocessable Entity** - URLs don't match host ❌
+- **429 Too Many Requests** - Rate limited (potential spam) ❌
+
+> **Note:** Both 200 and 202 are success responses. IndexNow typically returns 202 to acknowledge receipt.
+
+### Best Practices
+
+1. **Submit immediately** after content changes
+2. **Don't spam** - Only submit when content actually changes
+3. **Batch submissions** - Submit multiple URLs together when possible
+4. **Monitor results** - Use Bing Webmaster Tools to track performance
 
 ---
 

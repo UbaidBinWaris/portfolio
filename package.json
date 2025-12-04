@@ -18,7 +18,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap && node scripts/submit-indexnow.js",
+    "indexnow": "node scripts/submit-indexnow.js"
   },
   "dependencies": {
     "framer-motion": "^12.23.25",
