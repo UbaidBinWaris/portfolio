@@ -19,6 +19,16 @@ module.exports = {
         allow: '/',
         disallow: ['/api/', '/admin/'],
       },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
+      {
+        userAgent: 'msnbot',
+        allow: '/',
+        disallow: ['/api/', '/admin/'],
+      },
     ],
     additionalSitemaps: [],
   },

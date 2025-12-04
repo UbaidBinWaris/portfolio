@@ -9,18 +9,57 @@ import Contact from "./components/Contact";
 
 export const metadata = {
   title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js Expert",
-  description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance projects.",
-  keywords: ["Ubaid Bin Waris", "ubaidbinwaris", "ubaid bin waris", "ubaidbin", "Full Stack Developer", "React Developer", "Next.js Developer", "Node.js Developer", "Web Developer", "JavaScript Expert", "MERN Stack Developer", "Frontend Developer", "Backend Developer", "Freelance Developer Pakistan", "Software Engineer", "TypeScript Developer", "MongoDB Expert", "Tailwind CSS Developer", "API Development", "Web Application Development", "Modern Web Development", "Responsive Web Design", "UI/UX Developer"],
+  description: "Ubaid Bin Waris - Professional Full Stack Developer at uabidbinwaris.dev specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance projects.",
+  keywords: [
+    "Ubaid Bin Waris", 
+    "ubaidbinwaris", 
+    "ubaid bin waris", 
+    "ubaidbin",
+    "uabidbinwaris",
+    "uabid bin waris", 
+    "uabidbinwaris.dev",
+    "Full Stack Developer", 
+    "React Developer", 
+    "Next.js Developer", 
+    "Node.js Developer", 
+    "Web Developer", 
+    "JavaScript Expert", 
+    "MERN Stack Developer", 
+    "Frontend Developer", 
+    "Backend Developer", 
+    "Freelance Developer Pakistan", 
+    "Software Engineer", 
+    "TypeScript Developer", 
+    "MongoDB Expert", 
+    "Tailwind CSS Developer", 
+    "API Development", 
+    "Web Application Development", 
+    "Modern Web Development", 
+    "Responsive Web Design", 
+    "UI/UX Developer",
+    "ubaid portfolio",
+    "uabid portfolio",
+    "ubaid developer pakistan",
+    "hire full stack developer"
+  ],
   alternates: {
     canonical: 'https://uabidbinwaris.dev',
   },
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
+  },
+  other: {
+    'bingbot': 'index, follow',
+    'msnbot': 'index, follow',
   },
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
@@ -51,15 +90,16 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Ubaid Bin Waris Portfolio",
-    "alternateName": "ubaidbinwaris",
+    "alternateName": ["ubaidbinwaris", "uabidbinwaris", "uabidbinwaris.dev"],
     "url": siteUrl,
-    "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a Full Stack Developer",
+    "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, uabidbinwaris, ubaid bin waris, ubaidbin) at uabidbinwaris.dev - Full Stack Developer specializing in React, Next.js, and MERN Stack",
     "author": {
       "@type": "Person",
       "name": "Ubaid Bin Waris",
-      "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris"],
+      "alternateName": ["ubaidbinwaris", "uabidbinwaris", "ubaid bin waris", "uabid bin waris", "ubaidbin", "UbaidBinWaris"],
       "jobTitle": "Full Stack Developer",
-      "url": siteUrl
+      "url": siteUrl,
+      "identifier": "uabidbinwaris.dev"
     },
     "potentialAction": {
       "@type": "SearchAction",
@@ -109,17 +149,74 @@ export default function Home() {
     "dateModified": new Date().toISOString(),
     "mainEntity": {
       "@type": "Person",
+      "@id": `${siteUrl}#ubaidbinwaris`,
       "name": "Ubaid Bin Waris",
-      "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris", "Ubaid"],
-      "jobTitle": "Full Stack Developer",
-      "description": "Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, and MongoDB",
+      "alternateName": [
+        "ubaidbinwaris", 
+        "ubaid bin waris", 
+        "ubaidbin",
+        "uabidbinwaris",
+        "uabid bin waris", 
+        "UbaidBinWaris", 
+        "Ubaid Waris",
+        "Uabid Waris",
+        "Ubaid B Waris",
+        "ubaid developer",
+        "uabid developer",
+        "waris developer",
+        "uabidbinwaris.dev"
+      ],
+      "jobTitle": ["Full Stack Developer", "MERN Stack Developer", "React Developer", "Next.js Developer"],
+      "description": "Professional Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, MongoDB, and modern web technologies. Expert in building scalable web applications.",
       "url": siteUrl,
       "image": `${siteUrl}/me.jpg`,
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Freelance"
+      },
+      "knowsAbout": [
+        "React.js",
+        "Next.js",
+        "Node.js",
+        "MongoDB",
+        "JavaScript",
+        "TypeScript",
+        "Tailwind CSS",
+        "Express.js",
+        "REST API",
+        "Web Development",
+        "Full Stack Development",
+        "MERN Stack",
+        "Frontend Development",
+        "Backend Development",
+        "Database Design",
+        "Responsive Web Design",
+        "UI/UX Development"
+      ],
+      "knowsLanguage": ["English", "Urdu"],
       "sameAs": [
         "https://github.com/UbaidBinWaris",
         "https://twitter.com/ubaidbinwaris",
         "https://linkedin.com/in/ubaidbinwaris"
-      ]
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Full Stack Developer",
+        "occupationLocation": {
+          "@type": "Country",
+          "name": "Pakistan"
+        },
+        "skills": [
+          "React Development",
+          "Next.js Development",
+          "Node.js Development",
+          "MongoDB Database",
+          "MERN Stack",
+          "JavaScript/TypeScript",
+          "API Development",
+          "Web Application Development"
+        ]
+      }
     }
   };
 

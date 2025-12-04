@@ -10,6 +10,18 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# MSNBot
+User-agent: msnbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
 # Host
 Host: https://uabidbinwaris.dev
 
