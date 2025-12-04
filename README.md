@@ -100,8 +100,12 @@ portfolio/
 │   │   └── faqData.js           # FAQ content
 │   ├── lib/                     # Utility functions
 │   │   ├── analytics.js         # Google Analytics setup
+│   │   ├── clarity.js           # Microsoft Clarity API utilities
 │   │   └── indexnow.js          # IndexNow utility functions
 │   ├── api/                     # API routes
+│   │   ├── clarity/
+│   │   │   └── stats/
+│   │   │       └── route.js     # Clarity stats endpoint
 │   │   └── indexnow/
 │   │       └── route.js         # IndexNow submission endpoint
 │   ├── animations.css           # Custom animations
@@ -354,7 +358,13 @@ Edit `app/data/contactLinks.js` to update social media links.
 Create a `.env.local` file in the root directory:
 ```bash
 NEXT_PUBLIC_DOMAIN_URL=https://yourdomain.com
+
+# Microsoft Clarity
+NEXT_PUBLIC_CLARITY_PROJECT_ID=your-project-id
+CLARITY_API_TOKEN=your-api-token
 ```
+
+**Important:** Never commit `.env.local` to version control!
 
 ### Analytics Setup
 
@@ -383,6 +393,26 @@ Clarity.setTag("user-type", "premium");
 Clarity.identify("user-123", "session-456", "page-789", "John Doe");
 Clarity.event("button-click");
 ```
+
+**Data Export API:**
+Clarity provides a Data Export API for programmatic access to analytics data.
+
+```javascript
+// Fetch Clarity stats via API route
+const response = await fetch('/api/clarity/stats');
+const stats = await response.json();
+
+// Or use the utility directly
+import { getClarityStats } from '@/app/lib/clarity';
+const stats = await getClarityStats();
+```
+
+**API Rate Limits:**
+- 10 API calls per project per day
+- Data updates every few hours
+
+**Available Endpoints:**
+- `GET /api/clarity/stats` - Get analytics summary
 
 #### Google Analytics (Optional)
 To enable Google Analytics:
