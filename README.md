@@ -60,15 +60,21 @@ This is my personal portfolio website built with modern web technologies. It sho
 - **ESLint** - Code linting with Next.js config
 - **PostCSS** - CSS processing with Tailwind
 - **Next Sitemap** - Automatic sitemap generation
+- **IndexNow** - Real-time search engine indexing
 - **Service Worker** - PWA capabilities and offline support
 - **Vercel** - Deployment platform
 
+### Analytics & Monitoring
+- **Microsoft Clarity** - User behavior analytics and heatmaps
+- **Google Analytics** - Traffic and conversion tracking
+
 ### Features
-- **SEO Optimized** - Meta tags, Open Graph, structured data
+- **SEO Optimized** - Meta tags, Open Graph, structured data, IndexNow
 - **PWA Ready** - Service worker, manifest, offline support
 - **Responsive Design** - Mobile-first approach
 - **Performance Optimized** - Image optimization, lazy loading
-- **Analytics Ready** - Google Analytics integration
+- **Analytics & Insights** - Microsoft Clarity + Google Analytics
+- **User Behavior Tracking** - Heatmaps, session recordings, user insights
 
 ---
 
@@ -85,7 +91,8 @@ portfolio/
 │   │   ├── Hero.js              # Landing section with video background
 │   │   ├── Navbar.js            # Navigation bar
 │   │   ├── ReviewSection.js     # Client reviews/testimonials
-│   │   └── ServiceWorkerRegistration.js  # PWA service worker
+│   │   ├── ServiceWorkerRegistration.js  # PWA service worker
+│   │   └── ClarityAnalytics.js  # Microsoft Clarity analytics
 │   ├── data/                    # Static data
 │   │   ├── blogPosts.js         # Blog post content
 │   │   ├── contactLinks.js      # Social media links
@@ -157,9 +164,11 @@ portfolio/
 - **Offline Support** - Works without internet connection
 - **App Manifest** - Native app-like experience
 
-### Analytics
+### Analytics & Insights
+- **Microsoft Clarity** - User behavior analytics with heatmaps and session recordings
 - **Google Analytics** - Track visitor behavior and site performance
 - **Custom Events** - Monitor user interactions
+- **Real-time Monitoring** - Live user activity tracking
 
 ---
 
@@ -348,6 +357,34 @@ NEXT_PUBLIC_DOMAIN_URL=https://yourdomain.com
 ```
 
 ### Analytics Setup
+
+#### Microsoft Clarity (Enabled ✅)
+Microsoft Clarity is integrated using the official NPM package and provides:
+- **Heatmaps** - See where users click, scroll, and interact
+- **Session Recordings** - Watch real user sessions
+- **Insights** - Understand user behavior patterns
+- **Clarity Copilot** - AI-powered insights and summaries
+- **Free Forever** - No cost, unlimited recordings
+
+**Implementation:**
+```bash
+npm install @microsoft/clarity
+```
+
+The Clarity component (`app/components/ClarityAnalytics.js`) automatically initializes on page load.
+
+**Access your dashboard:** [clarity.microsoft.com](https://clarity.microsoft.com)  
+**Project ID:** `ugh4m36u47`
+
+**Customize tracking:**
+```javascript
+// In ClarityAnalytics.js
+Clarity.setTag("user-type", "premium");
+Clarity.identify("user-123", "session-456", "page-789", "John Doe");
+Clarity.event("button-click");
+```
+
+#### Google Analytics (Optional)
 To enable Google Analytics:
 1. Get your GA4 Measurement ID from [Google Analytics](https://analytics.google.com/)
 2. Update `app/lib/analytics.js` with your Measurement ID
