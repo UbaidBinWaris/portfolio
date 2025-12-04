@@ -16,7 +16,7 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-# MSNBot
+# msnbot
 User-agent: msnbot
 Allow: /
 Disallow: /api/
