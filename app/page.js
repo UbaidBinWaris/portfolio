@@ -9,7 +9,7 @@ import Contact from "./components/Contact";
 
 export const metadata = {
   title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js Expert",
-  description: "Ubaid Bin Waris - Professional Full Stack Developer at uabidbinwaris.dev specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance projects.",
+  description: "Ubaid Bin Waris - Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Hire now.",
   keywords: [
     "Ubaid Bin Waris", 
     "ubaidbinwaris", 
@@ -48,7 +48,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,

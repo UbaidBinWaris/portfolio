@@ -21,7 +21,7 @@ export const metadata = {
     template: "%s | Ubaid Bin Waris"
   },
   description:
-    "Ubaid Bin Waris (ubaidbinwaris, uabidbinwaris) - Expert Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Visit uabidbinwaris.dev for portfolio. Building scalable web applications with modern technologies. Available for freelance projects.",
+    "Ubaid Bin Waris - Expert Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
   keywords: [
     // Name variations for partial search
     "Ubaid Bin Waris",
@@ -110,7 +110,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: true,
     googleBot: {
       index: true,
       follow: true,

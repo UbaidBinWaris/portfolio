@@ -4,7 +4,7 @@
 
 **Full Stack Developer | React | Next.js | Node.js | MongoDB**
 
-[![Website](https://img.shields.io/badge/Website-ubaidbinwaris.dev-blue?style=for-the-badge&logo=vercel)](https://ubaidbinwaris.dev)
+[![Website](https://img.shields.io/badge/Website-uabidbinwaris.dev-blue?style=for-the-badge&logo=vercel)](https://uabidbinwaris.dev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/ubaidbinwaris)
 [![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/UbaidBinWaris)
 [![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=for-the-badge&logo=twitter)](https://twitter.com/ubaidbinwaris)
@@ -36,21 +36,28 @@
 
 This is my personal portfolio website built with modern web technologies. It showcases my skills, experience, projects, and provides a way for potential clients and employers to connect with me. The site is designed with performance, SEO, and user experience in mind.
 
-**Live Site**: [https://ubaidbinwaris.dev](https://ubaidbinwaris.dev)
+**Live Site**: [https://uabidbinwaris.dev](https://uabidbinwaris.dev)
 
 ---
 
 ## Tech Stack
 
 ### Core Technologies
-- **[Next.js 14+](https://nextjs.org/)** - React framework with App Router
-- **[React 18+](https://react.dev/)** - UI library
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Next.js 15.3+](https://nextjs.org/)** - React framework with App Router and Turbopack
+- **[React 19.2+](https://react.dev/)** - UI library
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
 - **JavaScript (ES6+)** - Programming language
 
-### Tools & Libraries
-- **ESLint** - Code linting
-- **PostCSS** - CSS processing
+### Animation & UI Libraries
+- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready animation library
+- **[GSAP](https://gsap.com/)** - Professional-grade animation platform
+- **[Lucide React](https://lucide.dev/)** - Beautiful & consistent icon toolkit
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
+- **[React Terminal](https://www.npmjs.com/package/react-terminal)** - Terminal component for React
+
+### Tools & Configuration
+- **ESLint** - Code linting with Next.js config
+- **PostCSS** - CSS processing with Tailwind
 - **Next Sitemap** - Automatic sitemap generation
 - **Service Worker** - PWA capabilities and offline support
 - **Vercel** - Deployment platform
@@ -74,8 +81,9 @@ portfolio/
 │   │   ├── Contact.js           # Contact form & social links
 │   │   ├── Experience.js        # Work experience timeline
 │   │   ├── FAQSection.js        # Frequently asked questions
-│   │   ├── Hero.js              # Landing section with intro
+│   │   ├── Hero.js              # Landing section with video background
 │   │   ├── Navbar.js            # Navigation bar
+│   │   ├── ReviewSection.js     # Client reviews/testimonials
 │   │   └── ServiceWorkerRegistration.js  # PWA service worker
 │   ├── data/                    # Static data
 │   │   ├── blogPosts.js         # Blog post content
@@ -111,10 +119,12 @@ portfolio/
 ## Features
 
 ### Design & UX
-- **Modern UI** - Clean, professional design with smooth animations
+- **Modern UI** - Clean, professional design with advanced animations
 - **Responsive Layout** - Optimized for all screen sizes (mobile, tablet, desktop)
 - **Dark Theme** - Eye-friendly color scheme
-- **Smooth Animations** - Subtle transitions and effects
+- **Advanced Animations** - Powered by Framer Motion and GSAP for smooth, professional transitions
+- **Custom Fonts** - Geist Sans and Geist Mono for modern typography
+- **Video Background** - Dynamic hero section with video background
 
 ### SEO & Discoverability
 - **Meta Tags** - Comprehensive meta descriptions and keywords
@@ -125,10 +135,13 @@ portfolio/
 - **Robots.txt** - Search engine crawling instructions
 
 ### Performance
-- **Image Optimization** - Next.js automatic image optimization
+- **Image Optimization** - Next.js automatic image optimization with AVIF/WebP formats
+- **Turbopack** - Next-generation bundler for faster development builds
 - **Code Splitting** - Automatic code splitting for faster loads
 - **Lazy Loading** - Components load on demand
 - **Service Worker** - Caching for faster repeat visits
+- **Optimized Animations** - Hardware-accelerated animations with Framer Motion and GSAP
+- **Security Headers** - Comprehensive security headers including HSTS, CSP, and XSS protection
 
 ### Progressive Web App (PWA)
 - **Installable** - Can be installed on devices
@@ -257,7 +270,7 @@ bun install
 ```
 
 #### 4. Run Development Server
-Start the development server:
+Start the development server with Turbopack for faster builds:
 
 **Using npm:**
 ```bash
@@ -278,6 +291,8 @@ pnpm dev
 ```bash
 bun dev
 ```
+
+> Note: The dev script uses `--turbopack` flag for faster compilation.
 
 #### 5. Open in Browser
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
@@ -317,6 +332,12 @@ Modify `app/data/faqData.js` to change FAQ items.
 #### Social Links
 Edit `app/data/contactLinks.js` to update social media links.
 
+### Environment Variables
+Create a `.env.local` file in the root directory:
+```bash
+NEXT_PUBLIC_DOMAIN_URL=https://yourdomain.com
+```
+
 ### Analytics Setup
 To enable Google Analytics:
 1. Get your GA4 Measurement ID from [Google Analytics](https://analytics.google.com/)
@@ -327,8 +348,13 @@ To enable Google Analytics:
 Update meta tags in `app/layout.js`:
 ```javascript
 export const metadata = {
-  title: 'Your Name - Portfolio',
-  description: 'Your description',
+  metadataBase: new URL('https://uabidbinwaris.dev'),
+  title: {
+    default: 'Your Name | Full Stack Developer Portfolio',
+    template: '%s | Your Name'
+  },
+  description: 'Your professional description',
+  keywords: ['Your Name', 'Full Stack Developer', ...],
   // ... other meta tags
 };
 ```
@@ -374,10 +400,10 @@ npm start
 ## SEO & Performance
 
 ### Sitemap Generation
-The sitemap is automatically generated on build. Configure in `next-sitemap.config.js`:
+The sitemap is automatically generated on build using the `postbuild` script. Configure in `next-sitemap.config.js`:
 ```javascript
 module.exports = {
-  siteUrl: 'https://ubaidbinwaris.dev',
+  siteUrl: 'https://uabidbinwaris.dev',
   generateRobotsTxt: true,
 };
 ```
@@ -421,7 +447,7 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Ubaid Bin Waris** - *Full Stack Developer*
 
-- Website: [ubaidbinwaris.dev](https://ubaidbinwaris.dev)
+- Website: [uabidbinwaris.dev](https://uabidbinwaris.dev)
 - LinkedIn: [linkedin.com/in/ubaidbinwaris](https://linkedin.com/in/ubaidbinwaris)
 - GitHub: [@UbaidBinWaris](https://github.com/UbaidBinWaris)
 - Twitter: [@ubaidbinwaris](https://twitter.com/ubaidbinwaris)
@@ -441,6 +467,6 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **If you find this project helpful, please give it a star!**
 
-Made with love by [Ubaid Bin Waris](https://ubaidbinwaris.dev)
+Made with ❤️ by [Ubaid Bin Waris](https://uabidbinwaris.dev)
 
 </div>
