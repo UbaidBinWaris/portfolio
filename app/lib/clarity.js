@@ -109,9 +109,3 @@ export async function exportClarityData(dataType = "sessions") {
     throw error;
   }
 }
-
-export default {
-  getClarityInsights,
-  getClarityStats,
-  exportClarityData,
-};
