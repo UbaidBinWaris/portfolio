@@ -8,35 +8,8 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    {
-      url: `${siteUrl}#home`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    {
-      url: `${siteUrl}#experience`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}#blog`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${siteUrl}#faq`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${siteUrl}#contact`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
+    // Removed anchor links (#home, #experience, etc.) as they are not separate pages
+    // Google cannot index anchor links as individual URLs
+    // All sections are part of the main homepage
   ];
 }
