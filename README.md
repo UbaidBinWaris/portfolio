@@ -2,7 +2,12 @@
 
 <div align="center">
 
-**Full Stack Developer | React | Next.js | Node.js | MongoDB**
+![Portfolio Banner](https://img.shields.io/badge/Portfolio-Live-success?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js-15.3-black?style=for-the-badge&logo=next.js)
+![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)
+
+**Full Stack Engineer | React & Next.js Specialist | DevOps & Cloud (AWS) | AI & n8n Automation**
 
 [![Website](https://img.shields.io/badge/Website-uabidbinwaris.dev-blue?style=for-the-badge&logo=vercel)](https://uabidbinwaris.dev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/ubaidbinwaris)
@@ -35,7 +40,17 @@
 
 ## About the Project
 
-This is my personal portfolio website built with modern web technologies. It showcases my skills, experience, projects, and provides a way for potential clients and employers to connect with me. The site is designed with performance, SEO, and user experience in mind.
+A high-performance, SEO-optimized portfolio website built with the latest web technologies. This portfolio showcases my expertise in full-stack development, cloud architecture, DevOps practices, and modern web technologies. Designed with a focus on performance, accessibility, and user experience.
+
+**Key Highlights:**
+- Built with Next.js 15.3 + React 19.2 + Tailwind CSS 4
+- Turbopack-powered development for lightning-fast builds
+- Advanced animations with Framer Motion & GSAP
+- Integrated analytics (Microsoft Clarity + Google Analytics)
+- SEO-optimized with IndexNow real-time indexing
+- Progressive Web App (PWA) ready
+- WCAG 2.1 accessibility compliant
+- Deployed on Vercel with edge optimization
 
 **Live Site**: [https://uabidbinwaris.dev](https://uabidbinwaris.dev)
 
@@ -44,17 +59,19 @@ This is my personal portfolio website built with modern web technologies. It sho
 ## Tech Stack
 
 ### Core Technologies
-- **[Next.js 15.3+](https://nextjs.org/)** - React framework with App Router and Turbopack
-- **[React 19.2+](https://react.dev/)** - UI library
-- **[Tailwind CSS 4](https://tailwindcss.com/)** - Utility-first CSS framework
-- **JavaScript (ES6+)** - Programming language
+- **[Next.js 15.3+](https://nextjs.org/)** - React framework with App Router, Server Components, and Turbopack
+- **[React 19.2+](https://react.dev/)** - Latest React with concurrent features and improved server components
+- **[Tailwind CSS 4](https://tailwindcss.com/)** - Next-gen utility-first CSS framework with native CSS support
+- **JavaScript (ES6+)** - Modern JavaScript with latest ECMAScript features
+- **TypeScript Ready** - Type definitions and JSDoc for enhanced IDE support
 
 ### Animation & UI Libraries
-- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready animation library
-- **[GSAP](https://gsap.com/)** - Professional-grade animation platform
-- **[Lucide React](https://lucide.dev/)** - Beautiful & consistent icon toolkit
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
-- **[React Terminal](https://www.npmjs.com/package/react-terminal)** - Terminal component for React
+- **[Framer Motion](https://www.framer.com/motion/)** - Production-ready animation library with layout animations
+- **[GSAP](https://gsap.com/)** - Professional-grade animation platform for complex timelines
+- **[Lucide React](https://lucide.dev/)** - Beautiful & consistent icon toolkit (1000+ icons)
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library with multiple icon families
+- **[React Terminal](https://www.npmjs.com/package/react-terminal)** - Interactive terminal component
+- **Custom CSS Animations** - Hardware-accelerated custom animations
 
 ### Tools & Configuration
 - **ESLint** - Code linting with Next.js config
@@ -65,16 +82,24 @@ This is my personal portfolio website built with modern web technologies. It sho
 - **Vercel** - Deployment platform
 
 ### Analytics & Monitoring
-- **Microsoft Clarity** - User behavior analytics and heatmaps
-- **Google Analytics** - Traffic and conversion tracking
+- **[Microsoft Clarity](https://clarity.microsoft.com/)** - Advanced user behavior analytics with AI-powered insights
+  - Session recordings and heatmaps
+  - Clarity Copilot for AI-driven analysis
+  - Real-time user monitoring
+  - Free forever with unlimited recordings
+- **[Google Analytics 4](https://analytics.google.com/)** - Comprehensive traffic and conversion tracking
+- **Custom Event Tracking** - User interaction analytics
 
-### Features
-- **SEO Optimized** - Meta tags, Open Graph, structured data, IndexNow
-- **PWA Ready** - Service worker, manifest, offline support
-- **Responsive Design** - Mobile-first approach
-- **Performance Optimized** - Image optimization, lazy loading
-- **Analytics & Insights** - Microsoft Clarity + Google Analytics
-- **User Behavior Tracking** - Heatmaps, session recordings, user insights
+### Key Features
+- **SEO Optimized** - Comprehensive meta tags, Open Graph, Twitter Cards, structured data (JSON-LD), IndexNow real-time indexing
+- **PWA Ready** - Service worker with offline support, installable app, app manifest
+- **Fully Responsive** - Mobile-first design optimized for all devices and screen sizes
+- **Performance First** - Next.js Image optimization, lazy loading, code splitting, edge caching
+- **Advanced Analytics** - Microsoft Clarity with AI insights + Google Analytics 4
+- **User Behavior Tracking** - Heatmaps, session recordings, conversion funnels, user journey analysis
+- **Security Hardened** - CSP, HSTS, XSS protection, secure headers
+- **Accessibility** - WCAG 2.1 AA compliant, keyboard navigation, screen reader optimized
+- **Developer Experience** - Turbopack for 10x faster builds, hot reload, organized code structure
 
 ---
 
@@ -505,9 +530,9 @@ This portfolio implements **IndexNow** for real-time URL submission to search en
 ### What is IndexNow?
 
 IndexNow is a protocol that allows websites to instantly notify search engines about content changes (new, updated, or deleted pages) without waiting for crawlers. This results in:
--  **Faster indexing** - Your changes appear in search results quickly
--  **Reduced server load** - Less crawling needed
--  **Better control** - You decide what and when to submit
+- **Faster indexing** - Your changes appear in search results quickly
+- **Reduced server load** - Less crawling needed
+- **Better control** - You decide what and when to submit
 
 ### Implementation Details
 
@@ -601,12 +626,12 @@ public/
 
 ### Response Codes
 
-- **200 OK** - URLs submitted successfully ✅
-- **202 Accepted** - URLs received and will be processed ✅ (Most common success response)
-- **400 Bad Request** - Invalid format ❌
-- **403 Forbidden** - Invalid API key ❌
-- **422 Unprocessable Entity** - URLs don't match host ❌
-- **429 Too Many Requests** - Rate limited (potential spam) ❌
+- **200 OK** - URLs submitted successfully
+- **202 Accepted** - URLs received and will be processed (Most common success response)
+- **400 Bad Request** - Invalid format
+- **403 Forbidden** - Invalid API key
+- **422 Unprocessable Entity** - URLs don't match host
+- **429 Too Many Requests** - Rate limited (potential spam)
 
 > **Note:** Both 200 and 202 are success responses. IndexNow typically returns 202 to acknowledge receipt.
 
@@ -642,28 +667,85 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## Contact
 
-**Ubaid Bin Waris** - *Full Stack Developer*
+**Ubaid Bin Waris** - *Full Stack Engineer (Next.js) @Gixiai*
 
+**Specializing in:**
+- Full Stack Development (React, Next.js, Node.js)
+- DevOps & Cloud Architecture (AWS)
+- AI Integration & n8n Automation
+- SEO & Performance Optimization
+- Turning Ideas into Scalable Businesses
+
+**Let's Connect:**
 - Website: [uabidbinwaris.dev](https://uabidbinwaris.dev)
 - LinkedIn: [linkedin.com/in/ubaidbinwaris](https://linkedin.com/in/ubaidbinwaris)
 - GitHub: [@UbaidBinWaris](https://github.com/UbaidBinWaris)
 - Twitter: [@ubaidbinwaris](https://twitter.com/ubaidbinwaris)
+- Email: Available on website
+
+---
+
+## Tech Stack Summary
+
+<div align="center">
+
+| Category | Technologies |
+|----------|-------------|
+| **Frontend** | React 19.2, Next.js 15.3, Tailwind CSS 4, Framer Motion, GSAP |
+| **Build Tools** | Turbopack, PostCSS, ESLint, Next Sitemap |
+| **Analytics** | Microsoft Clarity, Google Analytics 4 |
+| **SEO** | IndexNow, Open Graph, JSON-LD, Sitemap |
+| **Deployment** | Vercel, Edge Functions, CDN |
+| **Performance** | Image Optimization, Code Splitting, Lazy Loading |
+| **PWA** | Service Worker, Web App Manifest, Offline Support |
+| **Icons** | Lucide React, React Icons |
+
+</div>
+
+---
+
+## Project Stats
+
+<div align="center">
+
+![GitHub stars](https://img.shields.io/github/stars/UbaidBinWaris/portfolio?style=social)
+![GitHub forks](https://img.shields.io/github/forks/UbaidBinWaris/portfolio?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/UbaidBinWaris/portfolio?style=social)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/UbaidBinWaris/portfolio)
+![GitHub language count](https://img.shields.io/github/languages/count/UbaidBinWaris/portfolio)
+![GitHub top language](https://img.shields.io/github/languages/top/UbaidBinWaris/portfolio)
+![GitHub last commit](https://img.shields.io/github/last-commit/UbaidBinWaris/portfolio)
+
+</div>
 
 ---
 
 ## Acknowledgments
 
-- [Next.js](https://nextjs.org/) - The React Framework
-- [Vercel](https://vercel.com/) - Deployment Platform
-- [Tailwind CSS](https://tailwindcss.com/) - CSS Framework
-- [React](https://react.dev/) - UI Library
+Special thanks to these amazing open-source projects:
+
+- [Next.js](https://nextjs.org/) - The React Framework for Production
+- [Vercel](https://vercel.com/) - Best-in-class Deployment Platform
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS Framework
+- [React](https://react.dev/) - JavaScript Library for Building User Interfaces
+- [Framer Motion](https://www.framer.com/motion/) - Animation Library for React
+- [GSAP](https://gsap.com/) - Professional-grade JavaScript Animation
+- [Microsoft Clarity](https://clarity.microsoft.com/) - Free User Behavior Analytics
+- [Lucide](https://lucide.dev/) - Beautiful & Consistent Icon Toolkit
 
 ---
 
 <div align="center">
 
-**If you find this project helpful, please give it a star!**
+### If you find this project helpful, please give it a star!
 
-Made with  by [Ubaid Bin Waris](https://uabidbinwaris.dev)
+**Built with passion by [Ubaid Bin Waris](https://uabidbinwaris.dev)**
+
+*Transforming ideas into scalable digital solutions*
+
+[![Portfolio](https://img.shields.io/badge/View-Portfolio-blue?style=for-the-badge)](https://uabidbinwaris.dev)
+[![LinkedIn](https://img.shields.io/badge/Connect-LinkedIn-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/ubaidbinwaris)
+[![Hire Me](https://img.shields.io/badge/Available_for-Hire-success?style=for-the-badge)](https://uabidbinwaris.dev)
 
 </div>
