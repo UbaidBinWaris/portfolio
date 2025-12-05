@@ -2,6 +2,16 @@
 const blogPosts = [
   {
     id: 1,
+    title: "Why 2025 Is the Year of React + Next.js: What Modern Businesses Need to Know",
+    slug: "why-2025-react-nextjs-modern-businesses",
+    excerpt: "Discover why React + Next.js has become the default choice for startups and enterprises, and how these technologies help companies build faster, smarter, and more profitable products.",
+    date: "2025-11-20",
+    author: "Ubaid Bin Waris",
+    tags: ["React", "Next.js", "Business", "Web Development", "Performance", "SEO"],
+    readTime: "8 min read"
+  },
+  {
+    id: 2,
     title: "Building Modern Web Applications with Next.js 15",
     slug: "building-modern-web-apps-nextjs-15",
     excerpt: "Explore the latest features of Next.js 15 and how they enhance web application development with improved performance and developer experience.",
@@ -11,7 +21,7 @@ const blogPosts = [
     readTime: "5 min read"
   },
   {
-    id: 2,
+    id: 3,
     title: "Full Stack Development Best Practices in 2025",
     slug: "fullstack-development-best-practices-2025",
     excerpt: "Learn the essential best practices for full stack development, including architecture patterns, code organization, and modern tooling.",
@@ -21,7 +31,7 @@ const blogPosts = [
     readTime: "7 min read"
   },
   {
-    id: 3,
+    id: 4,
     title: "Optimizing React Performance for Production",
     slug: "optimizing-react-performance",
     excerpt: "Deep dive into React performance optimization techniques including code splitting, lazy loading, and memoization strategies.",
