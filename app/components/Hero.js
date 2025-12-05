@@ -21,8 +21,9 @@ export const Hero = () => {
 
   return (
     <section 
+      id="home"
       className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white"
-      aria-label="Hero section"
+      aria-labelledby="hero-heading"
     >
       {/* Background video */}
       <video
@@ -34,10 +35,11 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
         poster="/og-image.jpg"
+        title="Background video showcasing web development"
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-opacity-50 z-10" />
+      <div className="absolute inset-0 bg-opacity-50 z-10" aria-hidden="true" />
 
       <div className="flex gap-16 flex-col md:flex-row justify-between px-10 items-center w-full h-full z-20">
         {/* <div className="flex h-1/2 flex-col justify-center items-center mt-20 md:items-start text-center md:text-left md:max-w-1/2"> */}
@@ -47,7 +49,7 @@ export const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <h1 className="text-2xl md:text-3xl lg:text-5xl font-bold  text-gray-600 text-center whitespace-nowrap" suppressHydrationWarning>
+            <h1 id="hero-heading" className="text-2xl md:text-3xl lg:text-5xl font-bold  text-gray-600 text-center whitespace-nowrap" suppressHydrationWarning>
               <span suppressHydrationWarning>&lt;h1&gt;</span>
               <span className="text-[clamp(1.5rem, 5vw, 4rem)] font-bold custom-pointer px-2 tracking-wide hover:text-white hover:cursor-pointer text-[#63B8B2]">
                 Ubaid Bin Waris
@@ -78,12 +80,13 @@ export const Hero = () => {
           <span className="w-[90%] md:w-[47%] text-end" suppressHydrationWarning>&lt;Image</span>
           <Image
             src="/me.jpeg"
-            alt="Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) - Full Stack Developer professional portrait"
+            alt="Ubaid Bin Waris - Professional Full Stack Developer specializing in React, Next.js, Node.js and MERN Stack development. Expert in building scalable web applications."
             width={450}
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
             priority
             loading="eager"
+            title="Ubaid Bin Waris - Full Stack Developer Portfolio"
           />
         </div>
       </div>

@@ -120,11 +120,11 @@ export default function Home() {
         "name": "Home",
         "item": siteUrl
       },
-      {
+        {
         "@type": "ListItem",
         "position": 2,
         "name": "Experience",
-        "item": `${siteUrl}#experiences`
+        "item": `${siteUrl}#experience`
       },
       {
         "@type": "ListItem",
@@ -225,7 +225,7 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteSchema, breadcrumbSchema, portfolioSchema]) }}
       />
-      <main id="home" className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
+      <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
         <div className="relative overflow-hidden w-full min-h-screen">
           <Navbar />
           <Hero />

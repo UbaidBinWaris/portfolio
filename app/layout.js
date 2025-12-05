@@ -24,7 +24,7 @@ export const metadata = {
   description:
     "Ubaid Bin Waris - Expert Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
   keywords: [
-    // Name variations for partial search
+    // Brand & Name variations
     "Ubaid Bin Waris",
     "ubaidbinwaris",
     "ubaid bin waris",
@@ -33,64 +33,86 @@ export const metadata = {
     "uabid bin waris",
     "UbaidBinWaris",
     "Ubaid Waris",
-    "Uabid Waris",
-    "Ubaid B Waris",
     "ubaid developer",
-    "uabid developer",
-    "waris developer",
     "ubaid portfolio",
-    "uabid portfolio",
     "uabidbinwaris.dev",
-    "bin waris",
-    // Job titles & expertise
+    
+    // Core Expertise
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
     "MERN Stack Developer",
-    "JavaScript Expert",
+    "JavaScript Developer",
     "TypeScript Developer",
     "Web Developer",
     "Frontend Developer",
     "Backend Developer",
-    "MongoDB Expert",
-    "Tailwind CSS Developer",
-    "Freelance Developer",
     "Software Engineer",
-    "Full Stack Engineer",
-    // Services & specialties
-    "Web Application Development",
-    "API Development",
-    "REST API Developer",
-    "Modern Web Development",
-    "Responsive Web Design",
-    "UI/UX Developer",
-    "Custom Web Solutions",
-    "SaaS Development",
-    "E-commerce Development",
-    "Progressive Web Apps",
-    "Single Page Applications",
-    // Location-based
-    "Pakistan Developer",
-    "Pakistani Full Stack Developer",
-    "Developer in Pakistan",
+    
+    // Services (High Intent)
+    "hire full stack developer",
+    "hire react developer",
+    "hire nextjs developer",
+    "professional web developer for hire",
+    "freelance full stack developer",
+    "freelance react developer",
+    "remote full stack developer for hire",
+    "full stack development services",
+    "react development services",
+    "nextjs development services",
+    
+    // Problem-Solving Keywords
+    "website performance optimization",
+    "website redesign services",
+    "custom web development",
+    "web application development",
+    "responsive web development",
+    "progressive web app development",
+    "API development services",
+    "REST API development",
+    
+    // Industry-Specific
+    "ecommerce website developer",
+    "saas development services",
+    "business website developer",
+    "startup web developer",
+    "fintech web developer",
+    "dashboard developer",
+    
+    // Technology Stack
+    "React Expert",
+    "Next.js Expert",
+    "Node.js Expert",
+    "MongoDB Developer",
+    "Tailwind CSS Developer",
+    "Express.js Developer",
+    "TypeScript Expert",
+    "Vercel Deployment Expert",
+    
+    // Location-Based
+    "Pakistan Full Stack Developer",
+    "Pakistani Web Developer",
     "Karachi Developer",
     "Remote Developer Pakistan",
-    // Technology stack
-    "React Native Developer",
-    "Express.js Developer",
-    "Database Design",
-    "Cloud Deployment",
-    "Vercel Deployment",
-    "AWS Developer",
-    "Git Expert",
-    "Docker Developer",
-    // Long-tail keywords
-    "hire full stack developer",
-    "best react developer pakistan",
-    "freelance next.js developer",
-    "mern stack expert",
-    "professional web developer portfolio",
+    "International Web Developer",
+    
+    // Competitive
+    "top full stack developer",
+    "best react developer",
+    "experienced nextjs developer",
+    "expert web developer",
+    "professional website builder",
+    
+    // Long-Tail (High Conversion)
+    "best full stack developer for startup",
+    "affordable web development services",
+    "fast website development",
+    "scalable web application development",
+    "modern web development solutions",
+    "mern stack developer with typescript",
+    "nextjs developer with tailwind css",
+    "web developer for small business",
   ],
   authors: [
     { name: "Ubaid Bin Waris", url: siteUrl },

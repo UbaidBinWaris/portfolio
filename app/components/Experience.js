@@ -218,10 +218,10 @@ export const Experience = () => {
   return (
     <section
       ref={sectionRef}
-      id="experiences"
+      id="experience"
       className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-center relative overflow-hidden"
       style={{ minHeight: '100vh' }}
-      aria-label="Professional experience and work history"
+      aria-labelledby="experience-heading"
     >
       {/* Animated Starfield Background - Only render on client */}
       {isMounted && (
@@ -298,6 +298,7 @@ export const Experience = () => {
         </div>
       )}
       <h2 
+        id="experience-heading"
         ref={headingRef}
         className="text-3xl font-bold text-[#63B8B2] m-5 will-change-transform"
         style={{ transformOrigin: "center center", position: "relative", width: "100%" }}

@@ -8,9 +8,9 @@ export const BlogSection = () => {
     <section 
       id="blog" 
       className="w-full bg-[#0A1930] py-16 px-8 flex flex-col items-center justify-center"
-      aria-label="Blog articles and technical writing"
+      aria-labelledby="blog-heading"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-[#63B8B2] mb-4">Latest Articles</h2>
+      <h2 id="blog-heading" className="text-3xl md:text-4xl font-bold text-[#63B8B2] mb-4">Latest Articles</h2>
       <p className="text-gray-400 mb-12 text-center max-w-2xl">
         Sharing insights about web development, best practices, and modern technologies
       </p>

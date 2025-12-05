@@ -85,9 +85,9 @@ const Contact = () => {
     <section 
       id="contact" 
       className="w-full bg-[#0A1930] py-16 px-8 flex flex-col items-center justify-center"
-      aria-label="Contact information and social media links"
+      aria-labelledby="contact-heading"
     >
-      <h2 className="text-3xl font-bold text-[#63B8B2] mb-8">Contact Me</h2>
+      <h2 id="contact-heading" className="text-3xl font-bold text-[#63B8B2] mb-8">Contact Me</h2>
 
       <nav aria-label="Social media and contact links">
         <div className="flex flex-wrap justify-center items-center gap-6">

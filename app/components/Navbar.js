@@ -26,14 +26,15 @@ export const Navbar = () => {
 
   const navLinks = [
     { href: "#home", label: "Home", index: 0 },
-    { href: "#experiences", label: "Experiences", index: 1 },
-    { href: "#projects", label: "Projects", index: 2 },
-    { href: "#about", label: "About", index: 3 },
+    { href: "#experience", label: "Experience", index: 1 },
+    { href: "#blog", label: "Blog", index: 2 },
+    { href: "#faq", label: "FAQ", index: 3 },
     { href: "#contact", label: "Contact", index: 4 },
   ];
 
   return (
     <nav
+      aria-label="Main navigation"
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? "bg-[#0A1930] shadow-xl" : "bg-transparent"
       }`}
