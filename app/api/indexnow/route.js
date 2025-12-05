@@ -1,19 +1,59 @@
 import { NextResponse } from 'next/server';
+import { checkRateLimit, getClientIdentifier } from '@/app/lib/rateLimit';
+import { validateUrlArray, sanitizeError, isAllowedOrigin } from '@/app/lib/validation';
 
 export async function POST(request) {
   try {
+    // Rate limiting
+    const clientId = getClientIdentifier(request);
+    const rateLimit = checkRateLimit(clientId, 'indexnow');
+
+    if (rateLimit.limited) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': String(Math.ceil((rateLimit.resetTime - Date.now()) / 1000)),
+          }
+        }
+      );
+    }
+
+    // CORS validation
+    const origin = request.headers.get('origin');
+    if (origin && !isAllowedOrigin(origin)) {
+      return NextResponse.json(
+        { error: 'CORS policy: Origin not allowed' },
+        { status: 403 }
+      );
+    }
+
+    // Authentication
+    const apiKey = request.headers.get('x-api-key');
+    const validApiKey = process.env.INTERNAL_API_KEY;
+    
+    if (validApiKey && apiKey !== validApiKey) {
+      return NextResponse.json(
+        { error: 'Unauthorized' },
+        { status: 401 }
+      );
+    }
+
     const { urls } = await request.json();
 
-    if (!urls || !Array.isArray(urls) || urls.length === 0) {
+    // Input validation
+    const validation = validateUrlArray(urls, 100);
+    if (!validation.valid) {
       return NextResponse.json(
-        { error: 'URLs array is required' },
+        { error: validation.error },
         { status: 400 }
       );
     }
 
     const host = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://uabidbinwaris.dev';
-    const key = '34010ce9592af026867e6c742c168f94';
-    const keyLocation = `${host}/34010ce9592af026867e6c742c168f94.txt`;
+    const key = process.env.INDEXNOW_API_KEY || '34010ce9592af026867e6c742c168f94';
+    const keyLocation = `${host}/${key}.txt`;
 
     // Submit to IndexNow
     const response = await fetch('https://api.indexnow.org/indexnow', {
@@ -40,12 +80,10 @@ export async function POST(request) {
         statusText: response.status === 202 ? 'Accepted' : 'OK',
       });
     } else {
-      const errorText = await response.text();
       return NextResponse.json(
         {
           success: false,
           error: 'Failed to submit to IndexNow',
-          details: errorText,
           statusCode: response.status,
         },
         { status: response.status }
@@ -53,8 +91,9 @@ export async function POST(request) {
     }
   } catch (error) {
     console.error('IndexNow submission error:', error);
+    const isDev = process.env.NODE_ENV === 'development';
     return NextResponse.json(
-      { error: 'Internal server error', details: error.message },
+      { error: sanitizeError(error, isDev) },
       { status: 500 }
     );
   }
@@ -62,8 +101,8 @@ export async function POST(request) {
 
 export async function GET() {
   return NextResponse.json({
-    message: 'IndexNow API endpoint',
+    message: 'IndexNow API endpoint - POST requests only',
     usage: 'POST request with { "urls": ["url1", "url2"] }',
-    key: '34010ce9592af026867e6c742c168f94',
+    authentication: 'API key required via x-api-key header',
   });
 }
