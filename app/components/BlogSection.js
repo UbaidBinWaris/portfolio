@@ -10,13 +10,14 @@ export const BlogSection = () => {
       className="w-full bg-[#0A1930] py-16 px-8 flex flex-col items-center justify-center"
       aria-labelledby="blog-heading"
     >
-      <h2 id="blog-heading" className="text-3xl md:text-4xl font-bold text-[#63B8B2] mb-4">Latest Articles</h2>
-      <p className="text-gray-400 mb-12 text-center max-w-2xl">
-        Sharing insights about web development, best practices, and modern technologies
-      </p>
+      <div className="w-full max-w-7xl">
+        <h2 id="blog-heading" className="text-3xl md:text-4xl font-bold text-[#63B8B2] mb-4 text-left">Latest Articles</h2>
+        <p className="text-gray-400 mb-12 text-left max-w-2xl">
+          Sharing insights about web development, best practices, and modern technologies
+        </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl">
-        {blogPosts.map((post, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full">
+          {blogPosts.map((post, index) => (
           <motion.article
             key={post.id}
             className="bg-[#112240] rounded-xl p-6 shadow-lg hover:shadow-[#63B8B2]/20 transition-all duration-300 hover:scale-105 flex flex-col"
@@ -65,6 +66,7 @@ export const BlogSection = () => {
             </button>
           </motion.article>
         ))}
+        </div>
       </div>
 
       <script

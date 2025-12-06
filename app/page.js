@@ -4,7 +4,7 @@ import { Navbar } from "./components/Navbar";
 import Experience from "./components/Experience";
 import BlogSection from "./components/BlogSection";
 import FAQSection from "./components/FAQSection";
-// import { ReviewSection } from "./components/ReviewSection";
+import { ReviewSection } from "./components/ReviewSection";
 import Contact from "./components/Contact";
 
 export const metadata = {
@@ -234,8 +234,8 @@ export default function Home() {
         <Experience />
         <BlogSection />
         <FAQSection />
+        <ReviewSection />
         <Contact />
-        {/* <ReviewSection /> */}
       </main>
     </>
   );
