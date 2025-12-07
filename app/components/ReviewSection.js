@@ -46,11 +46,6 @@ export const ReviewSection = () => {
   const [step, setStep] = useState("name"); // 'name' or 'message'
   const bottomRef = useRef(null);
 
-  // Auto-scroll to bottom
-  useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [reviews, step]);
-
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
