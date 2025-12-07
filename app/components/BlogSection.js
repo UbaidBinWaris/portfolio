@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import blogPosts from "@/app/data/blogPosts";
 import { motion } from "framer-motion";
 
@@ -57,13 +58,16 @@ export const BlogSection = () => {
               ))}
             </div>
 
-            <button 
-              className="mt-auto text-[#63B8B2] hover:text-white transition-colors font-medium flex items-center gap-2 group"
+            <Link 
+              href={post.url || `#`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-auto text-[#63B8B2] hover:text-white transition-colors font-medium flex items-center gap-2 group custom-pointer"
               aria-label={`Read article: ${post.title}`}
             >
               Read More 
               <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </button>
+            </Link>
           </motion.article>
         ))}
         </div>

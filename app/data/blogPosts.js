@@ -8,7 +8,8 @@ const blogPosts = [
     date: "2025-11-20",
     author: "Ubaid Bin Waris",
     tags: ["React", "Next.js", "Business", "Web Development", "Performance", "SEO"],
-    readTime: "8 min read"
+    readTime: "8 min read",
+    url: "https://www.linkedin.com/pulse/why-2025-year-react-nextjs-what-modern-businesses-need-bin-waris-3c3kf/"
   },
   {
     id: 2,
