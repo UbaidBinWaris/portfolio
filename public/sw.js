@@ -1,5 +1,5 @@
 // Service Worker for PWA functionality
-const CACHE_NAME = 'ubaid-portfolio-v2';
+const CACHE_NAME = 'ubaid-portfolio-v3';
 const ALLOWED_ORIGINS = ['https://uabidbinwaris.dev', 'https://www.uabidbinwaris.dev'];
 const urlsToCache = [
   '/',
@@ -47,8 +47,17 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Security: Only cache same-origin or allowed origins
   const requestUrl = new URL(event.request.url);
+  
+  // Skip service worker for Next.js chunks and build assets
+  if (requestUrl.pathname.includes('/_next/static/') || 
+      requestUrl.pathname.includes('/_next/') ||
+      requestUrl.pathname.includes('/vercel.live') ||
+      requestUrl.pathname.endsWith('.js') && requestUrl.pathname.includes('/chunks/')) {
+    return;
+  }
+
+  // Security: Only cache same-origin or allowed origins
   const isSameOrigin = requestUrl.origin === self.location.origin;
   const isAllowedOrigin = ALLOWED_ORIGINS.includes(requestUrl.origin);
 
