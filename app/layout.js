@@ -3,6 +3,7 @@ import "./globals.css";
 import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import ClarityAnalytics from "./components/ClarityAnalytics";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -255,6 +256,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
       >
+        <ScrollToTop />
         <ServiceWorkerRegistration />
         <ClarityAnalytics />
         {children}
