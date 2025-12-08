@@ -34,7 +34,7 @@ export const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
-        poster="/og-image.jpg"
+        preload="none"
         title="Background video showcasing web development"
       />
 
@@ -86,7 +86,7 @@ export const Hero = () => {
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
             priority
             loading="eager"
-            quality={85}
+            quality={60}
             sizes="(max-width: 768px) 300px, 450px"
             title="Ubaid Bin Waris - Full Stack Developer Portfolio"
           />
