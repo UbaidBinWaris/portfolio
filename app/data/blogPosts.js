@@ -40,6 +40,17 @@ const blogPosts = [
     author: "Ubaid Bin Waris",
     tags: ["React", "Performance", "Optimization"],
     readTime: "6 min read"
+  },
+  {
+    id: 5,
+    title: "The AWS Services You ACTUALLY Need (And The Ones Draining Your Budget)",
+    slug: "aws-services-you-actually-need-cost-optimization",
+    excerpt: "I audited 20+ startups and found they were overpaying on AWS by 40–60%. Here’s a breakdown of where startups waste money and the services they should use instead.",
+    date: "2025-12-09",
+    author: "Ubaid Bin Waris",
+    tags: ["AWS", "Cloud", "DevOps", "Cost Optimization", "SaaS"],
+    readTime: "8 min read",
+    url: "https://www.linkedin.com/posts/ubaidbinwaris_the-aws-services-you-actually-need-and-the-activity-7403884078317338624-fwNG?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUxv_EBkEv0Tf5I4Afuz2wGHt4fOwSEhH0"
   }
 ];
 
