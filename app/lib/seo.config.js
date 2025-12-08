@@ -197,43 +197,120 @@ export const defaultSEOConfig = {
   ],
 };
 
-// Structured Data Schemas
+// Structured Data Schemas - ENHANCED FOR DISAMBIGUATION
 export const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': `${siteUrl}#ubaidbinwaris-developer`,
   name: 'Ubaid Bin Waris',
-  alternateName: ['ubaidbinwaris', 'ubaid bin waris', 'ubaidbin', 'UbaidBinWaris', 'uabidbinwaris'],
+  givenName: 'Ubaid',
+  additionalName: 'Bin',
+  familyName: 'Waris',
+  alternateName: ['ubaidbinwaris', 'Ubaid Bin Waris', 'UbaidBinWaris', 'uabidbinwaris'],
   url: siteUrl,
-  image: `${siteUrl}/me.jpg`,
+  mainEntityOfPage: siteUrl,
+  image: {
+    '@type': 'ImageObject',
+    url: `${siteUrl}/me.jpg`,
+    caption: 'Ubaid Bin Waris - Full Stack Developer',
+  },
   sameAs: [
     'https://github.com/UbaidBinWaris',
+    'https://www.linkedin.com/in/ubaidbinwaris',
     'https://twitter.com/ubaidbinwaris',
-    'https://linkedin.com/in/ubaidbinwaris',
     'https://www.upwork.com/freelancers/~01d2f557e6c01a0296',
     'https://www.fiverr.com/ubaidwaris655',
+    'https://uabidbinwaris.dev',
   ],
-  jobTitle: 'Full Stack Developer',
+  jobTitle: ['Full Stack Developer', 'Full Stack Web Developer', 'MERN Stack Developer'],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Full Stack Developer',
+    occupationalCategory: {
+      '@type': 'CategoryCode',
+      codeValue: '15-1252.00',
+      inCodeSet: {
+        '@type': 'CategoryCodeSet',
+        name: 'O*Net-SOC',
+        url: 'https://www.onetonline.org/',
+      },
+    },
+    estimatedSalary: {
+      '@type': 'MonetaryAmountDistribution',
+      name: 'base',
+      currency: 'USD',
+    },
+    responsibilities: 'Developing and maintaining web applications using React, Next.js, Node.js, and MongoDB',
+    skills: 'React, Next.js, Node.js, MongoDB, JavaScript, TypeScript, Full Stack Development',
+  },
   worksFor: {
     '@type': 'Organization',
-    name: 'Freelance',
+    name: 'Self-Employed',
   },
-  description: 'Passionate Full Stack Developer specializing in React, Next.js, Node.js, and MongoDB',
+  description: 'Ubaid Bin Waris is a professional Full Stack Web Developer from Pakistan, specializing in React, Next.js, Node.js, and MongoDB. Expert in building scalable web applications and modern user interfaces.',
+  disambiguatingDescription: 'Software engineer and web developer, not to be confused with historical figures. Professional programmer specializing in modern JavaScript frameworks and full-stack development.',
   knowsAbout: [
-    'React',
-    'Next.js',
-    'Node.js',
-    'JavaScript',
-    'TypeScript',
-    'MongoDB',
+    'React Development',
+    'Next.js Framework',
+    'Node.js Backend Development',
+    'JavaScript Programming',
+    'TypeScript Development',
+    'MongoDB Database',
     'Tailwind CSS',
     'Web Development',
     'Full Stack Development',
+    'MERN Stack',
+    'Frontend Development',
+    'Backend Development',
+    'API Development',
+    'Web Application Development',
+  ],
+  knowsLanguage: [
+    {
+      '@type': 'Language',
+      name: 'English',
+    },
+    {
+      '@type': 'Language',
+      name: 'Urdu',
+    },
   ],
   email: 'ubaidwaris34@gmail.com',
+  nationality: {
+    '@type': 'Country',
+    name: 'Pakistan',
+  },
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'PK',
+    addressRegion: 'Sindh',
+    addressLocality: 'Karachi',
   },
+  birthPlace: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: 'Pakistan',
+    },
+  },
+  gender: 'Male',
+  award: ['Web Development Excellence', 'Full Stack Development Expertise'],
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Software Development Training',
+  },
+  identifier: [
+    {
+      '@type': 'PropertyValue',
+      propertyID: 'GitHub',
+      value: 'UbaidBinWaris',
+    },
+    {
+      '@type': 'PropertyValue',
+      propertyID: 'LinkedIn',
+      value: 'ubaidbinwaris',
+    },
+  ],
 };
 
 export const websiteSchema = {

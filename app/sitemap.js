@@ -9,7 +9,7 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    // Add static pages if you have them
+    // Add more pages as you create them
     // {
     //   url: `${siteUrl}/blog`,
     //   lastModified: currentDate,

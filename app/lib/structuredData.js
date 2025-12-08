@@ -194,7 +194,34 @@ export const skillsSchema = {
   ]
 };
 
-// Blog Posting Schema for individual blog posts
+// Author Schema - CRITICAL FOR DISAMBIGUATION
+export const authorSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${siteUrl}#ubaidbinwaris-developer`,
+  "name": "Ubaid Bin Waris",
+  "givenName": "Ubaid",
+  "familyName": "Waris",
+  "url": siteUrl,
+  "image": `${siteUrl}/me.jpg`,
+  "jobTitle": "Full Stack Web Developer",
+  "description": "Ubaid Bin Waris is a professional Full Stack Web Developer from Pakistan, specializing in React, Next.js, Node.js, and MongoDB.",
+  "disambiguatingDescription": "Software engineer and web developer from Pakistan, not to be confused with historical figures. Professional programmer specializing in modern JavaScript frameworks.",
+  "sameAs": [
+    "https://github.com/UbaidBinWaris",
+    "https://www.linkedin.com/in/ubaidbinwaris",
+    "https://twitter.com/ubaidbinwaris",
+    "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
+    "https://www.fiverr.com/ubaidwaris655",
+  ],
+  "knowsAbout": ["React", "Next.js", "Node.js", "MongoDB", "Full Stack Development", "Web Development"],
+  "nationality": {
+    "@type": "Country",
+    "name": "Pakistan"
+  }
+};
+
+// Blog Posting Schema for individual blog posts - ENHANCED WITH AUTHOR
 export const createBlogPostingSchema = (post) => ({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
@@ -205,15 +232,27 @@ export const createBlogPostingSchema = (post) => ({
   "dateModified": post.date,
   "author": {
     "@type": "Person",
-    "name": post.author || "Ubaid Bin Waris",
-    "url": siteUrl
+    "@id": `${siteUrl}#ubaidbinwaris-developer`,
+    "name": "Ubaid Bin Waris",
+    "givenName": "Ubaid",
+    "familyName": "Waris",
+    "url": siteUrl,
+    "image": `${siteUrl}/me.jpg`,
+    "jobTitle": "Full Stack Web Developer",
+    "description": "Professional Full Stack Web Developer from Pakistan",
+    "sameAs": [
+      "https://github.com/UbaidBinWaris",
+      "https://www.linkedin.com/in/ubaidbinwaris",
+    ]
   },
   "publisher": {
     "@type": "Person",
+    "@id": `${siteUrl}#ubaidbinwaris-developer`,
     "name": "Ubaid Bin Waris",
     "logo": {
       "@type": "ImageObject",
-      "url": `${siteUrl}/me.jpg`
+      "url": `${siteUrl}/me.jpg`,
+      "caption": "Ubaid Bin Waris - Full Stack Developer"
     }
   },
   "mainEntityOfPage": {
@@ -222,7 +261,12 @@ export const createBlogPostingSchema = (post) => ({
   },
   "keywords": post.tags?.join(", ") || "",
   "articleSection": "Technology",
-  "inLanguage": "en-US"
+  "inLanguage": "en-US",
+  "copyrightHolder": {
+    "@type": "Person",
+    "name": "Ubaid Bin Waris"
+  },
+  "copyrightYear": new Date().getFullYear()
 });
 
 // Review/Testimonial Schema
@@ -313,6 +357,7 @@ export const portfolioSchema = {
 };
 
 export default {
+  authorSchema,
   faqSchema,
   serviceSchema,
   skillsSchema,

@@ -8,8 +8,8 @@ import { ReviewSection } from "./components/ReviewSection";
 import Contact from "./components/Contact";
 
 export const metadata = {
-  title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js Expert",
-  description: "Ubaid Bin Waris - Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Hire now.",
+  title: "Ubaid Bin Waris - Full Stack Web Developer | React, Next.js & Node.js Expert from Pakistan",
+  description: "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
   keywords: [
     "Ubaid Bin Waris", 
     "ubaidbinwaris", 
