@@ -2,6 +2,7 @@ import { Geist, Geist_Mono, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import ClarityAnalytics from "./components/ClarityAnalytics";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -303,6 +304,7 @@ export default function RootLayout({ children }) {
         <ScrollToTop />
         <ServiceWorkerRegistration />
         <ClarityAnalytics />
+        <GoogleAnalytics />
         {children}
         <Footer />
       </body>
