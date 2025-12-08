@@ -273,7 +273,9 @@ export default function RootLayout({ children }) {
         
         {/* Resource hints for performance */}
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
+        <link rel="dns-prefetch" href="https://c.clarity.ms" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Social Profile Links for SEO - Helps search engines verify your identity across platforms */}

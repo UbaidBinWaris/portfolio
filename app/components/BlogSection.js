@@ -28,7 +28,7 @@ export const BlogSection = () => {
             transition={{ delay: index * 0.1 }}
           >
             <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
-              <time dateTime={post.date}>
+              <time dateTime={post.date} suppressHydrationWarning>
                 {new Date(post.date).toLocaleDateString('en-US', { 
                   year: 'numeric', 
                   month: 'long', 
