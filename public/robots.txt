@@ -3,24 +3,28 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /bgvideo.mp4
 
 # Googlebot
 User-agent: Googlebot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /bgvideo.mp4
 
 # Bingbot
 User-agent: Bingbot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /bgvideo.mp4
 
 # msnbot
 User-agent: msnbot
 Allow: /
 Disallow: /api/
 Disallow: /admin/
+Disallow: /bgvideo.mp4
 
 # Host
 Host: https://uabidbinwaris.dev

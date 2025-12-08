@@ -25,7 +25,7 @@ export const Hero = () => {
       className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white"
       aria-labelledby="hero-heading"
     >
-      {/* Background video */}
+      {/* Background video - Decorative only, not for indexing */}
       <video
         src="/bgvideo.mp4"
         autoPlay
@@ -35,7 +35,7 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
         preload="none"
-        title="Background video showcasing web development"
+        data-noindex="true"
       />
 
       {/* Overlay */}
