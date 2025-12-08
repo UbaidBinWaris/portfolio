@@ -5,6 +5,7 @@ import ClarityAnalytics from "./components/ClarityAnalytics";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
+import { aggregateSchemas } from "./lib/seo.config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -263,8 +264,6 @@ export default function RootLayout({ children }) {
     }
   };
 
-  const jsonLd = [personSchema, websiteSchema, profileSchema];
-
   return (
     <html lang="en">
       <head>
@@ -293,9 +292,11 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        
+        {/* Enhanced Structured Data (JSON-LD) for better SEO */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateSchemas) }}
         />
       </head>
       <body
