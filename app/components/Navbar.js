@@ -138,6 +138,9 @@ export const Navbar = () => {
               height={300}
               alt="Ubaid Bin Waris"
               className="w-[60vw] max-w-[200px] aspect-square rounded-full border-2 border-[#63B8B2] object-cover"
+              quality={80}
+              sizes="200px"
+              loading="lazy"
             />
           </div>
 

@@ -7,6 +7,7 @@ export function middleware(request) {
   response.headers.set('X-Content-Type-Options', 'nosniff');
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');
   response.headers.set('X-XSS-Protection', '1; mode=block');
+  response.headers.set('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
   
   // Prevent caching of API responses
   if (request.nextUrl.pathname.startsWith('/api/')) {

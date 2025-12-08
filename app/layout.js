@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
 import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import ClarityAnalytics from "./components/ClarityAnalytics";
@@ -10,6 +10,7 @@ const geistSans = Geist({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
 });
 
 const geistMono = Geist_Mono({
@@ -17,6 +18,16 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
   display: "swap",
   preload: true,
+  adjustFontFallback: true,
+});
+
+const sourceCodePro = Source_Code_Pro({
+  variable: "--font-source-code-pro",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
@@ -192,7 +203,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
   
-  const jsonLd = {
+  const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ubaid Bin Waris",
@@ -202,7 +213,9 @@ export default function RootLayout({ children }) {
     "sameAs": [
       "https://github.com/UbaidBinWaris",
       "https://twitter.com/ubaidbinwaris",
-      "https://linkedin.com/in/ubaidbinwaris"
+      "https://linkedin.com/in/ubaidbinwaris",
+      "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
+      "https://www.fiverr.com/ubaidwaris655"
     ],
     "jobTitle": "Full Stack Developer",
     "worksFor": {
@@ -211,21 +224,45 @@ export default function RootLayout({ children }) {
     },
     "description": "Passionate Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, and MongoDB",
     "knowsAbout": [
-      "React",
-      "Next.js",
-      "Node.js",
-      "JavaScript",
-      "TypeScript",
-      "MongoDB",
-      "Tailwind CSS",
-      "Web Development",
-      "Full Stack Development"
+      "React", "Next.js", "Node.js", "JavaScript", "TypeScript",
+      "MongoDB", "Tailwind CSS", "Web Development", "Full Stack Development"
     ],
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Your University/College Name"
+    "email": "ubaidwaris34@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PK"
     }
   };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Ubaid Bin Waris | Full Stack Developer",
+    "url": siteUrl,
+    "description": "Professional Full Stack Developer portfolio showcasing React, Next.js, Node.js projects and services",
+    "author": {
+      "@type": "Person",
+      "name": "Ubaid Bin Waris"
+    },
+    "inLanguage": "en-US"
+  };
+
+  const profileSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": personSchema,
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl
+      }]
+    }
+  };
+
+  const jsonLd = [personSchema, websiteSchema, profileSchema];
 
   return (
     <html lang="en">
@@ -233,6 +270,11 @@ export default function RootLayout({ children }) {
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
         <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
         <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
+        
+        {/* Resource hints for performance */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Social Profile Links for SEO - Helps search engines verify your identity across platforms */}
         <link rel="me" href="https://github.com/UbaidBinWaris" />
@@ -254,7 +296,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sourceCodePro.variable} antialiased scroll-smooth`}
       >
         <ScrollToTop />
         <ServiceWorkerRegistration />

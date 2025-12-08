@@ -86,6 +86,8 @@ export const Hero = () => {
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
             priority
             loading="eager"
+            quality={85}
+            sizes="(max-width: 768px) 300px, 450px"
             title="Ubaid Bin Waris - Full Stack Developer Portfolio"
           />
         </div>
