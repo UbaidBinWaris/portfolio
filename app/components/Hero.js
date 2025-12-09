@@ -27,7 +27,7 @@ export const Hero = () => {
     >
       {/* Background video - Decorative only, not for indexing */}
       <video
-        src="/bgvideo.mp4"
+        src="/hero-background.mp4"
         autoPlay
         loop
         muted
