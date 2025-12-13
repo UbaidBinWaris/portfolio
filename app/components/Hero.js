@@ -34,8 +34,10 @@ export const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover -z-10"
         aria-hidden="true"
+        role="presentation"
+        tabIndex="-1"
         preload="none"
-        data-noindex="true"
+        data-nosnippet="true"
       />
 
       {/* Overlay */}
@@ -80,7 +82,7 @@ export const Hero = () => {
           <span className="w-[90%] md:w-[47%] text-end text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;Image</span>
           <Image
             src="/me.jpeg"
-            alt="Ubaid Bin Waris - Professional Full Stack Developer specializing in React, Next.js, Node.js and MERN Stack development. Expert in building scalable web applications."
+            alt="Ubaid Bin Waris - Full Stack Developer"
             width={450}
             height={300}
             className="w-full max-w-[300px] md:max-w-[450px] border-white shadow-lg object-cover"
@@ -88,7 +90,7 @@ export const Hero = () => {
             fetchPriority="high"
             quality={60}
             sizes="(max-width: 768px) 300px, 450px"
-            title="Ubaid Bin Waris - Full Stack Developer Portfolio"
+            title="Ubaid Bin Waris - Full Stack Developer"
           />
         </div>
       </div>

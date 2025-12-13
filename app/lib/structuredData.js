@@ -200,21 +200,20 @@ export const authorSchema = {
   "@type": "Person",
   "@id": `${siteUrl}#ubaidbinwaris-developer`,
   "name": "Ubaid Bin Waris",
-  "givenName": "Ubaid",
-  "familyName": "Waris",
+  "jobTitle": "Full Stack Developer",
   "url": siteUrl,
   "image": `${siteUrl}/me.jpg`,
-  "jobTitle": "Full Stack Web Developer",
-  "description": "Ubaid Bin Waris is a professional Full Stack Web Developer from Pakistan, specializing in React, Next.js, Node.js, and MongoDB.",
-  "disambiguatingDescription": "Software engineer and web developer from Pakistan, not to be confused with historical figures. Professional programmer specializing in modern JavaScript frameworks.",
   "sameAs": [
     "https://github.com/UbaidBinWaris",
     "https://www.linkedin.com/in/ubaidbinwaris",
-    "https://twitter.com/ubaidbinwaris",
-    "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
-    "https://www.fiverr.com/ubaidwaris655",
+    "https://www.upwork.com/freelancers/~01d2f557e6c01a0296"
   ],
-  "knowsAbout": ["React", "Next.js", "Node.js", "MongoDB", "Full Stack Development", "Web Development"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Islamabad",
+    "addressCountry": "PK"
+  },
+  "knowsAbout": ["Full Stack Development", "React", "Next.js", "Node.js", "MongoDB"],
   "nationality": {
     "@type": "Country",
     "name": "Pakistan"

@@ -42,58 +42,14 @@ export const defaultSEOConfig = {
     {
       name: 'keywords',
       content: [
-        // Brand & Name variations
         'Ubaid Bin Waris',
-        'ubaidbinwaris',
-        'ubaid bin waris',
-        'ubaidbin',
-        'uabidbinwaris',
-        'uabid bin waris',
-        'UbaidBinWaris',
-        'Ubaid Waris',
-        'ubaid developer',
-        'ubaid portfolio',
-        'uabidbinwaris.dev',
-        
-        // Core Expertise
         'Full Stack Developer',
         'React Developer',
         'Next.js Developer',
         'Node.js Developer',
-        'MERN Stack Developer',
-        'JavaScript Developer',
-        'TypeScript Developer',
-        'Web Developer',
-        'Frontend Developer',
-        'Backend Developer',
-        
-        // Services (High Intent)
-        'hire full stack developer',
-        'hire react developer',
-        'hire nextjs developer',
-        'professional web developer for hire',
-        'freelance full stack developer',
-        'remote full stack developer for hire',
-        'full stack development services',
-        
-        // Problem-Solving Keywords
-        'website performance optimization',
-        'custom web development',
-        'web application development',
-        'responsive web development',
-        'progressive web app development',
-        
-        // Technology Stack
-        'React Expert',
-        'Next.js Expert',
-        'Node.js Expert',
-        'MongoDB Developer',
-        'Tailwind CSS Developer',
-        
-        // Location-Based
-        'Pakistan Full Stack Developer',
-        'Pakistani Web Developer',
-        'Remote Developer Pakistan',
+        'MERN Stack',
+        'Web Development',
+        'Software Engineer'
       ].join(', '),
     },
     {

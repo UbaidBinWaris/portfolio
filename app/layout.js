@@ -43,95 +43,14 @@ export const metadata = {
   description:
     "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
   keywords: [
-    // Brand & Name variations
     "Ubaid Bin Waris",
-    "ubaidbinwaris",
-    "ubaid bin waris",
-    "ubaidbin",
-    "uabidbinwaris",
-    "uabid bin waris",
-    "UbaidBinWaris",
-    "Ubaid Waris",
-    "ubaid developer",
-    "ubaid portfolio",
-    "uabidbinwaris.dev",
-    
-    // Core Expertise
     "Full Stack Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
-    "MERN Stack Developer",
-    "JavaScript Developer",
-    "TypeScript Developer",
-    "Web Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "Software Engineer",
-    
-    // Services (High Intent)
-    "hire full stack developer",
-    "hire react developer",
-    "hire nextjs developer",
-    "professional web developer for hire",
-    "freelance full stack developer",
-    "freelance react developer",
-    "remote full stack developer for hire",
-    "full stack development services",
-    "react development services",
-    "nextjs development services",
-    
-    // Problem-Solving Keywords
-    "website performance optimization",
-    "website redesign services",
-    "custom web development",
-    "web application development",
-    "responsive web development",
-    "progressive web app development",
-    "API development services",
-    "REST API development",
-    
-    // Industry-Specific
-    "ecommerce website developer",
-    "saas development services",
-    "business website developer",
-    "startup web developer",
-    "fintech web developer",
-    "dashboard developer",
-    
-    // Technology Stack
-    "React Expert",
-    "Next.js Expert",
-    "Node.js Expert",
-    "MongoDB Developer",
-    "Tailwind CSS Developer",
-    "Express.js Developer",
-    "TypeScript Expert",
-    "Vercel Deployment Expert",
-    
-    // Location-Based
-    "Pakistan Full Stack Developer",
-    "Pakistani Web Developer",
-    "Karachi Developer",
-    "Remote Developer Pakistan",
-    "International Web Developer",
-    
-    // Competitive
-    "top full stack developer",
-    "best react developer",
-    "experienced nextjs developer",
-    "expert web developer",
-    "professional website builder",
-    
-    // Long-Tail (High Conversion)
-    "best full stack developer for startup",
-    "affordable web development services",
-    "fast website development",
-    "scalable web application development",
-    "modern web development solutions",
-    "mern stack developer with typescript",
-    "nextjs developer with tailwind css",
-    "web developer for small business",
+    "MERN Stack",
+    "Web Development",
+    "Software Engineer"
   ],
   authors: [
     { name: "Ubaid Bin Waris", url: siteUrl },
