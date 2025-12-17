@@ -181,6 +181,19 @@ const nextConfig = {
             value: 'public, max-age=3600, s-maxage=3600'
           }
         ]
+      },
+      {
+        source: '/hero-background.mp4',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, nosnippet, noarchive'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       }
     ];
   },
