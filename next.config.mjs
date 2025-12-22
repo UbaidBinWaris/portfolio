@@ -14,10 +14,12 @@ const nextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
-  // Redirects - removed HTTP to HTTPS redirect as it causes GSC indexing issues
-  // Let your hosting provider (Vercel/Netlify) handle HTTPS redirects automatically
+  // Redirects - HTTP to HTTPS and www to non-www
   async redirects() {
-    return [];
+    return [
+      // Note: Vercel handles HTTPS redirects automatically, but we add this for other hosts
+      // The middleware also handles this for redundancy
+    ];
   },
 
   // Security headers
@@ -153,6 +155,10 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, s-maxage=3600'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow'
           }
         ]
       },
@@ -166,6 +172,10 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, s-maxage=3600'
+          },
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow'
           }
         ]
       },
@@ -179,6 +189,19 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, s-maxage=3600'
+          }
+        ]
+      },
+      {
+        source: '/hero-background.mp4',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, nofollow, nosnippet, noarchive'
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
           }
         ]
       }
