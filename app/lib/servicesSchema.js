@@ -59,7 +59,7 @@ export const reactDevService = {
     priceSpecification: {
       "@type": "PriceSpecification",
       priceCurrency: "USD",
-      price: "Starting from $400",
+      minPrice: 400
     },
   },
 };
@@ -83,7 +83,7 @@ export const nextjsDevService = {
     priceSpecification: {
       "@type": "PriceSpecification",
       priceCurrency: "USD",
-      price: "Starting from $600",
+      minPrice: 600
     },
   },
 };
@@ -131,7 +131,7 @@ export const apiDevService = {
     priceSpecification: {
       "@type": "PriceSpecification",
       priceCurrency: "USD",
-      price: "Starting from $300",
+      minPrice: 300
     },
   },
 };
@@ -155,7 +155,7 @@ export const databaseDesignService = {
     priceSpecification: {
       "@type": "PriceSpecification",
       priceCurrency: "USD",
-      price: "Starting from $250",
+      minPrice: 250
     },
   },
 };
@@ -179,7 +179,7 @@ export const cloudDeploymentService = {
     priceSpecification: {
       "@type": "PriceSpecification",
       priceCurrency: "USD",
-      price: "Starting from $200",
+      minPrice: 200
     },
   },
 };
