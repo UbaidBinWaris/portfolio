@@ -6,10 +6,14 @@ import BlogSection from "./components/BlogSection";
 import FAQSection from "./components/FAQSection";
 import { ReviewSection } from "./components/ReviewSection";
 import Contact from "./components/Contact";
+import Services from "./components/Services";
+import About from "./components/About";
 
 export const metadata = {
-  title: "Ubaid Bin Waris - Full Stack Web Developer | React, Next.js & Node.js Expert from Pakistan",
-  description: "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
+  title:
+    "Ubaid Bin Waris - Full Stack Web Developer | React, Next.js & Node.js Expert from Pakistan",
+  description:
+    "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
   keywords: [
     "Ubaid Bin Waris",
     "Full Stack Developer",
@@ -17,10 +21,10 @@ export const metadata = {
     "Next.js",
     "Node.js",
     "MongoDB",
-    "Portfolio"
+    "Portfolio",
   ],
   alternates: {
-    canonical: 'https://uabidbinwaris.dev',
+    canonical: "https://uabidbinwaris.dev",
   },
   robots: {
     index: true,
@@ -28,18 +32,19 @@ export const metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': 0,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      "max-video-preview": 0,
+      "max-image-preview": "large",
+      "max-snippet": -1,
     },
   },
   other: {
-    'bingbot': 'index, follow',
-    'msnbot': 'index, follow',
+    bingbot: "index, follow",
+    msnbot: "index, follow",
   },
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
-    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+    description:
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
     url: "https://uabidbinwaris.dev",
     type: "website",
     images: [
@@ -54,103 +59,112 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
-    description: "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+    description:
+      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
     images: ["https://uabidbinwaris.dev/og-image.jpg"],
   },
 };
 
 export default function Home() {
-  const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
-  
+  const siteUrl =
+    process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "Ubaid Bin Waris Portfolio",
-    "alternateName": ["ubaidbinwaris", "uabidbinwaris", "uabidbinwaris.dev"],
-    "url": siteUrl,
-    "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, uabidbinwaris, ubaid bin waris, ubaidbin) at uabidbinwaris.dev - Full Stack Developer specializing in React, Next.js, and MERN Stack",
-    "author": {
+    name: "Ubaid Bin Waris Portfolio",
+    alternateName: ["ubaidbinwaris", "uabidbinwaris", "uabidbinwaris.dev"],
+    url: siteUrl,
+    description:
+      "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, uabidbinwaris, ubaid bin waris, ubaidbin) at uabidbinwaris.dev - Full Stack Developer specializing in React, Next.js, and MERN Stack",
+    author: {
       "@type": "Person",
-      "name": "Ubaid Bin Waris",
-      "alternateName": ["ubaidbinwaris", "uabidbinwaris", "ubaid bin waris", "uabid bin waris", "ubaidbin", "UbaidBinWaris"],
-      "jobTitle": "Full Stack Developer",
-      "url": siteUrl,
-      "identifier": "uabidbinwaris.dev"
+      name: "Ubaid Bin Waris",
+      alternateName: [
+        "ubaidbinwaris",
+        "uabidbinwaris",
+        "ubaid bin waris",
+        "uabid bin waris",
+        "ubaidbin",
+        "UbaidBinWaris",
+      ],
+      jobTitle: "Full Stack Developer",
+      url: siteUrl,
+      identifier: "uabidbinwaris.dev",
     },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": `${siteUrl}/?q={search_term_string}`
-      },
-      "query-input": "required name=search_term_string"
-    }
+    inLanguage: "en-US",
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": siteUrl
-      },
-        {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Experience",
-        "item": `${siteUrl}#experience`
+        position: 1,
+        name: "Home",
+        item: siteUrl,
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "Blog",
-        "item": `${siteUrl}#blog`
+        position: 2,
+        name: "Experience",
+        item: `${siteUrl}#experience`,
       },
       {
         "@type": "ListItem",
-        "position": 4,
-        "name": "Contact",
-        "item": `${siteUrl}#contact`
-      }
-    ]
+        position: 3,
+        name: "Blog",
+        item: `${siteUrl}#blog`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: "Contact",
+        item: `${siteUrl}#contact`,
+      },
+    ],
   };
 
   const portfolioSchema = {
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "dateCreated": "2025-11-17T00:00:00+00:00",
-    "dateModified": new Date().toISOString(),
-    "mainEntity": {
+    dateCreated: "2025-11-17T00:00:00+00:00",
+    dateModified: new Date().toISOString(),
+    mainEntity: {
       "@type": "Person",
       "@id": `${siteUrl}#ubaidbinwaris`,
-      "name": "Ubaid Bin Waris",
-      "alternateName": [
-        "ubaidbinwaris", 
-        "ubaid bin waris", 
+      name: "Ubaid Bin Waris",
+      alternateName: [
+        "ubaidbinwaris",
+        "ubaid bin waris",
         "ubaidbin",
         "uabidbinwaris",
-        "uabid bin waris", 
-        "UbaidBinWaris", 
+        "uabid bin waris",
+        "UbaidBinWaris",
         "Ubaid Waris",
         "Uabid Waris",
         "Ubaid B Waris",
         "ubaid developer",
         "uabid developer",
         "waris developer",
-        "uabidbinwaris.dev"
+        "uabidbinwaris.dev",
       ],
-      "jobTitle": ["Full Stack Developer", "MERN Stack Developer", "React Developer", "Next.js Developer"],
-      "description": "Professional Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, MongoDB, and modern web technologies. Expert in building scalable web applications.",
-      "url": siteUrl,
-      "image": `${siteUrl}/me.jpg`,
-      "worksFor": {
+      jobTitle: [
+        "Full Stack Developer",
+        "MERN Stack Developer",
+        "React Developer",
+        "Next.js Developer",
+      ],
+      description:
+        "Professional Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, MongoDB, and modern web technologies. Expert in building scalable web applications.",
+      url: siteUrl,
+      image: `${siteUrl}/me.jpg`,
+      worksFor: {
         "@type": "Organization",
-        "name": "Freelance"
+        name: "Freelance",
       },
-      "knowsAbout": [
+      knowsAbout: [
         "React.js",
         "Next.js",
         "Node.js",
@@ -167,22 +181,22 @@ export default function Home() {
         "Backend Development",
         "Database Design",
         "Responsive Web Design",
-        "UI/UX Development"
+        "UI/UX Development",
       ],
-      "knowsLanguage": ["English", "Urdu"],
-      "sameAs": [
+      knowsLanguage: ["English", "Urdu"],
+      sameAs: [
         "https://github.com/UbaidBinWaris",
         "https://twitter.com/ubaidbinwaris",
-        "https://linkedin.com/in/ubaidbinwaris"
+        "https://linkedin.com/in/ubaidbinwaris",
       ],
-      "hasOccupation": {
+      hasOccupation: {
         "@type": "Occupation",
-        "name": "Full Stack Developer",
-        "occupationLocation": {
+        name: "Full Stack Developer",
+        occupationLocation: {
           "@type": "Country",
-          "name": "Pakistan"
+          name: "Pakistan",
         },
-        "skills": [
+        skills: [
           "React Development",
           "Next.js Development",
           "Node.js Development",
@@ -190,17 +204,23 @@ export default function Home() {
           "MERN Stack",
           "JavaScript/TypeScript",
           "API Development",
-          "Web Application Development"
-        ]
-      }
-    }
+          "Web Application Development",
+        ],
+      },
+    },
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([websiteSchema, breadcrumbSchema, portfolioSchema]) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([
+            websiteSchema,
+            breadcrumbSchema,
+            portfolioSchema,
+          ]),
+        }}
       />
       <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
         <div className="relative overflow-hidden w-full min-h-screen">
@@ -208,6 +228,8 @@ export default function Home() {
           <Hero />
           <div className="absolute bottom-0 w-full bg-gradient-to-t h-screen from-[#0A1930] to-transparent"></div>
         </div>
+        <About />
+        <Services />
         <Experience />
         <BlogSection />
         <FAQSection />

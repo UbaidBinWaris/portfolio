@@ -20,7 +20,7 @@ export const Hero = () => {
   };
 
   return (
-    <section 
+    <section
       id="home"
       className="relative min-h-screen sm:h-screen w-full flex overflow-hidden text-white"
       aria-labelledby="hero-heading"
@@ -37,6 +37,7 @@ export const Hero = () => {
         role="presentation"
         tabIndex="-1"
         preload="none"
+        loading="lazy"
         data-nosnippet="true"
       />
 
@@ -51,12 +52,30 @@ export const Hero = () => {
             initial="hidden"
             animate="visible"
           >
-            <h1 id="hero-heading" className="text-2xl md:text-3xl lg:text-5xl font-bold text-center whitespace-nowrap" suppressHydrationWarning>
-              <span className="text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;h1&gt;</span>
+            <h1
+              id="hero-heading"
+              className="text-2xl md:text-3xl lg:text-5xl font-bold text-center whitespace-nowrap"
+              suppressHydrationWarning
+            >
+              <span
+                className="text-gray-600"
+                role="presentation"
+                aria-hidden="true"
+                suppressHydrationWarning
+              >
+                &lt;h1&gt;
+              </span>
               <span className="text-[clamp(1.5rem, 5vw, 4rem)] font-bold custom-pointer px-2 tracking-wide hover:text-white hover:cursor-pointer text-[#63B8B2]">
                 Ubaid Bin Waris
               </span>
-              <span className="text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;/h1&gt;</span>
+              <span
+                className="text-gray-600"
+                role="presentation"
+                aria-hidden="true"
+                suppressHydrationWarning
+              >
+                &lt;/h1&gt;
+              </span>
             </h1>
           </motion.div>
 
@@ -66,20 +85,44 @@ export const Hero = () => {
             animate="visible"
             transition={{ delay: 0.3 }} // Slight delay for staggered effect
           >
-            <p className="text-lg flex flex-col gap-4 md:text-xl px-4 mt-6 text-justify max-w-2xl" suppressHydrationWarning>
-              <span className="text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;p&gt;</span>
+            <p
+              className="text-lg flex flex-col gap-4 md:text-xl px-4 mt-6 text-justify max-w-2xl"
+              suppressHydrationWarning
+            >
+              <span
+                className="text-gray-600"
+                role="presentation"
+                aria-hidden="true"
+                suppressHydrationWarning
+              >
+                &lt;p&gt;
+              </span>
               <span className="text-gray-100">
                 Full Stack Developer dedicated to performance, responsive
                 design, and seamless user experiences, with expertise in RESTful
                 APIs and scalable web architecture.
               </span>
-              <span className="text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;/p&gt;</span>
+              <span
+                className="text-gray-600"
+                role="presentation"
+                aria-hidden="true"
+                suppressHydrationWarning
+              >
+                &lt;/p&gt;
+              </span>
             </p>
           </motion.div>
         </div>
         <div className="flex flex-col md:w-[40%] w-full justify-center items-center border-[#0A1930]">
           {/* Profile Image */}
-          <span className="w-[90%] md:w-[47%] text-end text-gray-600" role="presentation" aria-hidden="true" suppressHydrationWarning>&lt;Image</span>
+          <span
+            className="w-[90%] md:w-[47%] text-end text-gray-600"
+            role="presentation"
+            aria-hidden="true"
+            suppressHydrationWarning
+          >
+            &lt;Image
+          </span>
           <Image
             src="/me.jpeg"
             alt="Ubaid Bin Waris - Full Stack Developer"
