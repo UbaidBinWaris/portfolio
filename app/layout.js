@@ -124,64 +124,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
   
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ubaid Bin Waris",
-    "alternateName": ["ubaidbinwaris", "ubaid bin waris", "ubaidbin", "UbaidBinWaris", "Ubaid"],
-    "url": siteUrl,
-    "image": `${siteUrl}/me.jpg`,
-    "sameAs": [
-      "https://github.com/UbaidBinWaris",
-      "https://twitter.com/ubaidbinwaris",
-      "https://linkedin.com/in/ubaidbinwaris",
-      "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
-      "https://www.fiverr.com/ubaidwaris655"
-    ],
-    "jobTitle": "Full Stack Developer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Freelance"
-    },
-    "description": "Passionate Full Stack Developer (ubaidbinwaris) specializing in React, Next.js, Node.js, and MongoDB",
-    "knowsAbout": [
-      "React", "Next.js", "Node.js", "JavaScript", "TypeScript",
-      "MongoDB", "Tailwind CSS", "Web Development", "Full Stack Development"
-    ],
-    "email": "ubaidwaris34@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "PK"
-    }
-  };
-
-  const websiteSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Ubaid Bin Waris | Full Stack Developer",
-    "url": siteUrl,
-    "description": "Professional Full Stack Developer portfolio showcasing React, Next.js, Node.js projects and services",
-    "author": {
-      "@type": "Person",
-      "name": "Ubaid Bin Waris"
-    },
-    "inLanguage": "en-US"
-  };
-
-  const profileSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "mainEntity": personSchema,
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [{
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": siteUrl
-      }]
-    }
-  };
+  // Unused local schema definitions removed in favor of seo.config.js
 
   return (
     <html lang="en">

@@ -238,6 +238,11 @@ export const personSchema = {
     "Backend Development",
     "API Development",
     "Web Application Development",
+    "Express.js",
+    "REST API",
+    "Database Design",
+    "Responsive Web Design",
+    "UI/UX Development",
   ],
   knowsLanguage: [
     {
