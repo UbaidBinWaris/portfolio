@@ -19,44 +19,32 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
-        allow: ['/$', '/sitemap.xml', '/robots.txt'],  // Allow homepage, sitemap, and robots.txt
+        allow: '/',  // Allow all pages by default
         disallow: [
           '/api/',
           '/admin/',
-          '/*?*',  // Block all URLs with query parameters
-          '/*.json',
-          '/*.mp4',
-          '/_next/',
-          '/humans.txt',  // Block specific txt files
-          '/*.docx',
+          '/_next/static/',
+          '/humans.txt',
         ],
       },
       {
         userAgent: 'Googlebot',
-        allow: ['/$', '/sitemap.xml', '/robots.txt'],
+        allow: '/',
         disallow: [
           '/api/',
           '/admin/',
-          '/*?*',
-          '/*.json',
-          '/*.mp4',
-          '/_next/',
+          '/_next/static/',
           '/humans.txt',
-          '/*.docx',
         ],
       },
       {
         userAgent: 'Bingbot',
-        allow: ['/$', '/sitemap.xml', '/robots.txt'],
+        allow: '/',
         disallow: [
           '/api/',
           '/admin/',
-          '/*?*',
-          '/*.json',
-          '/*.mp4',
-          '/_next/',
+          '/_next/static/',
           '/humans.txt',
-          '/*.docx',
         ],
       },
     ],
