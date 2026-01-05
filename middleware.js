@@ -33,12 +33,11 @@ export function middleware(request) {
     );
   }
 
-  // Block sitemap files from being indexed as pages
-  if (
-    request.nextUrl.pathname.endsWith(".xml") &&
-    request.nextUrl.pathname.includes("sitemap")
-  ) {
-    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+  // Set proper Content-Type for sitemap.xml so Google can read it
+  if (request.nextUrl.pathname === "/sitemap.xml") {
+    response.headers.set("Content-Type", "application/xml; charset=utf-8");
+    // Don't add X-Robots-Tag here - Google needs to READ the sitemap file
+    // (Sitemaps are not indexed as pages anyway)
   }
 
   // Add security headers to all responses

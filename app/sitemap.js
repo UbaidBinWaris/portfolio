@@ -10,9 +10,12 @@
  * - /api/* - All API routes
  * - /admin/* - Admin routes
  * - /*?* - Any URL with query parameters
- * - /*.xml, /*.json, /*.txt - All file types
+ * - /*.json, /*.txt - File types
  * - /_next/* - Next.js internal files
- * - /sitemap.xml - The sitemap file itself
+ * 
+ * 📄 READABLE BUT NOT INDEXED:
+ * - /sitemap.xml - Google must READ this file, but won't index it as a page
+ * - /robots.txt - Same as above
  * 
  * For a single-page application, only the homepage should be in the sitemap.
  * Anchor links (#home, #experience, etc.) are NOT separate pages.

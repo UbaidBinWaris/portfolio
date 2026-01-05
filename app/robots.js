@@ -4,11 +4,11 @@
  * This file controls which paths search engine bots can and cannot crawl.
  * 
  * CRAWL POLICY:
- * ✅ ALLOW: Only the exact homepage (/$)
+ * ✅ ALLOW: Homepage (/$) and sitemap.xml (must be readable)
  * ❌ DISALLOW: Everything else including:
  *    - API routes (/api/*)
  *    - URLs with query parameters (/*?*)
- *    - File types (.xml, .json, .txt, .mp4)
+ *    - File types (.json, .txt, .mp4) - but NOT .xml
  *    - Next.js internals (/_next/*)
  */
 
@@ -19,13 +19,12 @@ export default function robots() {
     rules: [
       {
         userAgent: '*',
-        allow: '/$',  // Only allow exact homepage
+        allow: ['/$', '/sitemap.xml'],  // Allow homepage and sitemap
         disallow: [
           '/api/',
           '/admin/',
           '/*?*',  // Block all URLs with query parameters
           '/*.json',
-          '/*.xml',
           '/*.txt',
           '/*.mp4',
           '/_next/',
@@ -33,13 +32,12 @@ export default function robots() {
       },
       {
         userAgent: 'Googlebot',
-        allow: '/$',
+        allow: ['/$', '/sitemap.xml'],
         disallow: [
           '/api/',
           '/admin/',
           '/*?*',
           '/*.json',
-          '/*.xml',
           '/*.txt',
           '/*.mp4',
           '/_next/',
@@ -47,13 +45,12 @@ export default function robots() {
       },
       {
         userAgent: 'Bingbot',
-        allow: '/$',
+        allow: ['/$', '/sitemap.xml'],
         disallow: [
           '/api/',
           '/admin/',
           '/*?*',
           '/*.json',
-          '/*.xml',
           '/*.txt',
           '/*.mp4',
           '/_next/',
