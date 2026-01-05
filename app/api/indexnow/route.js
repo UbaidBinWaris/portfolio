@@ -2,6 +2,14 @@ import { NextResponse } from 'next/server';
 import { checkRateLimit, getClientIdentifier } from '@/app/lib/rateLimit';
 import { validateUrlArray, sanitizeError, isAllowedOrigin } from '@/app/lib/validation';
 
+// Prevent this API route from being crawled or indexed
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export async function POST(request) {
   try {
     // Rate limiting

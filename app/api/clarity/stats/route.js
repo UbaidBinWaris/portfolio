@@ -3,6 +3,14 @@ import { getClarityStats } from '@/app/lib/clarity';
 import { checkRateLimit, getClientIdentifier } from '@/app/lib/rateLimit';
 import { sanitizeError } from '@/app/lib/validation';
 
+// Prevent this API route from being crawled or indexed
+export const metadata = {
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
+
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 

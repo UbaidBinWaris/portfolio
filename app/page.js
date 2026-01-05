@@ -24,7 +24,7 @@ export const metadata = {
     "Portfolio",
   ],
   alternates: {
-    canonical: "https://uabidbinwaris.dev",
+    canonical: "https://uabidbinwaris.dev",  // No query parameters allowed
   },
   robots: {
     index: true,

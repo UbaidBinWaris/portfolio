@@ -12,6 +12,14 @@ export function middleware(request) {
     return NextResponse.redirect(url, 301);
   }
 
+  // Strip query parameters from homepage and redirect to canonical URL
+  // This prevents duplicate indexing of URLs like /?q={search_term_string}
+  if (request.nextUrl.pathname === "/" && request.nextUrl.search !== "") {
+    const url = request.nextUrl.clone();
+    url.search = ""; // Remove all query parameters
+    return NextResponse.redirect(url, 301);
+  }
+
   const response = NextResponse.next();
 
   // Block video files from being indexed - comprehensive blocking for background videos
@@ -42,7 +50,7 @@ export function middleware(request) {
     "same-origin-allow-popups"
   );
 
-  // Prevent caching of API responses
+  // Prevent caching of API responses and block from search engines
   if (request.nextUrl.pathname.startsWith("/api/")) {
     response.headers.set(
       "Cache-Control",
@@ -50,6 +58,15 @@ export function middleware(request) {
     );
     response.headers.set("Pragma", "no-cache");
     response.headers.set("Expires", "0");
+    response.headers.set(
+      "X-Robots-Tag",
+      "noindex, nofollow, nosnippet, noarchive"
+    );
+  }
+
+  // Block robots.txt from being indexed (it's a file, not a page)
+  if (request.nextUrl.pathname === "/robots.txt") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
   }
 
   return response;
