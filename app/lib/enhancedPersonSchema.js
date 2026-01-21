@@ -56,18 +56,18 @@ export const enhancedPersonSchema = {
       currency: "USD",
     },
     responsibilities:
-      "Developing and maintaining web applications using React, Next.js, Node.js, and MongoDB",
+      "Developing and maintaining web applications using React, Next.js, Node.js, MongoDB, and deploying on Linux servers with Docker and cloud platforms",
     skills:
-      "React, Next.js, Node.js, MongoDB, JavaScript, TypeScript, Full Stack Development",
+      "React, Next.js, Node.js, Express.js, MongoDB, SQL, JavaScript, TypeScript, Tailwind CSS, REST APIs, GraphQL, Linux, DevOps, Docker, PM2, AWS, Hetzner, Hostinger, Server Configuration, Full Stack Development",
   },
   worksFor: {
     "@type": "Organization",
     name: "Self-Employed",
   },
   description:
-    "Ubaid Bin Waris is a professional Full Stack Web Developer from Pakistan with 5+ years of experience, specializing in React, Next.js, Node.js, and MongoDB. Expert in building scalable web applications and modern user interfaces.",
+    "Ubaid Bin Waris is a Full Stack Web Developer and Computer Science student from Islamabad, Pakistan, specializing in React, Next.js, Node.js, MongoDB, and DevOps. Expert in building scalable web applications, RESTful APIs, and deploying production systems on Linux servers using Docker and cloud hosting.",
   disambiguatingDescription:
-    "Software engineer and web developer, not to be confused with historical figures. Professional programmer specializing in modern JavaScript frameworks and full-stack development.",
+    "Software engineer and web developer specializing in modern JavaScript frameworks, full-stack development, and DevOps infrastructure. Professional programmer with expertise in Next.js, Node.js, and cloud deployment.",
   knowsAbout: [
     "React Development",
     "Next.js Framework",
@@ -75,6 +75,7 @@ export const enhancedPersonSchema = {
     "JavaScript Programming",
     "TypeScript Development",
     "MongoDB Database",
+    "SQL Databases",
     "Tailwind CSS",
     "Web Development",
     "Full Stack Development",
@@ -82,7 +83,19 @@ export const enhancedPersonSchema = {
     "Frontend Development",
     "Backend Development",
     "API Development",
+    "REST APIs",
+    "GraphQL",
     "Web Application Development",
+    "Linux System Administration",
+    "DevOps",
+    "Docker Containerization",
+    "Server Configuration",
+    "Cloud Hosting",
+    "AWS",
+    "Hetzner",
+    "Hostinger",
+    "PM2 Process Manager",
+    "CI/CD Deployment",
   ],
   knowsLanguage: [
     {
@@ -102,14 +115,15 @@ export const enhancedPersonSchema = {
   address: {
     "@type": "PostalAddress",
     addressCountry: "PK",
-    addressRegion: "Sindh",
-    addressLocality: "Karachi",
+    addressRegion: "Islamabad Capital Territory",
+    addressLocality: "Islamabad",
   },
   birthPlace: {
     "@type": "Place",
     address: {
       "@type": "PostalAddress",
       addressCountry: "Pakistan",
+      addressLocality: "Islamabad",
     },
   },
   gender: "Male",
