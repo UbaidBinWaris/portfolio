@@ -1,30 +1,32 @@
-import Image from "next/image";
 import Hero from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 import Experience from "./components/Experience";
-import BlogSection from "./components/BlogSection";
-import FAQSection from "./components/FAQSection";
-import { ReviewSection } from "./components/ReviewSection";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
 import About from "./components/About";
+import TerminalSection from "./components/TerminalSection";
+import ProjectSection from "./components/ProjectSection";
 
 export const metadata = {
   title:
-    "Ubaid Bin Waris - Full Stack Web Developer | React, Next.js & Node.js Expert from Pakistan",
+    "Ubaid Bin Waris - Backend Engineer & AI Automation Developer | Next.js & Node.js Expert",
   description:
-    "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
+    "I am Ubaid Bin Waris, a Backend-focused Full Stack Engineer from Islamabad, Pakistan. Specializing in AI Automation, Node.js, Next.js, system architecture, and production deployment. Available for hire.",
   keywords: [
     "Ubaid Bin Waris",
+    "Backend Engineer",
+    "AI Automation Developer",
     "Full Stack Developer",
     "React",
     "Next.js",
     "Node.js",
     "MongoDB",
+    "n8n Developer",
+    "System Builder",
     "Portfolio",
   ],
   alternates: {
-    canonical: "https://uabidbinwaris.dev",  // No query parameters allowed
+    canonical: "https://uabidbinwaris.dev",
   },
   robots: {
     index: true,
@@ -42,9 +44,9 @@ export const metadata = {
     msnbot: "index, follow",
   },
   openGraph: {
-    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
+    title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
     description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+      "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
     url: "https://uabidbinwaris.dev",
     type: "website",
     images: [
@@ -52,37 +54,30 @@ export const metadata = {
         url: "https://uabidbinwaris.dev/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Ubaid Bin Waris - Full Stack Developer",
+        alt: "Ubaid Bin Waris - Backend Engineer & AI Automation Developer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js Expert",
+    title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
     description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications.",
+      "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
     images: ["https://uabidbinwaris.dev/og-image.jpg"],
   },
 };
 
 export default function Home() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
-
   return (
     <>
       <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
-        <div className="relative overflow-hidden w-full min-h-screen">
-          <Navbar />
-          <Hero />
-          <div className="absolute bottom-0 w-full bg-gradient-to-t h-screen from-[#0A1930] to-transparent"></div>
-        </div>
+        <Navbar />
+        <Hero />
+        <TerminalSection />
         <About />
         <Services />
+        <ProjectSection />
         <Experience />
-        <BlogSection />
-        <FAQSection />
-        <ReviewSection />
         <Contact />
       </main>
     </>

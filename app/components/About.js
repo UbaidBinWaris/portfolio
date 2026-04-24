@@ -1,288 +1,339 @@
-import React from "react";
-import { MotionDiv, MotionProgressBar } from "./AboutMotion";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 
+/* ─── Data ─── */
+const storyBlocks = [
+  {
+    tag: "// who_i_am",
+    label: "Background",
+    text: "Ubaid Bin Waris — Backend-focused Full Stack Engineer and CS student from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
+  },
+  {
+    tag: "// what_i_do",
+    label: "Focus",
+    text: "Backend architecture, REST API design, AI automation pipelines, and full-stack delivery. I handle everything from database schema to cloud deployment.",
+  },
+  {
+    tag: "// how_i_think",
+    label: "Approach",
+    text: "Start with constraints. Design for scale. Ship with confidence. Every system decision is deliberate — I don't add complexity without reason.",
+  },
+  {
+    tag: "// what_matters",
+    label: "Priority",
+    text: "Systems that work under load. Code that the next engineer can read. Infrastructure that doesn't require babysitting at 2AM.",
+  },
+];
+
+const capabilities = [
+  { area: "Backend", items: ["Node.js", "Express", "REST APIs", "GraphQL"] },
+  { area: "Automation", items: ["n8n Workflows", "AI Pipelines", "Webhooks", "Schedulers"] },
+  { area: "Infrastructure", items: ["Linux Admin", "Docker", "PM2", "Nginx"] },
+  { area: "Cloud", items: ["AWS", "Hetzner", "Hostinger", "CI/CD"] },
+  { area: "Database", items: ["MongoDB", "PostgreSQL", "Redis", "Schema Design"] },
+  { area: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind"] },
+];
+
+const philosophy = [
+  { key: "QUALITY_FIRST", desc: "Clean, maintainable, scalable code following industry best practices." },
+  { key: "FULL_STACK", desc: "Frontend, backend, databases, and infrastructure — complete solutions." },
+  { key: "PERF_SECURITY", desc: "Apps optimized for speed, scalability, and secure deployment." },
+  { key: "REAL_IMPACT", desc: "Building projects that solve actual problems, not just practice code." },
+];
+
+/* ─── Staggered reveal hook ─── */
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
+function StaggerBlock({ children, index = 0, className = "" }) {
+  return (
+    <motion.div
+      custom={index}
+      variants={fadeUpVariant}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+/* ─── Animated progress bar ─── */
+function ProgressBar({ level, delay = 0 }) {
+  return (
+    <div
+      className="w-full bg-[#1a3a5c] h-[3px] rounded-none"
+      role="progressbar"
+      aria-valuenow={level}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    >
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.1, delay, ease: "easeOut" }}
+        className="bg-[#63B8B2] h-[3px]"
+      />
+    </div>
+  );
+}
+
+/* ─── Section header (consistent with site pattern) ─── */
+function SectionHeader() {
+  return (
+    <StaggerBlock index={0} className="mb-16">
+      <div className="flex items-center gap-4">
+        <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">01 /</p>
+        <h2
+          id="about-heading"
+          className="text-white font-bold text-2xl md:text-3xl shrink-0"
+        >
+          About
+        </h2>
+        <div className="flex-1 h-px bg-[#1a3a5c]" />
+        <p className="text-gray-600 font-mono text-xs shrink-0 hidden md:block">
+          ~/ubaid/about.md
+        </p>
+      </div>
+    </StaggerBlock>
+  );
+}
+
+/* ─── Left column: Story blocks + philosophy ─── */
+function StoryColumn() {
+  return (
+    <div className="space-y-5">
+      {/* Code-file wrapper */}
+      <StaggerBlock index={1}>
+        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
+          {/* Titlebar */}
+          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
+            <div className="flex gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
+            </div>
+            <span className="text-gray-600 text-xs font-mono ml-2">about.md</span>
+          </div>
+
+          {/* Story blocks with line numbers */}
+          <div className="font-mono text-sm">
+            {storyBlocks.map((block, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeUpVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                className={`flex gap-0 ${i !== storyBlocks.length - 1 ? "border-b border-[#0f2744]" : ""}`}
+              >
+                {/* Line number gutter */}
+                <div className="w-9 shrink-0 py-4 text-right pr-3 text-[#1a3a5c] text-xs select-none border-r border-[#0f2744]">
+                  {(i * 5 + 1).toString().padStart(2, "0")}
+                </div>
+                {/* Content */}
+                <div className="flex-1 px-4 py-4">
+                  <p className="text-[#63B8B2]/60 text-xs mb-1.5">{block.tag}</p>
+                  <p className="text-gray-300 leading-relaxed text-sm">{block.text}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </StaggerBlock>
+
+      {/* Philosophy / process log */}
+      <StaggerBlock index={2}>
+        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
+          <div className="px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
+            <p className="text-gray-600 text-xs font-mono">$ cat work_philosophy.log</p>
+          </div>
+          <div className="p-5 space-y-3 font-mono text-xs">
+            {philosophy.map((item, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeUpVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="flex gap-3"
+              >
+                <span className="text-green-500 shrink-0 mt-px">✓</span>
+                <div>
+                  <span className="text-[#63B8B2]">[{item.key}]</span>
+                  <span className="text-gray-400 ml-2">{item.desc}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </StaggerBlock>
+    </div>
+  );
+}
+
+/* ─── Right column: Capability grid + hire CTA ─── */
+function SystemColumn() {
+  return (
+    <div className="space-y-5">
+      {/* Capability grid */}
+      <StaggerBlock index={1}>
+        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
+          <div className="flex items-center justify-between px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
+            <p className="text-gray-600 text-xs font-mono">$ ls -la /proc/capabilities/</p>
+            <span className="text-[#63B8B2] text-xs font-mono">6 domains</span>
+          </div>
+          <div className="p-4 grid grid-cols-2 gap-3">
+            {capabilities.map((cap, i) => (
+              <motion.div
+                key={i}
+                custom={i}
+                variants={fadeUpVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="border border-[#1a3a5c] p-3 hover:border-[#63B8B2]/40 transition-colors duration-300 group"
+              >
+                <p className="text-[#63B8B2] text-[10px] font-mono tracking-widest mb-2 uppercase">
+                  {cap.area}
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {cap.items.map((item) => (
+                    <span
+                      key={item}
+                      className="text-gray-400 text-[11px] font-mono bg-[#0f2744] px-1.5 py-0.5 group-hover:text-gray-300 transition-colors duration-200"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Uptime-style footer */}
+          <div className="px-4 py-2 border-t border-[#0f2744] flex items-center gap-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-status-pulse shrink-0" />
+            <span className="text-gray-600 text-xs font-mono">all systems operational</span>
+            <span className="ml-auto text-[#63B8B2] text-xs font-mono">3+ years production</span>
+          </div>
+        </div>
+      </StaggerBlock>
+
+      {/* Hire CTA */}
+      <StaggerBlock index={2}>
+        <div className="bg-[#060e1f] border border-[#63B8B2]/40 rounded-sm p-6 relative overflow-hidden glow-teal">
+          {/* Corner accent */}
+          <div
+            className="absolute top-0 right-0 w-32 h-32 pointer-events-none"
+            style={{ background: "radial-gradient(circle at top right, rgba(99,184,178,0.08) 0%, transparent 70%)" }}
+          />
+
+          <div className="flex items-center gap-2.5 mb-3">
+            <span className="w-2 h-2 rounded-full bg-green-500 animate-status-pulse" />
+            <p className="text-white font-bold text-base font-mono">AVAILABLE_FOR_HIRE</p>
+          </div>
+
+          <p className="text-gray-400 text-sm leading-relaxed mb-5 font-mono">
+            Open to freelance contracts and full-time roles.<br />
+            Let&apos;s build something that&apos;s worth building.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 bg-[#63B8B2] text-[#0A1930] font-bold text-sm font-mono rounded-sm hover:bg-[#85d1cc] transition-colors duration-200 custom-pointer"
+            >
+              Hire on Upwork
+            </a>
+            <a
+              href="https://www.fiverr.com/ubaidwaris655"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-2.5 border border-[#1a3a5c] text-gray-300 text-sm font-mono rounded-sm hover:border-[#63B8B2]/60 hover:text-white transition-all duration-200 custom-pointer"
+            >
+              Hire on Fiverr
+            </a>
+          </div>
+        </div>
+      </StaggerBlock>
+    </div>
+  );
+}
+
+/* ─── Main component ─── */
 const About = () => {
-  const skills = [
-    { name: "React.js & Next.js", level: 95, levelText: "Advanced", years: "3+", category: "Frontend" },
-    { name: "Node.js & Express.js", level: 90, levelText: "Advanced", years: "3+", category: "Backend" },
-    { name: "MongoDB & SQL", level: 90, levelText: "Advanced", years: "2+", category: "Database" },
-    { name: "TypeScript & JavaScript", level: 85, levelText: "Advanced", years: "3+", category: "Language" },
-    { name: "Tailwind CSS", level: 95, levelText: "Advanced", years: "3+", category: "Styling" },
-    { name: "REST APIs & GraphQL", level: 95, levelText: "Advanced", years: "3+", category: "Backend" },
-    { name: "Linux & DevOps", level: 88, levelText: "Intermediate", years: "2+", category: "Infrastructure" },
-    { name: "AWS, Hetzner, Hostinger", level: 85, levelText: "Intermediate", years: "2+", category: "Cloud" },
-    { name: "Docker & PM2", level: 87, levelText: "Intermediate", years: "2+", category: "DevOps" },
-    { name: "Server Configuration", level: 90, levelText: "Advanced", years: "2+", category: "Infrastructure" },
-  ];
+  const sectionRef = useRef(null);
 
-  const achievements = [
-    { number: "3+", label: "Years Experience" },
-    { number: "20+", label: "Projects Built" },
-    { number: "10+", label: "Freelance Clients" },
-    { number: "Production", label: "Deployment Ready" },
-  ];
+  // Subtle background shift as user scrolls through the section
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Shift background from #0A1930 → #081528 → #0A1930 (dark-only, no harsh jumps)
+  const bgLightness = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [
+    "hsl(218,66%,11%)",
+    "hsl(218,66%,9%)",
+    "hsl(218,66%,8%)",
+    "hsl(218,66%,11%)",
+  ]);
 
   return (
-    <section
+    <motion.section
+      ref={sectionRef}
       id="about"
-      className="w-full min-h-screen bg-[#0A1930] py-20 px-6 md:px-10"
+      className="w-full py-24 px-6 md:px-10"
+      style={{ backgroundColor: bgLightness }}
       aria-labelledby="about-heading"
     >
+      {/* SEO-friendly hidden capabilities list */}
+      <ul className="sr-only">
+        {capabilities.flatMap((cap) =>
+          cap.items.map((item) => <li key={item}>{item} — {cap.area}</li>)
+        )}
+      </ul>
+
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <MotionDiv
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2
-            id="about-heading"
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-          >
-            <span className="text-gray-600">&lt;</span>
-            <span className="text-[#63B8B2]">About Me</span>
-            <span className="text-gray-600">/&gt;</span>
-          </h2>
-          <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-            Full Stack Developer (Next.js, Node.js, DevOps) — Building Scalable Web Apps & APIs
-          </p>
-        </MotionDiv>
+        <SectionHeader />
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          {/* Left Column - Story */}
-          <MotionDiv
-            initial={{ opacity: 0, x: -50 }}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
+          {/* Left: Story */}
+          <motion.div
+            initial={{ opacity: 0, x: -28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="bg-[#0f2744] border border-[#1a3a5c] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Who is Ubaid Bin Waris?
-              </h3>
-              <div className="space-y-4 text-gray-300 leading-relaxed">
-                <p>
-                  Hi, I'm{" "}
-                  <strong className="text-[#63B8B2]">Ubaid Bin Waris</strong> a 
-                  Full Stack Developer and Computer Science student from Islamabad, Pakistan. 
-                  I specialize in building modern, scalable web applications that are clean, 
-                  responsive, and production-ready.
-                </p>
-                <p>
-                  My programming journey started with{" "}
-                  <strong className="text-white">C++ and Data Structures</strong>, 
-                  building my foundation in problem-solving. I transitioned into web development 
-                  and now create complete systems from responsive UIs to backend architecture, 
-                  databases, and RESTful APIs.
-                </p>
-                <p>
-                  I work with the{" "}
-                  <strong className="text-white">MERN stack</strong> (MongoDB, 
-                  Express.js, React, Node.js),{" "}
-                  <strong className="text-white">Next.js</strong>, and{" "}
-                  <strong className="text-white">TypeScript</strong>. 
-                  Beyond development, I have strong expertise in{" "}
-                  <strong className="text-white">DevOps and Infrastructure</strong> — 
-                  proficient in{" "}
-                  <strong className="text-white">Linux system administration</strong>, 
-                  cloud platforms ({" "}
-                  <strong className="text-white">AWS, Hetzner, Hostinger</strong>), 
-                  server configuration, deployment automation, and Docker containerization.
-                </p>
-                <p>
-                  I gained professional experience at{" "}
-                  <strong className="text-white">HEC</strong>, <strong className="text-white">BlueCentric</strong>, <strong className="text-white">HH Tech Hub</strong>, <strong className="text-white">GixiAi</strong>, contributing to web development 
-                  and learning how large-scale systems operate in real-world environments.
-                </p>
-                <p className="text-gray-200 leading-relaxed">
-                  <strong className="text-white">What I do:</strong> I help startups and businesses 
-                  build fast Next.js websites, secure backend APIs with Node.js and Express, and 
-                  deploy production-ready systems on Linux servers using Docker and cloud hosting 
-                  (AWS, Hetzner, Hostinger).
-                </p>
-                <p className="text-[#63B8B2] font-semibold">
-                  Fun Fact: I'm a long-time Linux enthusiast experimented with Ubuntu, 
-                  Fedora, Zorin, and Arch Linux.
-                </p>
-              </div>
-            </div>
+            <StoryColumn />
+          </motion.div>
 
-            {/* Work Philosophy */}
-            <div className="bg-[#0f2744] border border-[#1a3a5c] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                My Work Philosophy & Approach
-              </h3>
-              <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-[#63B8B2] mr-3 text-xl">✓</span>
-                  <span>
-                    <strong className="text-white">Quality First:</strong>{" "}
-                    Writing clean, maintainable, and scalable code that follows 
-                    industry best practices and design patterns
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#63B8B2] mr-3 text-xl">✓</span>
-                  <span>
-                    <strong className="text-white">Full-Stack Mindset:</strong>{" "}
-                    Comfortable working across frontend, backend, databases, 
-                    and infrastructure to deliver complete solutions
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#63B8B2] mr-3 text-xl">✓</span>
-                  <span>
-                    <strong className="text-white">Performance & Security:</strong>{" "}
-                    Building applications optimized for speed, scalability, 
-                    and secure deployment on production servers
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#63B8B2] mr-3 text-xl">✓</span>
-                  <span>
-                    <strong className="text-white">Continuous Learning:</strong>{" "}
-                    Constantly exploring new technologies, DevOps tools, and 
-                    system architecture patterns to stay ahead
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#63B8B2] mr-3 text-xl">✓</span>
-                  <span>
-                    <strong className="text-white">Real-World Impact:</strong>{" "}
-                    Building projects that solve actual problems rather than 
-                    just coding for practice or grades
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </MotionDiv>
-
-          {/* Right Column - Skills & Stats */}
-          <MotionDiv
-            initial={{ opacity: 0, x: 50 }}
+          {/* Right: System */}
+          <motion.div
+            initial={{ opacity: 0, x: 28 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            {/* Achievements */}
-            <div className="grid grid-cols-2 gap-4">
-              {achievements.map((achievement, index) => (
-                <MotionDiv
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="bg-[#0f2744] border border-[#1a3a5c] rounded-lg p-6 text-center hover:border-[#63B8B2] transition-colors duration-300"
-                >
-                  <div className="text-4xl font-bold text-[#63B8B2] mb-2">
-                    {achievement.number}
-                  </div>
-                  <div className="text-gray-400 text-sm">
-                    {achievement.label}
-                  </div>
-                </MotionDiv>
-              ))}
-            </div>
-
-            {/* Skills */}
-            <div className="bg-[#0f2744] border border-[#1a3a5c] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-6">
-                Technical Skills
-              </h3>
-              
-              {/* SEO-friendly skills list (hidden visually, readable by search engines) */}
-              <ul className="sr-only">
-                <li>React.js - Advanced level, 3+ years experience</li>
-                <li>Next.js - Advanced level, 3+ years experience</li>
-                <li>Node.js - Advanced level, 3+ years experience</li>
-                <li>Express.js - Advanced level, 3+ years experience</li>
-                <li>MongoDB - Advanced level, 2+ years experience</li>
-                <li>SQL - Advanced level, 2+ years experience</li>
-                <li>TypeScript - Advanced level, 3+ years experience</li>
-                <li>JavaScript - Advanced level, 3+ years experience</li>
-                <li>Tailwind CSS - Advanced level, 3+ years experience</li>
-                <li>REST APIs - Advanced level, 3+ years experience</li>
-                <li>GraphQL - Advanced level, 3+ years experience</li>
-                <li>Linux - Intermediate level, 2+ years experience</li>
-                <li>DevOps - Intermediate level, 2+ years experience</li>
-                <li>AWS - Intermediate level, 2+ years experience</li>
-                <li>Hetzner - Intermediate level, 2+ years experience</li>
-                <li>Hostinger - Intermediate level, 2+ years experience</li>
-                <li>Docker - Intermediate level, 2+ years experience</li>
-                <li>PM2 - Intermediate level, 2+ years experience</li>
-                <li>Server Configuration - Advanced level, 2+ years experience</li>
-              </ul>
-
-              <div className="space-y-4">
-                {skills.map((skill, index) => (
-                  <div key={index}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">
-                        {skill.name}
-                      </span>
-                      <span className="text-[#63B8B2] text-sm">
-                        {skill.levelText} • {skill.years} years
-                      </span>
-                    </div>
-                    <div 
-                      className="w-full bg-[#1a3a5c] rounded-full h-2"
-                      role="progressbar"
-                      aria-label={`${skill.name} proficiency`}
-                      aria-valuenow={skill.level}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                    >
-                      <MotionProgressBar
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                        className="bg-[#63B8B2] h-2 rounded-full"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability */}
-            <div className="bg-[#0f2744] border border-[#63B8B2] rounded-lg p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Available for Hire
-              </h3>
-              <p className="text-gray-300 mb-6">
-                I'm currently available for freelance projects and full-time
-                opportunities. Let's work together to build something amazing!
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <a
-                  href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#63B8B2] hover:bg-[#52a79d] text-white font-semibold py-2 px-6 rounded transition-colors duration-300"
-                >
-                  Hire on Upwork
-                </a>
-                <a
-                  href="https://www.fiverr.com/ubaidwaris655"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#1a3a5c] hover:bg-[#2a4a6c] text-white font-semibold py-2 px-6 rounded transition-colors duration-300"
-                >
-                  Hire on Fiverr
-                </a>
-              </div>
-            </div>
-          </MotionDiv>
+            <SystemColumn />
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

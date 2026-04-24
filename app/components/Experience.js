@@ -219,7 +219,7 @@ export const Experience = () => {
     <section
       ref={sectionRef}
       id="experience"
-      className="w-full bg-[#0A1930] scroll-mt-24 p-8 flex flex-col items-start justify-center relative overflow-hidden"
+      className="w-full bg-[#060e1f] scroll-mt-24 p-8 flex flex-col items-start justify-center relative overflow-hidden"
       style={{ minHeight: '100vh' }}
       aria-labelledby="experience-heading"
     >
@@ -297,14 +297,21 @@ export const Experience = () => {
           </div>
         </div>
       )}
-      <h2 
-        id="experience-heading"
+      <div
         ref={headingRef}
-        className="text-3xl font-bold text-[#63B8B2] m-5 will-change-transform"
+        className="flex items-center gap-4 m-5 will-change-transform"
         style={{ transformOrigin: "center center", position: "relative", width: "100%" }}
       >
-        Experiences
-      </h2>
+        <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">05 /</p>
+        <h2
+          id="experience-heading"
+          className="text-white font-bold text-2xl md:text-3xl shrink-0"
+        >
+          Experience
+        </h2>
+        <div className="flex-1 h-px bg-[#1a3a5c]" />
+        <p className="text-gray-700 font-mono text-xs shrink-0 hidden md:block">git log --oneline</p>
+      </div>
       
       <div 
         ref={cardsContainerRef}
@@ -327,38 +334,52 @@ export const Experience = () => {
                 {exp.topMessage}
               </div>
 
-              {/* Card */}
+              {/* Card — git log commit style */}
               <div
-                className={`experience-card flex flex-col justify-between bg-[#112240] rounded-2xl p-6 shadow-lg w-full h-[430px] transition-all duration-300 will-change-transform
-                ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm opacity-60" : ""}
-                ${hoveredIndex === index ? "scale-105 z-10 shadow-2xl shadow-[#63B8B2]/30" : ""}
+                className={`experience-card flex flex-col bg-[#0A1930] border rounded-sm overflow-hidden w-full h-[430px] transition-all duration-300 will-change-transform
+                ${hoveredIndex !== null && hoveredIndex !== index ? "blur-sm opacity-50" : "border-[#1a3a5c]"}
+                ${hoveredIndex === index ? "scale-[1.03] z-10 border-[#63B8B2] glow-teal" : ""}
               `}
               >
-                {/* Top Section */}
-                <div>
-                  <div className="flex items-center gap-2 text-gray-600 font-medium whitespace-nowrap overflow-hidden text-ellipsis">
-                    <span>&lt;h3&gt;</span>
-                    <h3 className="text-xl font-semibold text-[#63B8B2] truncate">
-                      {exp.title}
-                    </h3>
-                    <span>&lt;/h3&gt;</span>
+                {/* Commit header bar */}
+                <div className="flex items-center justify-between px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c] shrink-0">
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-700 font-mono text-xs">commit</span>
+                    <span className="text-[#63B8B2] font-mono text-xs">{exp.hash}</span>
                   </div>
-                  <p className="text-sm text-gray-400">{exp.company}</p>
-                  <p className="text-sm text-gray-500 italic mb-4">
-                    {exp.duration}
-                  </p>
+                  {exp.active && (
+                    <span className="inline-flex items-center gap-1 text-green-400 text-xs font-mono">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-status-pulse" />
+                      active
+                    </span>
+                  )}
                 </div>
 
-                {/* Description Section */}
-                <p className="text-gray-300 text-justify mt-auto flex flex-col gap-2">
-                  <span className="text-gray-600 font-medium">
-                    &lt;description&gt;
-                  </span>
-                  {exp.description}
-                  <span className="text-gray-600 font-medium">
-                    &lt;/description&gt;
-                  </span>
-                </p>
+                {/* Card body */}
+                <div className="p-5 flex flex-col gap-3 flex-1 min-h-0">
+                  {/* Title */}
+                  <div>
+                    <h3 className="text-white font-bold text-base leading-snug">
+                      {exp.title}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-1 flex-wrap">
+                      <span className="text-[#63B8B2] text-xs font-mono">@{exp.company}</span>
+                      <span className="text-gray-700">·</span>
+                      <span className="text-gray-500 text-xs font-mono">{exp.duration}</span>
+                    </div>
+                  </div>
+
+                  {/* Divider */}
+                  <div className="h-px bg-[#1a3a5c]" />
+
+                  {/* Description as diff output */}
+                  <div className="flex-1 overflow-hidden">
+                    <p className="text-gray-600 font-mono text-xs mb-2">// commit message</p>
+                    <p className="text-gray-300 text-xs leading-relaxed line-clamp-[8]">
+                      {exp.description}
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Bottom Hover Info (only on md and up) */}

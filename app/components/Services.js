@@ -1,255 +1,225 @@
 "use client";
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const services = [
+  {
+    method: "POST",
+    endpoint: "/full-stack-development",
+    title: "Full Stack Web Development",
+    description: "Custom web apps using React, Next.js, Node.js, and MongoDB. Scalable, performant, production-ready.",
+    params: ["Custom Web Apps", "Responsive Design", "Database Integration", "API Development"],
+    price: "from $500",
+    status: 200,
+  },
+  {
+    method: "GET",
+    endpoint: "/react-nextjs-frontend",
+    title: "React & Next.js Development",
+    description: "Expert interfaces with SSR, SSG, and ISR. SEO-optimized, fast-loading, component-driven architecture.",
+    params: ["Component Architecture", "State Management", "SSR / SSG / ISR", "SEO Optimization"],
+    price: "from $400",
+    status: 200,
+  },
+  {
+    method: "POST",
+    endpoint: "/node-backend-api",
+    title: "Node.js Backend & APIs",
+    description: "Robust server-side applications and RESTful APIs with Express.js, authentication, and scalable architecture.",
+    params: ["REST APIs", "Auth & Authorization", "Database Integration", "Security Implementation"],
+    price: "from $500",
+    status: 200,
+  },
+  {
+    method: "PUT",
+    endpoint: "/cloud-deployment",
+    title: "Cloud Deployment & DevOps",
+    description: "Professional deployment on AWS, Hetzner, Hostinger with CI/CD, Docker, PM2, and server configuration.",
+    params: ["Linux Server Setup", "Docker & PM2", "CI/CD Pipeline", "SSL & HTTPS"],
+    price: "from $200",
+    status: 201,
+  },
+  {
+    method: "POST",
+    endpoint: "/ai-automation",
+    title: "AI Automation & Workflows",
+    description: "AI-powered workflows and process automation. Connecting APIs, building intelligent pipelines and triggers.",
+    params: ["AI Workflow Design", "API Orchestration", "Process Automation", "System Integration"],
+    price: "from $350",
+    status: 200,
+  },
+  {
+    method: "GET",
+    endpoint: "/maintenance-support",
+    title: "Maintenance & Support",
+    description: "Ongoing maintenance, updates, and technical support to keep your application running smoothly.",
+    params: ["Bug Fixes", "Feature Updates", "Performance Monitoring", "Security Patches"],
+    price: "from $150/mo",
+    status: 200,
+  },
+];
+
+const methodColor = {
+  GET: "text-green-400 bg-green-400/10 border-green-400/30",
+  POST: "text-blue-400 bg-blue-400/10 border-blue-400/30",
+  PUT: "text-yellow-400 bg-yellow-400/10 border-yellow-400/30",
+};
+
+const statusColor = {
+  200: "text-green-400",
+  201: "text-blue-400",
+};
 
 const Services = () => {
-  const services = [
-    {
-      id: 1,
-      title: "Full Stack Web Development",
-      description:
-        "Custom web application development using React, Next.js, Node.js, and MongoDB. Building scalable, performant, and modern web solutions tailored to your business needs.",
-      icon: "🚀",
-      price: "Starting from $500",
-      features: [
-        "Custom Web Applications",
-        "Responsive Design",
-        "Database Integration",
-        "API Development",
-        "Performance Optimization",
-      ],
-    },
-    {
-      id: 2,
-      title: "React.js Development",
-      description:
-        "Expert React.js development for building responsive, performant user interfaces with modern best practices and component-based architecture.",
-      icon: "⚛️",
-      price: "Starting from $400",
-      features: [
-        "Component Architecture",
-        "State Management",
-        "React Hooks",
-        "Performance Optimization",
-        "Responsive UI/UX",
-      ],
-    },
-    {
-      id: 3,
-      title: "Next.js Development",
-      description:
-        "Professional Next.js development with SSR, SSG, and ISR for SEO-optimized, fast-loading web applications.",
-      icon: "▲",
-      price: "Starting from $600",
-      features: [
-        "Server-Side Rendering",
-        "Static Site Generation",
-        "SEO Optimization",
-        "Image Optimization",
-        "API Routes",
-      ],
-    },
-    {
-      id: 4,
-      title: "Node.js Backend",
-      description:
-        "Robust backend development with Node.js and Express.js for scalable server-side applications and RESTful APIs.",
-      icon: "🟢",
-      price: "Starting from $500",
-      features: [
-        "RESTful APIs",
-        "Authentication & Authorization",
-        "Database Integration",
-        "Server Configuration",
-        "Security Implementation",
-      ],
-    },
-    {
-      id: 5,
-      title: "API Development",
-      description:
-        "Custom API development and third-party integrations for seamless data exchange and system connectivity.",
-      icon: "🔌",
-      price: "Starting from $300",
-      features: [
-        "RESTful API Design",
-        "API Documentation",
-        "Third-party Integration",
-        "Webhook Implementation",
-        "API Security",
-      ],
-    },
-    {
-      id: 6,
-      title: "Database Design",
-      description:
-        "Professional MongoDB database design and optimization for data integrity, performance, and scalability.",
-      icon: "🗄️",
-      price: "Starting from $250",
-      features: [
-        "Schema Design",
-        "Query Optimization",
-        "Data Modeling",
-        "Migration Services",
-        "Performance Tuning",
-      ],
-    },
-    {
-      id: 7,
-      title: "Cloud Deployment",
-      description:
-        "Professional cloud deployment on AWS, Vercel, and other platforms with CI/CD setup and server configuration.",
-      icon: "☁️",
-      price: "Starting from $200",
-      features: [
-        "AWS Deployment",
-        "Vercel Deployment",
-        "CI/CD Setup",
-        "Server Configuration",
-        "SSL/HTTPS Setup",
-      ],
-    },
-    {
-      id: 8,
-      title: "Maintenance & Support",
-      description:
-        "Ongoing maintenance, updates, and technical support to keep your application running smoothly and securely.",
-      icon: "🛠️",
-      price: "Starting from $150/month",
-      features: [
-        "Bug Fixes",
-        "Feature Updates",
-        "Security Patches",
-        "Performance Monitoring",
-        "24/7 Support",
-      ],
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-      },
-    },
-  };
+  const [hovered, setHovered] = useState(null);
 
   return (
     <section
       id="services"
-      className="w-full min-h-screen bg-[#0A1930] py-20 px-6 md:px-10"
+      className="w-full bg-[#060e1f] py-24 px-6 md:px-10"
       aria-labelledby="services-heading"
     >
       <div className="max-w-7xl mx-auto">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2
-            id="services-heading"
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-          >
-            <span className="text-gray-600">&lt;</span>
-            <span className="text-[#63B8B2]">Services</span>
-            <span className="text-gray-600">/&gt;</span>
-          </h2>
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Professional web development services to bring your ideas to life.
-            From concept to deployment, I deliver high-quality solutions.
-          </p>
-        </motion.div>
-
-        {/* Services Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          {services.map((service) => (
-            <motion.div
-              key={service.id}
-              variants={itemVariants}
-              whileHover={{ y: -5, transition: { duration: 0.2 } }}
-              className="bg-[#0f2744] border border-[#1a3a5c] rounded-lg p-6 hover:border-[#63B8B2] transition-all duration-300"
-            >
-              {/* Icon */}
-              <div className="text-5xl mb-4">{service.icon}</div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-white mb-3">
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-400 text-sm mb-4 line-clamp-3">
-                {service.description}
-              </p>
-
-              {/* Price */}
-              <div className="text-[#63B8B2] font-semibold mb-4">
-                {service.price}
-              </div>
-
-              {/* Features */}
-              <ul className="space-y-2 mb-6">
-                {service.features.slice(0, 3).map((feature, index) => (
-                  <li
-                    key={index}
-                    className="text-gray-400 text-sm flex items-start"
-                  >
-                    <span className="text-[#63B8B2] mr-2">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA Button */}
-              <a
-                href="#contact"
-                className="block w-full text-center bg-[#63B8B2] hover:bg-[#52a79d] text-white font-semibold py-2 px-4 rounded transition-colors duration-300"
-              >
-                Get Started
-              </a>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Bottom CTA */}
+        {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-center mt-16"
+          transition={{ duration: 0.5 }}
+          className="mb-6"
         >
-          <p className="text-gray-300 mb-6">
-            Don't see what you're looking for? Let's discuss your custom
-            requirements.
+          <div className="flex items-center gap-4">
+            <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">02 /</p>
+            <h2
+              id="services-heading"
+              className="text-white font-bold text-2xl md:text-3xl shrink-0"
+            >
+              Services
+            </h2>
+            <div className="flex-1 h-px bg-[#1a3a5c]" />
+          </div>
+        </motion.div>
+
+        {/* API registry header */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-mono text-sm mb-10 flex items-center gap-3 text-gray-600"
+        >
+          <span className="text-[#63B8B2]">GET</span>
+          <span>/api/services</span>
+          <span className="text-green-400">200 OK</span>
+          <span className="ml-auto hidden md:block text-xs">
+            {services.length} endpoints available
+          </span>
+        </motion.div>
+
+        {/* Service cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {services.map((service, i) => (
+            <motion.div
+              key={service.endpoint}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              className={`group relative bg-[#0A1930] border rounded-sm p-5 flex flex-col gap-4 transition-all duration-300 cursor-default ${
+                hovered === i
+                  ? "border-[#63B8B2] glow-teal"
+                  : hovered !== null
+                  ? "border-[#1a3a5c] opacity-60"
+                  : "border-[#1a3a5c]"
+              }`}
+            >
+              {/* Card top row */}
+              <div className="flex items-start justify-between gap-2">
+                <div className="flex flex-col gap-1 min-w-0">
+                  {/* Method + endpoint */}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span
+                      className={`inline-block px-2 py-0.5 text-xs font-mono border rounded-sm font-bold shrink-0 ${methodColor[service.method]}`}
+                    >
+                      {service.method}
+                    </span>
+                    <span className="text-gray-500 font-mono text-xs truncate">
+                      {service.endpoint}
+                    </span>
+                  </div>
+                  {/* Title */}
+                  <h3 className="text-white font-semibold text-sm mt-1 leading-snug">
+                    {service.title}
+                  </h3>
+                </div>
+                {/* Status */}
+                <div className="shrink-0 text-right font-mono text-xs">
+                  <span className={statusColor[service.status]}>
+                    {service.status}
+                  </span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-500 text-xs leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Params / features */}
+              <div className="flex-1">
+                <p className="text-gray-700 text-xs font-mono mb-2">// query_params</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {service.params.map((param) => (
+                    <span
+                      key={param}
+                      className="inline-block px-2 py-0.5 bg-[#1a3a5c]/60 text-gray-400 text-xs font-mono rounded-sm"
+                    >
+                      {param}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="flex items-center justify-between pt-3 border-t border-[#1a3a5c] mt-auto">
+                <span className="text-[#63B8B2] font-mono text-xs">{service.price}</span>
+                <a
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="text-xs font-mono text-gray-600 group-hover:text-[#63B8B2] transition-colors custom-pointer"
+                >
+                  &gt;_ initiate →
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="text-center mt-14"
+        >
+          <p className="text-gray-600 font-mono text-sm mb-4">
+            // Need something custom? Let's talk.
           </p>
           <a
             href="#contact"
-            className="inline-block bg-[#63B8B2] hover:bg-[#52a79d] text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="inline-flex items-center gap-2 px-8 py-3 border border-[#63B8B2] text-[#63B8B2] font-mono text-sm rounded-sm hover:bg-[#63B8B2]/10 transition-all duration-300 custom-pointer"
           >
-            Contact Me
+            $ ./contact.sh
           </a>
         </motion.div>
       </div>
