@@ -1,130 +1,96 @@
-// Service Worker for PWA functionality
-const CACHE_NAME = 'ubaid-portfolio-v3';
-const ALLOWED_ORIGINS = ['https://uabidbinwaris.dev', 'https://www.uabidbinwaris.dev'];
-const urlsToCache = [
-  '/',
+// Service Worker for lightweight asset caching without stale HTML shell issues.
+const STATIC_CACHE = 'ubaid-portfolio-static-v4';
+
+const PRECACHE_URLS = [
   '/manifest.json',
   '/favicon.ico',
   '/me.jpg',
   '/og-image.jpg',
 ];
 
-// Install event - cache resources
-self.addEventListener('install', (event) => {
+function isCacheableStaticAsset(pathname) {
+  return (
+    pathname.startsWith('/_next/static/') ||
+    pathname.startsWith('/images/') ||
+    pathname.endsWith('.css') ||
+    pathname.endsWith('.js') ||
+    pathname.endsWith('.mjs') ||
+    pathname.endsWith('.png') ||
+    pathname.endsWith('.jpg') ||
+    pathname.endsWith('.jpeg') ||
+    pathname.endsWith('.webp') ||
+    pathname.endsWith('.svg') ||
+    pathname.endsWith('.ico') ||
+    pathname.endsWith('.woff') ||
+    pathname.endsWith('.woff2')
+  );
+}
+
+globalThis.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        return cache.addAll(urlsToCache).catch(() => {
-          // Silent fail - cache errors don't prevent SW installation
-        });
+    caches
+      .open(STATIC_CACHE)
+      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .catch(() => {
+        // Silent fail: SW should still install even if precache fails.
       })
   );
-  self.skipWaiting();
+
+  globalThis.skipWaiting();
 });
 
-// Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
+globalThis.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames
+          .filter((cacheName) => cacheName !== STATIC_CACHE)
+          .map((cacheName) => caches.delete(cacheName))
+      )
+    )
   );
-  self.clients.claim();
+
+  globalThis.clients.claim();
 });
 
-// Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', (event) => {
-  // Only handle GET requests
+globalThis.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') {
     return;
   }
 
   const requestUrl = new URL(event.request.url);
-  
-  // Skip service worker for Next.js chunks and build assets
-  if (requestUrl.pathname.includes('/_next/static/') || 
-      requestUrl.pathname.includes('/_next/') ||
-      requestUrl.pathname.includes('/vercel.live') ||
-      requestUrl.pathname.endsWith('.js') && requestUrl.pathname.includes('/chunks/')) {
+
+  // Ignore third-party requests and API endpoints.
+  if (requestUrl.origin !== globalThis.location.origin || requestUrl.pathname.startsWith('/api/')) {
     return;
   }
 
-  // Security: Only cache same-origin or allowed origins
-  const isSameOrigin = requestUrl.origin === self.location.origin;
-  const isAllowedOrigin = ALLOWED_ORIGINS.includes(requestUrl.origin);
-
-  if (!isSameOrigin && !isAllowedOrigin) {
-    // Don't cache third-party requests
+  // Never serve navigation requests from cache to avoid stale Next.js HTML/chunk mismatches.
+  if (event.request.mode === 'navigate') {
     event.respondWith(fetch(event.request));
     return;
   }
 
+  if (!isCacheableStaticAsset(requestUrl.pathname)) {
+    return;
+  }
+
+  // Stale-while-revalidate for static assets.
   event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - validate before returning
-        if (response) {
-          // Check if response is still valid (not corrupted)
-          if (response.ok || response.type === 'opaque') {
-            return response;
+    caches.match(event.request).then((cachedResponse) => {
+      const networkFetch = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse?.status === 200 && networkResponse.type === 'basic') {
+            caches.open(STATIC_CACHE).then((cache) => {
+              cache.put(event.request, networkResponse.clone());
+            });
           }
-        }
-        
-        return fetch(event.request).then(
-          (response) => {
-            // Check if valid response
-            if (!response || response.status !== 200 || 
-                (response.type !== 'basic' && response.type !== 'cors')) {
-              return response;
-            }
 
-            // Don't cache API responses or dynamic content
-            if (requestUrl.pathname.startsWith('/api/')) {
-              return response;
-            }
-
-            // Clone the response
-            const responseToCache = response.clone();
-
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              })
-              .catch(() => {
-                // Silent fail - cache errors are non-critical
-              });
-
-            return response;
-          }
-        ).catch(() => {
-          // Return cached version if fetch fails
-          return caches.match(event.request);
-        });
-      })
-  );
-});
-
-// Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
-  
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
+          return networkResponse;
         })
-      );
+        .catch(() => cachedResponse);
+
+      return cachedResponse || networkFetch;
     })
   );
-  
-  return self.clients.claim();
 });
