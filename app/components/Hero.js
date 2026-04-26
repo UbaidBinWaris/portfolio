@@ -149,6 +149,7 @@ export const Hero = () => {
             animate="show"
             className="text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.9] tracking-tight text-white mb-8"
           >
+            <span className="sr-only">Ubaid Bin Waris — </span>
             BACKEND.
             <br />
             <span className="text-[#63B8B2]">AI.</span>

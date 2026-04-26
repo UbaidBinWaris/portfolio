@@ -8,10 +8,9 @@ import TerminalSection from "./components/TerminalSection";
 import ProjectSection from "./components/ProjectSection";
 
 export const metadata = {
-  title:
-    "Ubaid Bin Waris - Backend Engineer & AI Automation Developer | Next.js & Node.js Expert",
+  title: "Ubaid Bin Waris | Backend Engineer & AI Developer",
   description:
-    "I am Ubaid Bin Waris, a Backend-focused Full Stack Engineer from Islamabad, Pakistan. Specializing in AI Automation, Node.js, Next.js, system architecture, and production deployment. Available for hire.",
+    "Ubaid Bin Waris — Full Stack Engineer from Islamabad, Pakistan. Specializing in AI Automation, Node.js, Next.js, and production deployment. Available for hire.",
   keywords: [
     "Ubaid Bin Waris",
     "Backend Engineer",

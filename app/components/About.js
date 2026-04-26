@@ -98,7 +98,7 @@ function SectionHeader() {
           id="about-heading"
           className="text-white font-bold text-2xl md:text-3xl shrink-0"
         >
-          About
+          About<span className="sr-only"> Ubaid Bin Waris</span>
         </h2>
         <div className="flex-1 h-px bg-[#1a3a5c]" />
         <p className="text-gray-600 font-mono text-xs shrink-0 hidden md:block">

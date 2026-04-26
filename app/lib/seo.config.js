@@ -1,6 +1,8 @@
 // Comprehensive SEO Configuration for Next.js Portfolio
 // This configuration uses next-seo for enhanced SEO capabilities
 
+import { faqSchema } from "./structuredData.js";
+
 const siteUrl =
   process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
 
@@ -215,14 +217,21 @@ export const personSchema = {
     skills:
       "React, Next.js, Node.js, MongoDB, JavaScript, TypeScript, Full Stack Development",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: "Self-Employed",
-  },
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Gixiai",
+      url: "https://gixiai.com",
+    },
+    {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  ],
   description:
-    "Ubaid Bin Waris is a professional Full Stack Web Developer from Pakistan, specializing in React, Next.js, Node.js, and MongoDB. Expert in building scalable web applications and modern user interfaces.",
+    "Ubaid Bin Waris is a Full Stack Web Developer and Computer Science student from Islamabad, Pakistan, specializing in React, Next.js, Node.js, MongoDB, and DevOps. Expert in building scalable web applications, RESTful APIs, and deploying production systems on Linux servers using Docker and cloud hosting.",
   disambiguatingDescription:
-    "Software engineer and web developer, not to be confused with historical figures. Professional programmer specializing in modern JavaScript frameworks and full-stack development.",
+    "Software engineer and web developer specializing in modern JavaScript frameworks, full-stack development, AI automation, and DevOps infrastructure. Professional programmer with expertise in Next.js, Node.js, and cloud deployment.",
   knowsAbout: [
     "React Development",
     "Next.js Framework",
@@ -230,6 +239,7 @@ export const personSchema = {
     "JavaScript Programming",
     "TypeScript Development",
     "MongoDB Database",
+    "PostgreSQL",
     "Tailwind CSS",
     "Web Development",
     "Full Stack Development",
@@ -240,9 +250,21 @@ export const personSchema = {
     "Web Application Development",
     "Express.js",
     "REST API",
+    "GraphQL",
     "Database Design",
     "Responsive Web Design",
     "UI/UX Development",
+    "Linux System Administration",
+    "DevOps",
+    "Docker Containerization",
+    "Server Configuration",
+    "Cloud Hosting",
+    "AWS",
+    "Hetzner",
+    "PM2 Process Manager",
+    "n8n Workflow Automation",
+    "AI Automation",
+    "CI/CD Deployment",
   ],
   knowsLanguage: [
     {
@@ -262,21 +284,28 @@ export const personSchema = {
   address: {
     "@type": "PostalAddress",
     addressCountry: "PK",
-    addressRegion: "Sindh",
-    addressLocality: "Karachi",
+    addressRegion: "Islamabad Capital Territory",
+    addressLocality: "Islamabad",
   },
   birthPlace: {
     "@type": "Place",
     address: {
       "@type": "PostalAddress",
       addressCountry: "Pakistan",
+      addressLocality: "Islamabad",
     },
   },
   gender: "Male",
   award: ["Web Development Excellence", "Full Stack Development Expertise"],
   alumniOf: {
     "@type": "EducationalOrganization",
-    name: "Software Development Training",
+    name: "SZABIST University",
+    url: "https://szabist-isb.edu.pk",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Islamabad",
+      addressCountry: "PK",
+    },
   },
   identifier: [
     {
@@ -288,6 +317,44 @@ export const personSchema = {
       "@type": "PropertyValue",
       propertyID: "LinkedIn",
       value: "ubaidbinwaris",
+    },
+  ],
+  makesOffer: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Full Stack Web Development",
+        description: "Custom web application development using React, Next.js, Node.js, and MongoDB",
+        serviceType: "Web Development",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "AI Automation & n8n Workflows",
+        description: "Building AI automation pipelines and n8n workflow systems",
+        serviceType: "AI Automation",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Backend API Development",
+        description: "RESTful and GraphQL API development with Node.js and Express.js",
+        serviceType: "Backend Development",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Cloud Deployment & DevOps",
+        description: "Production deployment on Linux servers using Docker, PM2, Nginx, AWS, and Hetzner",
+        serviceType: "DevOps",
+      },
     },
   ],
 };
@@ -364,8 +431,8 @@ export const professionalServiceSchema = {
   },
   geo: {
     "@type": "GeoCoordinates",
-    latitude: 24.8607,
-    longitude: 67.0011,
+    latitude: 33.6844,
+    longitude: 73.0479,
   },
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
@@ -394,6 +461,7 @@ export const aggregateSchemas = [
   organizationSchema,
   profilePageSchema,
   professionalServiceSchema,
+  faqSchema,
 ];
 
 export default defaultSEOConfig;

@@ -60,10 +60,17 @@ export const enhancedPersonSchema = {
     skills:
       "React, Next.js, Node.js, Express.js, MongoDB, SQL, JavaScript, TypeScript, Tailwind CSS, REST APIs, GraphQL, Linux, DevOps, Docker, PM2, AWS, Hetzner, Hostinger, Server Configuration, Full Stack Development",
   },
-  worksFor: {
-    "@type": "Organization",
-    name: "Self-Employed",
-  },
+  worksFor: [
+    {
+      "@type": "Organization",
+      name: "Gixiai",
+      url: "https://gixiai.com",
+    },
+    {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  ],
   description:
     "Ubaid Bin Waris is a Full Stack Web Developer and Computer Science student from Islamabad, Pakistan, specializing in React, Next.js, Node.js, MongoDB, and DevOps. Expert in building scalable web applications, RESTful APIs, and deploying production systems on Linux servers using Docker and cloud hosting.",
   disambiguatingDescription:
@@ -130,7 +137,13 @@ export const enhancedPersonSchema = {
   award: ["Web Development Excellence", "Full Stack Development Expertise"],
   alumniOf: {
     "@type": "EducationalOrganization",
-    name: "Software Development Training",
+    name: "SZABIST University",
+    url: "https://szabist-isb.edu.pk",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Islamabad",
+      addressCountry: "PK",
+    },
   },
   identifier: [
     {
