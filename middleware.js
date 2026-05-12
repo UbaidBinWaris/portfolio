@@ -40,15 +40,6 @@ export function middleware(request) {
     // (Sitemaps are not indexed as pages anyway)
   }
 
-  // Add security headers to all responses
-  response.headers.set("X-Content-Type-Options", "nosniff");
-  response.headers.set("X-Frame-Options", "SAMEORIGIN");
-  response.headers.set("X-XSS-Protection", "1; mode=block");
-  response.headers.set(
-    "Cross-Origin-Opener-Policy",
-    "same-origin-allow-popups"
-  );
-
   // Prevent caching of API responses and block from search engines
   if (request.nextUrl.pathname.startsWith("/api/")) {
     response.headers.set(

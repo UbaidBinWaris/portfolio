@@ -68,21 +68,6 @@ export const metadata = {
     apple: "/favicon.ico",
   },
   manifest: "/manifest.json",
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': 0, // Disable video indexing for background videos
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  other: {
-    'bingbot': 'index, follow',
-    'msnbot': 'index, follow',
-  },
   openGraph: {
     title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
     description:

@@ -28,21 +28,6 @@ export const metadata = {
   alternates: {
     canonical: "https://uabidbinwaris.dev",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": 0,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-  other: {
-    bingbot: "index, follow",
-    msnbot: "index, follow",
-  },
   openGraph: {
     title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
     description:
