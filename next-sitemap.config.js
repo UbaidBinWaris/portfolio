@@ -7,7 +7,7 @@ module.exports = {
   generateIndexSitemap: false,
   sitemapSize: 7000,
   changefreq: "weekly",
-  priority: 1.0,
+  priority: 1,
   exclude: ["/api/*", "/admin/*", "/robots.txt", "/sitemap.xml"],
   robotsTxtOptions: {
     policies: [
@@ -31,16 +31,18 @@ module.exports = {
         allow: "/",
         disallow: ["/api/", "/admin/", "/hero-background.mp4"],
       },
+      // AI Crawlers — allowed for AI answer engine citations (AEO)
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
     ],
     additionalSitemaps: [],
   },
-  transform: async (config, path) => {
-    // Custom priority and changefreq
-    return {
-      loc: path,
-      changefreq: path === "/" ? "weekly" : "monthly",
-      priority: path === "/" ? 1.0 : 0.8,
-      lastmod: new Date().toISOString(),
-    };
-  },
+  transform: async (_config, path) => ({
+    loc: path,
+    changefreq: path === "/" ? "weekly" : "monthly",
+    priority: path === "/" ? 1 : 0.8,
+    lastmod: new Date().toISOString(),
+  }),
 };

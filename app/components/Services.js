@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -94,7 +94,7 @@ const Services = () => {
               id="services-heading"
               className="text-white font-bold text-2xl md:text-3xl shrink-0"
             >
-              Services
+              Full Stack Development Services
             </h2>
             <div className="flex-1 h-px bg-[#1a3a5c]" />
           </div>
@@ -118,7 +118,16 @@ const Services = () => {
 
         {/* Service cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((service, i) => (
+          {services.map((service, i) => {
+            let borderClass;
+            if (hovered === i) {
+              borderClass = "border-[#63B8B2] glow-teal";
+            } else if (hovered === null) {
+              borderClass = "border-[#1a3a5c]";
+            } else {
+              borderClass = "border-[#1a3a5c] opacity-60";
+            }
+            return (
             <motion.div
               key={service.endpoint}
               initial={{ opacity: 0, y: 24 }}
@@ -127,13 +136,7 @@ const Services = () => {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               onMouseEnter={() => setHovered(i)}
               onMouseLeave={() => setHovered(null)}
-              className={`group relative bg-[#0A1930] border rounded-sm p-5 flex flex-col gap-4 transition-all duration-300 cursor-default ${
-                hovered === i
-                  ? "border-[#63B8B2] glow-teal"
-                  : hovered !== null
-                  ? "border-[#1a3a5c] opacity-60"
-                  : "border-[#1a3a5c]"
-              }`}
+              className={`group relative bg-[#0A1930] border rounded-sm p-5 flex flex-col gap-4 transition-all duration-300 cursor-default ${borderClass}`}
             >
               {/* Card top row */}
               <div className="flex items-start justify-between gap-2">
@@ -169,7 +172,7 @@ const Services = () => {
 
               {/* Params / features */}
               <div className="flex-1">
-                <p className="text-gray-700 text-xs font-mono mb-2">// query_params</p>
+                <p className="text-gray-700 text-xs font-mono mb-2">{"// query_params"}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {service.params.map((param) => (
                     <span
@@ -197,7 +200,8 @@ const Services = () => {
                 </a>
               </div>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Bottom CTA */}
@@ -209,7 +213,7 @@ const Services = () => {
           className="text-center mt-14"
         >
           <p className="text-gray-600 font-mono text-sm mb-4">
-            // Need something custom? Let's talk.
+            {"// Need something custom? Let's talk."}
           </p>
           <a
             href="#contact"

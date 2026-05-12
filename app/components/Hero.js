@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import Image from "next/image";
+import { motion } from "framer-motion";
 
 const ROLES = [
   "Backend Engineer",
@@ -88,9 +87,8 @@ export const Hero = () => {
         playsInline
         className="absolute inset-0 w-full h-full object-cover"
         style={{ zIndex: 0 }}
-        aria-hidden="true"
-        role="presentation"
         tabIndex="-1"
+        aria-hidden="true"
         preload="none"
       />
 
@@ -149,7 +147,7 @@ export const Hero = () => {
             animate="show"
             className="text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.9] tracking-tight text-white mb-8"
           >
-            <span className="sr-only">Ubaid Bin Waris — </span>
+            <span className="sr-only">Ubaid Bin Waris, Full Stack Developer in Pakistan — </span>
             BACKEND.
             <br />
             <span className="text-[#63B8B2]">AI.</span>

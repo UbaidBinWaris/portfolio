@@ -6,11 +6,12 @@ import Services from "./components/Services";
 import About from "./components/About";
 import TerminalSection from "./components/TerminalSection";
 import ProjectSection from "./components/ProjectSection";
+import FAQSection from "./components/FAQSection";
 
 export const metadata = {
-  title: "Ubaid Bin Waris | Backend Engineer & AI Developer",
+  title: "Full Stack Developer in Pakistan",
   description:
-    "Ubaid Bin Waris — Full Stack Engineer from Islamabad, Pakistan. Specializing in AI Automation, Node.js, Next.js, and production deployment. Available for hire.",
+    "Hire a Full Stack Developer from Pakistan. Expert in React, Next.js, Node.js & AI automation. Building scalable web apps and APIs. Available for freelance.",
   keywords: [
     "Ubaid Bin Waris",
     "Backend Engineer",
@@ -77,6 +78,7 @@ export default function Home() {
         <Services />
         <ProjectSection />
         <Experience />
+        <FAQSection />
         <Contact />
       </main>
     </>

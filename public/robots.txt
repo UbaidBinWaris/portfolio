@@ -26,6 +26,19 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /hero-background.mp4
 
+# AI Crawlers — allowed for AI answer engine citations (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Host
 Host: https://uabidbinwaris.dev
 

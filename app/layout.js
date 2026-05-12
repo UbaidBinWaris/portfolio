@@ -37,11 +37,11 @@ const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ubaid Bin Waris - Full Stack Web Developer from Pakistan | React & Next.js Expert",
-    template: "%s | Ubaid Bin Waris - Full Stack Developer"
+    default: "Ubaid Bin Waris | Full Stack Developer — React & Next.js",
+    template: "%s | Ubaid Bin Waris"
   },
   description:
-    "I am Ubaid Bin Waris, a professional Full Stack Web Developer from Pakistan specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
+    "Full Stack Developer from Pakistan specializing in React, Next.js & Node.js. Building scalable web apps and APIs. Available for freelance worldwide.",
   keywords: [
     "Ubaid Bin Waris",
     "Full Stack Developer",
@@ -110,11 +110,6 @@ export const metadata = {
     site: "@ubaidbinwaris",
     images: [`${siteUrl}/og-image.jpg`],
   },
-  verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    bing: "your-bing-verification-code",
-  },
   alternates: {
     canonical: siteUrl,
   },
@@ -122,10 +117,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
-  
-  // Unused local schema definitions removed in favor of seo.config.js
-
   return (
     <html lang="en">
       <head>

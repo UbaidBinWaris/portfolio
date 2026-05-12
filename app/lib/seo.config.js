@@ -1,7 +1,6 @@
 // Comprehensive SEO Configuration for Next.js Portfolio
 // This configuration uses next-seo for enhanced SEO capabilities
 
-import { faqSchema } from "./structuredData.js";
 
 const siteUrl =
   process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
@@ -401,7 +400,7 @@ export const profilePageSchema = {
   "@type": "ProfilePage",
   dateCreated: "2024-01-01T00:00:00Z",
   dateModified: new Date().toISOString(),
-  mainEntity: personSchema,
+  mainEntity: { "@id": `${siteUrl}#ubaidbinwaris-developer` },
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -454,14 +453,19 @@ export const professionalServiceSchema = {
   ],
 };
 
-// Aggregate all schemas for JSON-LD
-export const aggregateSchemas = [
-  personSchema,
-  websiteSchema,
-  organizationSchema,
-  profilePageSchema,
-  professionalServiceSchema,
-  faqSchema,
-];
+// Aggregate all schemas using @graph — single @context, multiple types
+// FAQPage schema is omitted here: FAQSection.js injects it dynamically from faqData.js
+const stripContext = ({ "@context": _, ...schema }) => schema;
+
+export const aggregateSchemas = {
+  "@context": "https://schema.org",
+  "@graph": [
+    personSchema,
+    websiteSchema,
+    organizationSchema,
+    profilePageSchema,
+    professionalServiceSchema,
+  ].map(stripContext),
+};
 
 export default defaultSEOConfig;
