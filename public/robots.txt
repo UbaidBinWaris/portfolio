@@ -26,16 +26,19 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /hero-background.mp4
 
-# AI Crawlers — allowed for AI answer engine citations (AEO)
+# GPTBot
 User-agent: GPTBot
 Allow: /
 
+# ClaudeBot
 User-agent: ClaudeBot
 Allow: /
 
+# PerplexityBot
 User-agent: PerplexityBot
 Allow: /
 
+# Google-Extended
 User-agent: Google-Extended
 Allow: /
 

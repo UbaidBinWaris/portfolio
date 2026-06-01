@@ -57,7 +57,11 @@ function TerminalForm() {
     try {
       const response = await fetch("/api/send-email", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRF-Token": "portfolio-csrf-secure"
+        },
         body: JSON.stringify(formData),
       });
       const data = await response.json();

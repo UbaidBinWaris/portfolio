@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export function middleware(request) {
+export function proxy(request) {
   // Force HTTPS redirect
   const requestHeaders = request.headers;
   const proto = requestHeaders.get("x-forwarded-proto") || "https";

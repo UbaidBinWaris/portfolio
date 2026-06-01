@@ -5,6 +5,40 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request) {
   try {
+    // CSRF Protection: Verify custom header, Origin, and Referer headers
+    const reqHeaders = request.headers;
+    const requestedWith = reqHeaders.get('x-requested-with');
+    const csrfToken = reqHeaders.get('x-csrf-token');
+    const origin = reqHeaders.get('origin');
+    const referer = reqHeaders.get('referer');
+    
+    // Determine the allowed domain dynamically
+    const allowedOrigin = process.env.NEXT_PUBLIC_SITE_URL || 'https://uabidbinwaris.dev';
+
+    // 1. Check for the custom AJAX headers (prevent standard cross-site requests)
+    if (requestedWith !== 'XMLHttpRequest' || csrfToken !== 'portfolio-csrf-secure') {
+      return NextResponse.json(
+        { error: 'CSRF Blocked: Invalid request headers' },
+        { status: 403 }
+      );
+    }
+
+    // 2. Validate Origin (if present)
+    if (origin && !origin.startsWith(allowedOrigin) && !origin.startsWith('http://localhost') && !origin.startsWith('http://127.0.0.1')) {
+      return NextResponse.json(
+        { error: 'CSRF Blocked: Invalid Origin' },
+        { status: 403 }
+      );
+    }
+
+    // 3. Validate Referer (if present)
+    if (referer && !referer.startsWith(allowedOrigin) && !referer.startsWith('http://localhost') && !referer.startsWith('http://127.0.0.1')) {
+      return NextResponse.json(
+        { error: 'CSRF Blocked: Invalid Referer' },
+        { status: 403 }
+      );
+    }
+
     const { name, email, message } = await request.json();
 
     // Validation

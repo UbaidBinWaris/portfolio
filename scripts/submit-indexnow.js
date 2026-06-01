@@ -6,6 +6,8 @@
  */
 
 const https = require('https');
+const fs = require('fs');
+const path = require('path');
 
 const INDEXNOW_KEY = '34010ce9592af026867e6c742c168f94';
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://uabidbinwaris.dev';
@@ -15,12 +17,18 @@ async function submitToIndexNow() {
   const keyLocation = `${DOMAIN}/${INDEXNOW_KEY}.txt`;
 
   // Get sitemap URLs
-  const sitemapUrl = `${DOMAIN}/sitemap.xml`;
-  
-  console.log('📡 Fetching sitemap from:', sitemapUrl);
+  const sitemapPath = path.join(__dirname, '../public/sitemap.xml');
+  console.log('📂 Reading local sitemap from:', sitemapPath);
 
   try {
-    const sitemapXml = await fetchUrl(sitemapUrl);
+    let sitemapXml;
+    if (fs.existsSync(sitemapPath)) {
+      sitemapXml = fs.readFileSync(sitemapPath, 'utf8');
+    } else {
+      const sitemapUrl = `${DOMAIN}/sitemap.xml`;
+      console.log('📡 Local sitemap not found. Fetching from:', sitemapUrl);
+      sitemapXml = await fetchUrl(sitemapUrl);
+    }
     const urlMatches = sitemapXml.match(/<loc>(.*?)<\/loc>/g);
 
     if (!urlMatches) {
@@ -55,8 +63,8 @@ async function submitToIndexNow() {
       console.log('Error:', result.error);
     }
   } catch (error) {
-    console.error('❌ Error:', error.message);
-    process.exit(1);
+    console.warn('⚠️  IndexNow submission skipped or failed due to offline/network environment:', error.message);
+    process.exit(0);
   }
 }
 
