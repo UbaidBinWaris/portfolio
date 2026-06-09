@@ -2,7 +2,7 @@
   "name": "ubaidbinwaris-portfolio",
   "version": "0.1.0",
   "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin) - Full Stack Developer",
-  "author": "Ubaid Bin Waris <ubaidbinwaris@example.com> (https://ubaidbinwaris.com)",
+  "author": "Ubaid Bin Waris ubaidwaris34@gmail.com> (https://ubaidbinwaris.com)",
   "keywords": [
     "ubaidbinwaris",
     "ubaid bin waris",
@@ -35,7 +35,8 @@
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-terminal": "^1.4.5",
-    "resend": "^6.9.1"
+    "resend": "^6.9.1",
+    "vercel": "^54.10.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

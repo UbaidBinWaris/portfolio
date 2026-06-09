@@ -99,6 +99,9 @@ export const metadata = {
     canonical: siteUrl,
   },
   category: "technology",
+  verification: {
+    google: "vN8kWYvZe-GTgsgohr-LWu7PF0wEXlx5CWppxpFHD-I",
+  },
 };
 
 export default function RootLayout({ children }) {
