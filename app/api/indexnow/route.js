@@ -59,7 +59,7 @@ export async function POST(request) {
       );
     }
 
-    const host = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://uabidbinwaris.dev';
+    const host = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ubaidbinwaris.com';
     const key = process.env.INDEXNOW_API_KEY || '34010ce9592af026867e6c742c168f94';
     const keyLocation = `${host}/${key}.txt`;
 

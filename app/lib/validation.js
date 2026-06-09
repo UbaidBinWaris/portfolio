@@ -77,8 +77,8 @@ export function sanitizeError(error, isDevelopment = false) {
  */
 export function isAllowedOrigin(origin) {
   const allowedOrigins = [
-    'https://uabidbinwaris.dev',
-    'https://www.uabidbinwaris.dev',
+    'https://ubaidbinwaris.com',
+    'https://www.ubaidbinwaris.com',
     process.env.NEXT_PUBLIC_DOMAIN_URL,
   ].filter(Boolean);
 

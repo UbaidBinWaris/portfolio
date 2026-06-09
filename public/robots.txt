@@ -43,7 +43,7 @@ User-agent: Google-Extended
 Allow: /
 
 # Host
-Host: https://uabidbinwaris.dev
+Host: https://ubaidbinwaris.com
 
 # Sitemaps
-Sitemap: https://uabidbinwaris.dev/sitemap.xml
+Sitemap: https://ubaidbinwaris.com/sitemap.xml

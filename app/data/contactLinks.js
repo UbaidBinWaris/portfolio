@@ -24,7 +24,7 @@ const contactLinks = [
   {
     id: 4,
     name: "Portfolio",
-    url: "https://uabidbinwaris.dev",
+    url: "https://ubaidbinwaris.com",
     icon: <FaGlobe />,
   },
   {

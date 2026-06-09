@@ -13,7 +13,7 @@ export async function POST(request) {
     const referer = reqHeaders.get('referer');
     
     // Determine the allowed domain dynamically
-    const allowedOrigin = process.env.NEXT_PUBLIC_SITE_URL || 'https://uabidbinwaris.dev';
+    const allowedOrigin = process.env.NEXT_PUBLIC_SITE_URL || 'https://ubaidbinwaris.com';
 
     // 1. Check for the custom AJAX headers (prevent standard cross-site requests)
     if (requestedWith !== 'XMLHttpRequest' || csrfToken !== 'portfolio-csrf-secure') {

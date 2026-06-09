@@ -4,7 +4,7 @@
  */
 
 const INDEXNOW_KEY = '34010ce9592af026867e6c742c168f94';
-const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://uabidbinwaris.dev';
+const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ubaidbinwaris.com';
 
 /**
  * Submit a single URL to IndexNow

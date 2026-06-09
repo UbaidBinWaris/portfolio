@@ -2,7 +2,7 @@
 // These schemas help Google AI showcase your services in search results and AI Overviews
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
 
 // Individual Service Schemas
 export const fullStackDevService = {

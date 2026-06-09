@@ -32,7 +32,7 @@ const sourceCodePro = Source_Code_Pro({
   adjustFontFallback: true,
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -123,7 +123,7 @@ export default function RootLayout({ children }) {
         <link rel="me" href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296" />
         <link rel="me" href="https://www.fiverr.com/ubaidwaris655" />
         <link rel="me" href="https://discord.com/users/1194654569578373121" />
-        <link rel="me" href="https://uabidbinwaris.dev" />
+        <link rel="me" href="https://ubaidbinwaris.com" />
         <link rel="author" href="mailto:ubaidwaris34@gmail.com" />
         
         <meta name="theme-color" content="#0A1930" />

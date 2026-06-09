@@ -1,7 +1,7 @@
 // Enhanced Structured Data (JSON-LD) for SEO
 // Import this in your components to add rich snippets
 
-const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
 
 // FAQ Schema for FAQ Section
 export const faqSchema = {

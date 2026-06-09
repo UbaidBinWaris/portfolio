@@ -37,7 +37,7 @@ export default function SEOComponent() {
 //       <NextSeo
 //         title="About Me"
 //         description="Learn more about Ubaid Bin Waris"
-//         canonical="https://uabidbinwaris.dev/about"
+//         canonical="https://ubaidbinwaris.com/about"
 //       />
 //       <main>Your content</main>
 //     </>

@@ -3,7 +3,7 @@ import Contact from "../components/Contact";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Hire Next.js Developer Pakistan | Expert React & Next.js Developer Available",
+  title: "Hire Next.js Developer Pakistan | Expert React Developer",
   description: "Looking to hire a Next.js developer from Pakistan? Ubaid Bin Waris offers expert Next.js development services. 3+ years experience building scalable web apps with React, Next.js, Node.js & MongoDB. Available for hire.",
   keywords: [
     "hire nextjs developer pakistan",
@@ -16,16 +16,16 @@ export const metadata = {
     "nextjs freelancer pakistan"
   ],
   alternates: {
-    canonical: "https://uabidbinwaris.dev/hire-nextjs-developer-pakistan",
+    canonical: "https://ubaidbinwaris.com/hire-nextjs-developer-pakistan",
   },
   openGraph: {
     title: "Hire Next.js Developer Pakistan | Ubaid Bin Waris",
     description: "Expert Next.js developer from Pakistan available for hire. Specializing in React, Next.js, Node.js & MongoDB. Build fast, scalable web applications.",
-    url: "https://uabidbinwaris.dev/hire-nextjs-developer-pakistan",
+    url: "https://ubaidbinwaris.com/hire-nextjs-developer-pakistan",
     type: "website",
     images: [
       {
-        url: "https://uabidbinwaris.dev/og-image.jpg",
+        url: "https://ubaidbinwaris.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Hire Next.js Developer Pakistan - Ubaid Bin Waris",
@@ -36,7 +36,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Hire Next.js Developer Pakistan | Ubaid Bin Waris",
     description: "Expert Next.js developer from Pakistan available for hire. Build fast, scalable web applications.",
-    images: ["https://uabidbinwaris.dev/og-image.jpg"],
+    images: ["https://ubaidbinwaris.com/og-image.jpg"],
   },
 };
 

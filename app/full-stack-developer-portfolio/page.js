@@ -17,16 +17,16 @@ export const metadata = {
     "hire full stack developer"
   ],
   alternates: {
-    canonical: "https://uabidbinwaris.dev/full-stack-developer-portfolio",
+    canonical: "https://ubaidbinwaris.com/full-stack-developer-portfolio",
   },
   openGraph: {
     title: "Full Stack Developer Portfolio | Ubaid Bin Waris",
     description: "Professional full stack developer portfolio showcasing MERN stack projects, React & Next.js applications, and real-world web solutions.",
-    url: "https://uabidbinwaris.dev/full-stack-developer-portfolio",
+    url: "https://ubaidbinwaris.com/full-stack-developer-portfolio",
     type: "website",
     images: [
       {
-        url: "https://uabidbinwaris.dev/og-image.jpg",
+        url: "https://ubaidbinwaris.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Full Stack Developer Portfolio - Ubaid Bin Waris",
@@ -37,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Full Stack Developer Portfolio | Ubaid Bin Waris",
     description: "Professional full stack developer portfolio showcasing MERN stack projects and real-world web solutions.",
-    images: ["https://uabidbinwaris.dev/og-image.jpg"],
+    images: ["https://ubaidbinwaris.com/og-image.jpg"],
   },
 };
 

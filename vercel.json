@@ -82,7 +82,7 @@
           "value": "http"
         }
       ],
-      "destination": "https://uabidbinwaris.dev/:path*",
+      "destination": "https://ubaidbinwaris.com/:path*",
       "permanent": true
     }
   ]

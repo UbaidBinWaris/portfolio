@@ -3,7 +3,7 @@
 
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
 
 export const defaultSEOConfig = {
   titleTemplate: "%s | Ubaid Bin Waris",
@@ -187,7 +187,7 @@ export const personSchema = {
     "https://twitter.com/ubaidbinwaris",
     "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
     "https://www.fiverr.com/ubaidwaris655",
-    "https://uabidbinwaris.dev",
+    "https://ubaidbinwaris.com",
   ],
   jobTitle: [
     "Full Stack Developer",
@@ -362,7 +362,7 @@ export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Ubaid Bin Waris | Full Stack Developer",
-  alternateName: ["ubaidbinwaris", "uabidbinwaris.dev"],
+  alternateName: ["ubaidbinwaris", "ubaidbinwaris.com"],
   url: siteUrl,
   description:
     "Professional Full Stack Developer portfolio showcasing React, Next.js, Node.js projects and services",

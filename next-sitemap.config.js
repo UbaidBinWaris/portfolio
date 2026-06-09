@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev",
+  siteUrl: process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com",
   generateRobotsTxt: true,
   // Disable index sitemap generation for single-page portfolio
   // This prevents Google from looking for sitemap-0.xml which doesn't exist

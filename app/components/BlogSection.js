@@ -81,7 +81,7 @@ export const BlogSection = () => {
             "@type": "Blog",
             "name": "Ubaid Bin Waris Blog",
             "description": "Technical articles about web development and programming",
-            "url": `${process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://uabidbinwaris.dev'}/#blog`,
+            "url": `${process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ubaidbinwaris.com'}/#blog`,
             "author": {
               "@type": "Person",
               "name": "Ubaid Bin Waris"

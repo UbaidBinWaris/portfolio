@@ -88,7 +88,7 @@ const nextConfig = {
           },
           {
             key: 'Link',
-            value: '<https://uabidbinwaris.dev>; rel="canonical"'
+            value: '<https://ubaidbinwaris.com>; rel="canonical"'
           }
         ]
       },

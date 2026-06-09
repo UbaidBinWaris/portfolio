@@ -2,7 +2,7 @@
 // Import this in layout.js to replace the existing personSchema
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://uabidbinwaris.dev";
+  process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
 
 export const enhancedPersonSchema = {
   "@context": "https://schema.org",
@@ -31,7 +31,7 @@ export const enhancedPersonSchema = {
     "https://twitter.com/ubaidbinwaris",
     "https://www.upwork.com/freelancers/~01d2f557e6c01a0296",
     "https://www.fiverr.com/ubaidwaris655",
-    "https://uabidbinwaris.dev",
+    "https://ubaidbinwaris.com",
   ],
   jobTitle: [
     "Full Stack Developer",

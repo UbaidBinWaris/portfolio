@@ -9,7 +9,7 @@ import ProjectSection from "./components/ProjectSection";
 import FAQSection from "./components/FAQSection";
 
 export const metadata = {
-  title: "Full Stack Developer in Pakistan",
+  title: "Full Stack Developer in Pakistan | React & Next.js Expert",
   description:
     "Hire a Full Stack Developer from Pakistan. Expert in React, Next.js, Node.js & AI automation. Building scalable web apps and APIs. Available for freelance.",
   keywords: [
@@ -26,17 +26,17 @@ export const metadata = {
     "Portfolio",
   ],
   alternates: {
-    canonical: "https://uabidbinwaris.dev",
+    canonical: "https://ubaidbinwaris.com",
   },
   openGraph: {
     title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
     description:
       "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
-    url: "https://uabidbinwaris.dev",
+    url: "https://ubaidbinwaris.com",
     type: "website",
     images: [
       {
-        url: "https://uabidbinwaris.dev/og-image.jpg",
+        url: "https://ubaidbinwaris.com/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Ubaid Bin Waris - Backend Engineer & AI Automation Developer",
@@ -48,7 +48,7 @@ export const metadata = {
     title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
     description:
       "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
-    images: ["https://uabidbinwaris.dev/og-image.jpg"],
+    images: ["https://ubaidbinwaris.com/og-image.jpg"],
   },
 };
 
