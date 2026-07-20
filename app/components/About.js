@@ -7,7 +7,7 @@ const storyBlocks = [
   {
     tag: "// who_i_am",
     label: "Background",
-    text: "Ubaid Bin Waris — Backend-focused Full Stack Engineer and CS student from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
+    text: "Ubaid Bin Waris — Backend-focused Full Stack Engineer from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
   },
   {
     tag: "// what_i_do",
