@@ -147,7 +147,7 @@ export const Hero = () => {
             animate="show"
             className="text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.9] tracking-tight text-white mb-8"
           >
-            <span className="sr-only">Ubaid Bin Waris, Full Stack Developer in Pakistan — </span>
+            <span className="sr-only">Ubaid Bin Waris, Full Stack Developer in Pakistan - </span>
             BACKEND.
             <br />
             <span className="text-[#63B8B2]">AI.</span>
@@ -178,7 +178,7 @@ export const Hero = () => {
             animate="show"
             className="text-gray-400 text-base max-w-md leading-relaxed mb-10"
           >
-            Building production-ready systems — from REST APIs and databases to
+            Building production-ready systems - from REST APIs and databases to
             AI automation pipelines and Linux-deployed infrastructure.
           </motion.p>
 

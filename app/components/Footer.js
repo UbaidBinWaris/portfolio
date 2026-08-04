@@ -10,17 +10,10 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="py-4 mt-12 w-[99%]">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-white/40">
-        <div className="flex gap-4">
-          <Link href="/full-stack-developer-portfolio" className="hover:text-white/70 transition-colors duration-200 font-mono text-xs">
-            Full Stack Developer Portfolio
-          </Link>
-          <Link href="/hire-nextjs-developer-pakistan" className="hover:text-white/70 transition-colors duration-200 font-mono text-xs">
-            Hire Next.js Developer in Pakistan
-          </Link>
-        </div>
+    <footer className="py-6 mt-12 w-full max-w-7xl mx-auto px-6 border-t border-[#1a3a5c]/50">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500 font-mono">
         <p>© {year} Ubaid Bin Waris. All rights reserved.</p>
+        <p className="text-xs text-gray-600"> Islamabad, Pakistan • Remote Worldwide</p>
       </div>
     </footer>
   );

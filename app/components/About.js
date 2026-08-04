@@ -9,7 +9,7 @@ const storyBlocks = [
   {
     tag: "// who_i_am",
     label: "Background",
-    text: "Ubaid Bin Waris — Backend-focused Full Stack Engineer from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
+    text: "Ubaid Bin Waris - Backend-focused Full Stack Engineer from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
   },
   {
     tag: "// what_i_do",
@@ -19,7 +19,7 @@ const storyBlocks = [
   {
     tag: "// how_i_think",
     label: "Approach",
-    text: "Start with constraints. Design for scale. Ship with confidence. Every system decision is deliberate — I don't add complexity without reason.",
+    text: "Start with constraints. Design for scale. Ship with confidence. Every system decision is deliberate - I don't add complexity without reason.",
   },
   {
     tag: "// what_matters",
@@ -39,7 +39,7 @@ const capabilities = [
 
 const philosophy = [
   { key: "QUALITY_FIRST", desc: "Clean, maintainable, scalable code following industry best practices." },
-  { key: "FULL_STACK", desc: "Frontend, backend, databases, and infrastructure — complete solutions." },
+  { key: "FULL_STACK", desc: "Frontend, backend, databases, and infrastructure - complete solutions." },
   { key: "PERF_SECURITY", desc: "Apps optimized for speed, scalability, and secure deployment." },
   { key: "REAL_IMPACT", desc: "Building projects that solve actual problems, not just practice code." },
 ];
@@ -349,7 +349,7 @@ const About = () => {
       {/* SEO-friendly hidden capabilities list */}
       <ul className="sr-only">
         {capabilities.flatMap((cap) =>
-          cap.items.map((item) => <li key={item}>{item} — {cap.area}</li>)
+          cap.items.map((item) => <li key={item}>{item} - {cap.area}</li>)
         )}
       </ul>
 

@@ -37,7 +37,7 @@ const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Ubaid Bin Waris | Full Stack Developer — React & Next.js",
+    default: "Ubaid Bin Waris | Full Stack Developer - React & Next.js",
     template: "%s | Ubaid Bin Waris"
   },
   description:

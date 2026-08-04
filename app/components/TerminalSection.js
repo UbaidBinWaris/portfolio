@@ -93,7 +93,7 @@ export const TerminalSection = () => {
       return (
         <p className="text-red-400 text-sm">
           command not found: <span className="text-red-300">{entry.cmd}</span>
-          {" — try "}
+          {" - try "}
           <button
             onClick={() => { setInput("help"); setTimeout(() => runCommand("help"), 0); setInput(""); }}
             className="text-[#63B8B2] underline cursor-pointer"
