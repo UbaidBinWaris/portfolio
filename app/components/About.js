@@ -185,7 +185,7 @@ function StoryColumn() {
               >
                 {/* Line number gutter */}
                 <div className="w-9 shrink-0 py-4 text-right pr-3 text-[#1a3a5c] text-xs select-none border-r border-[#0f2744]">
-                  {(i * 5 + 1).toString().padStart(2, "0")}
+                  {(i * 5).toString().padStart(2, "0")}
                 </div>
                 {/* Content */}
                 <div className="flex-1 px-4 py-4">

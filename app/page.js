@@ -4,7 +4,6 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
 import About from "./components/About";
-import TerminalSection from "./components/TerminalSection";
 import ProjectSection from "./components/ProjectSection";
 import FAQSection from "./components/FAQSection";
 
@@ -58,7 +57,6 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
         <Navbar />
         <Hero />
-        {/* <TerminalSection /> */}
         <About />
         <Services />
         <ProjectSection />
