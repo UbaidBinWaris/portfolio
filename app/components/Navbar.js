@@ -4,12 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navLinks = [
-  { href: "#home", label: "home", index: "00" },
-  { href: "#about", label: "about", index: "01" },
-  { href: "#skills", label: "skills", index: "02" },
-  { href: "#projects", label: "projects", index: "03" },
-  { href: "#experience", label: "experience", index: "04" },
-  { href: "#contact", label: "contact", index: "05" },
+  { href: "#about", label: "about", index: "00" },
+  { href: "#skills", label: "skills", index: "01" },
+  { href: "#projects", label: "projects", index: "02" },
+  { href: "#experience", label: "experience", index: "03" },
+  { href: "#contact", label: "contact", index: "04" },
 ];
 
 export const Navbar = () => {

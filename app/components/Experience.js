@@ -302,7 +302,7 @@ export const Experience = () => {
         className="flex items-center gap-4 m-5 will-change-transform"
         style={{ transformOrigin: "center center", position: "relative", width: "100%" }}
       >
-        <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">05 /</p>
+        <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">03 /</p>
         <h2
           id="experience-heading"
           className="text-white font-bold text-2xl md:text-3xl shrink-0"

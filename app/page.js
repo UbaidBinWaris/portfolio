@@ -58,7 +58,7 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
         <Navbar />
         <Hero />
-        <TerminalSection />
+        {/* <TerminalSection /> */}
         <About />
         <Services />
         <ProjectSection />

@@ -89,7 +89,7 @@ const Services = () => {
           className="mb-6"
         >
           <div className="flex items-center gap-4">
-            <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">02 /</p>
+            <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">01 /</p>
             <h2
               id="services-heading"
               className="text-white font-bold text-2xl md:text-3xl shrink-0"
