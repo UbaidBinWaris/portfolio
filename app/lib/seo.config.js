@@ -178,7 +178,7 @@ export const personSchema = {
   mainEntityOfPage: siteUrl,
   image: {
     "@type": "ImageObject",
-    url: `${siteUrl}/me.jpg`,
+    url: `${siteUrl}/me.jpeg`,
     caption: "Ubaid Bin Waris - Full Stack Developer",
   },
   sameAs: [
@@ -379,7 +379,7 @@ export const organizationSchema = {
   name: "Ubaid Bin Waris",
   alternateName: "ubaidbinwaris",
   url: siteUrl,
-  logo: `${siteUrl}/me.jpg`,
+  logo: `${siteUrl}/me.jpeg`,
   sameAs: [
     "https://github.com/UbaidBinWaris",
     "https://twitter.com/ubaidbinwaris",
@@ -419,7 +419,7 @@ export const professionalServiceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "Full Stack Development Services",
-  image: `${siteUrl}/me.jpg`,
+  image: `${siteUrl}/me.jpeg`,
   "@id": siteUrl,
   url: siteUrl,
   telephone: "",

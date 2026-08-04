@@ -22,7 +22,7 @@ export const enhancedPersonSchema = {
   mainEntityOfPage: siteUrl,
   image: {
     "@type": "ImageObject",
-    url: `${siteUrl}/me.jpg`,
+    url: `${siteUrl}/me.jpeg`,
     caption: "Ubaid Bin Waris - Full Stack Developer",
   },
   sameAs: [
