@@ -104,6 +104,13 @@ export const metadata = {
   },
 };
 
+export const viewport = {
+  themeColor: "#0A1930",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -128,11 +135,6 @@ export default function RootLayout({ children }) {
         <link rel="me" href="https://discord.com/users/1194654569578373121" />
         <link rel="me" href="https://ubaidbinwaris.com" />
         <link rel="author" href="mailto:ubaidwaris34@gmail.com" />
-        
-        <meta name="theme-color" content="#0A1930" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         
         {/* Enhanced Structured Data (JSON-LD) for better SEO */}
         <script
