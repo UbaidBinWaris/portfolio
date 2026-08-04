@@ -99,12 +99,7 @@ export const Hero = () => {
         aria-hidden="true"
       />
 
-      {/* Grid overlay */}
-      <div
-        className="absolute inset-0 grid-overlay opacity-60"
-        style={{ zIndex: 2 }}
-        aria-hidden="true"
-      />
+
 
       {/* Teal accent glow — top-right */}
       <div
@@ -335,19 +330,7 @@ export const Hero = () => {
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ zIndex: 3 }}
-        aria-hidden="true"
-      >
-        <p className="text-gray-600 text-xs font-mono tracking-widest">SCROLL</p>
-        <div className="w-px h-12 bg-gradient-to-b from-[#63B8B2] to-transparent animate-float" />
-      </motion.div>
+      
     </section>
   );
 };
