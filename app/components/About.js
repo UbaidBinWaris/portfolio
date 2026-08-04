@@ -141,7 +141,7 @@ function StoryColumn() {
               Ubaid Bin Waris
             </h3>
             <p className="text-[#63B8B2] text-xs mb-3">
-              Full Stack & AI Systems Engineer
+              Senior Full Stack & AI Systems Engineer
             </p>
             <div className="flex flex-wrap justify-center sm:justify-start gap-2 text-[11px] text-gray-400">
               <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">

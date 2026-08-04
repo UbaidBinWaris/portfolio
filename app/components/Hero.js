@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const ROLES = [
-  "Backend Engineer",
+  "Senior Full Stack Engineer",
+  "Senior Backend Engineer",
   "AI Automation Developer",
-  "Full Stack Engineer",
   "System Builder",
   "n8n Workflow Architect",
 ];

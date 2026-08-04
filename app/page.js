@@ -9,12 +9,12 @@ import ProjectSection from "./components/ProjectSection";
 import FAQSection from "./components/FAQSection";
 
 export const metadata = {
-  title: "Full Stack Developer in Pakistan | React & Next.js Expert",
+  title: "Senior Full Stack Developer in Pakistan | React & Next.js Expert",
   description:
-    "Hire a Full Stack Developer from Pakistan. Expert in React, Next.js, Node.js & AI automation. Building scalable web apps and APIs. Available for freelance.",
+    "Hire a Senior Full Stack Developer from Pakistan. Expert in React, Next.js, Node.js & AI automation. Building scalable web apps and APIs. Available for freelance.",
   keywords: [
     "Ubaid Bin Waris",
-    "Backend Engineer",
+    "Senior Full Stack Developer",
     "AI Automation Developer",
     "Full Stack Developer",
     "React",

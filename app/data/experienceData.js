@@ -4,7 +4,7 @@ const experienceData = [
   {
     id: 1,
     hash: "a1f3b2c",
-    title: "Full Stack Developer",
+    title: "Senior Full Stack Developer",
     company: "GixiAI",
     duration: "Aug 2025 – Present",
     active: true,
