@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import Image from "next/image";
+import { HiMapPin, HiBolt, HiGlobeAlt } from "react-icons/hi2";
 
 /* ─── Data ─── */
 const storyBlocks = [
@@ -113,6 +115,49 @@ function SectionHeader() {
 function StoryColumn() {
   return (
     <div className="space-y-5">
+      {/* Profile Image & Quick Info Header Card */}
+      <StaggerBlock index={0.5}>
+        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-5 relative overflow-hidden group hover:border-[#63B8B2]/50 transition-colors duration-300">
+          <div className="relative shrink-0 w-32 h-32 sm:w-36 sm:h-36 rounded-sm overflow-hidden border-2 border-[#63B8B2]/40 p-1 bg-[#0f2744]">
+            <div className="relative w-full h-full rounded-xs overflow-hidden">
+              <Image
+                src="/me.jpeg"
+                alt="Ubaid Bin Waris"
+                fill
+                sizes="(max-width: 640px) 128px, 144px"
+                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                priority
+              />
+            </div>
+            {/* Status indicator badge */}
+            <div className="absolute bottom-2 right-2 bg-[#060e1f]/90 border border-[#63B8B2] px-1.5 py-0.5 rounded text-[10px] font-mono text-[#63B8B2] flex items-center gap-1 shadow-lg backdrop-blur-xs">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              ONLINE
+            </div>
+          </div>
+
+          <div className="flex-1 text-center sm:text-left font-mono">
+            <h3 className="text-white text-lg font-bold tracking-wide mb-1">
+              Ubaid Bin Waris
+            </h3>
+            <p className="text-[#63B8B2] text-xs mb-3">
+              Full Stack & AI Systems Engineer
+            </p>
+            <div className="flex flex-wrap justify-center sm:justify-start gap-2 text-[11px] text-gray-400">
+              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
+                <HiMapPin className="text-[#63B8B2] text-xs" /> Islamabad, PK
+              </span>
+              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
+                <HiBolt className="text-[#63B8B2] text-xs" /> 3+ Yrs Exp
+              </span>
+              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
+                <HiGlobeAlt className="text-[#63B8B2] text-xs" /> Node / Next.js / AI
+              </span>
+            </div>
+          </div>
+        </div>
+      </StaggerBlock>
+
       {/* Code-file wrapper */}
       <StaggerBlock index={1}>
         <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
