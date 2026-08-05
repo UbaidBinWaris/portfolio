@@ -6,31 +6,34 @@ import Services from "./components/Services";
 import About from "./components/About";
 import ProjectSection from "./components/ProjectSection";
 import FAQSection from "./components/FAQSection";
+import ArchitectureSection from "./components/ArchitectureSection";
+import CurrentlyBuilding from "./components/CurrentlyBuilding";
 
 export const metadata = {
-  title: "Senior Full Stack Developer in Pakistan | React & Next.js Expert",
+  title: "AI Systems Engineer & Backend Infrastructure Specialist | Ubaid Bin Waris",
   description:
-    "Hire a Senior Full Stack Developer from Pakistan. Expert in React, Next.js, Node.js & AI automation. Building scalable web apps and APIs. Available for freelance.",
+    "Hire Ubaid Bin Waris - AI Systems & Backend Infrastructure Engineer. Specializing in AI Agents, Voice AI, LiveKit/Vapi, n8n Automation, Node.js, Redis distributed locks, and Linux cloud infrastructure.",
   keywords: [
     "Ubaid Bin Waris",
-    "Senior Full Stack Developer",
-    "AI Automation Developer",
-    "Full Stack Developer",
-    "React",
-    "Next.js",
+    "AI Systems Engineer",
+    "AI Automation Engineer",
+    "Backend Infrastructure Engineer",
+    "Voice AI Developer",
+    "LiveKit",
+    "Vapi Telephony",
+    "n8n Automation",
     "Node.js",
-    "MongoDB",
-    "n8n Developer",
-    "System Builder",
-    "Portfolio",
+    "Redis Distributed Locks",
+    "Ollama Local LLMs",
+    "Linux Systems",
   ],
   alternates: {
     canonical: "https://ubaidbinwaris.com",
   },
   openGraph: {
-    title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
+    title: "Ubaid Bin Waris | AI Systems Engineer & Infrastructure Specialist",
     description:
-      "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
+      "Production AI Systems Engineer specializing in Voice AI, autonomous AI agents, high-concurrency Redis session managers, and Linux cloud infrastructure.",
     url: "https://ubaidbinwaris.com",
     type: "website",
     images: [
@@ -38,15 +41,15 @@ export const metadata = {
         url: "https://ubaidbinwaris.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Ubaid Bin Waris - Backend Engineer & AI Automation Developer",
+        alt: "Ubaid Bin Waris - AI Systems Engineer & Infrastructure Specialist",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ubaid Bin Waris | Backend Engineer & AI Automation Developer",
+    title: "Ubaid Bin Waris | AI Systems Engineer & Infrastructure Specialist",
     description:
-      "Backend-focused Full Stack Engineer specializing in AI Automation, Node.js, Next.js, and production-ready system architecture.",
+      "Production AI Systems Engineer specializing in Voice AI, autonomous AI agents, high-concurrency Redis session managers, and Linux cloud infrastructure.",
     images: ["https://ubaidbinwaris.com/og-image.jpg"],
   },
 };
@@ -57,9 +60,11 @@ export default function Home() {
       <main className="flex min-h-screen w-full flex-col items-center font-code justify-between relative">
         <Navbar />
         <Hero />
-        <About />
+        <CurrentlyBuilding />
         <Services />
+        <ArchitectureSection />
         <ProjectSection />
+        <About />
         <Experience />
         <FAQSection />
         <Contact />

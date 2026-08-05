@@ -7,9 +7,9 @@ const siteUrl =
 
 export const defaultSEOConfig = {
   titleTemplate: "%s | Ubaid Bin Waris",
-  defaultTitle: "Ubaid Bin Waris | Full Stack Developer Portfolio",
+  defaultTitle: "Ubaid Bin Waris | AI Systems Engineer & Infrastructure Specialist",
   description:
-    "Ubaid Bin Waris - Expert Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for hire.",
+    "Ubaid Bin Waris - AI Systems & Backend Infrastructure Engineer. Specializing in AI Agents, Voice AI, LiveKit/Vapi, n8n Automation, Node.js, Redis distributed locks, and Linux cloud infrastructure.",
 
   canonical: siteUrl,
 
@@ -17,10 +17,10 @@ export const defaultSEOConfig = {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Ubaid Bin Waris | Full Stack Developer",
-    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
+    siteName: "Ubaid Bin Waris | AI Systems Engineer",
+    title: "Ubaid Bin Waris | AI Systems Engineer & Infrastructure Specialist",
     description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
+      "Production AI Systems Engineer specializing in Voice AI, autonomous AI agents, high-concurrency Redis session managers, and Linux cloud infrastructure.",
     images: [
       {
         url: `${siteUrl}/og-image.jpg`,

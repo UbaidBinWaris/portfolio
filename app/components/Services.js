@@ -5,57 +5,48 @@ import { motion } from "framer-motion";
 const services = [
   {
     method: "POST",
-    endpoint: "/full-stack-development",
-    title: "Full Stack Web Development",
-    description: "Custom web apps using React, Next.js, Node.js, and MongoDB. Scalable, performant, production-ready.",
-    params: ["Custom Web Apps", "Responsive Design", "Database Integration", "API Development"],
-    price: "from $500",
-    status: 200,
-  },
-  {
-    method: "GET",
-    endpoint: "/react-nextjs-frontend",
-    title: "React & Next.js Development",
-    description: "Expert interfaces with SSR, SSG, and ISR. SEO-optimized, fast-loading, component-driven architecture.",
-    params: ["Component Architecture", "State Management", "SSR / SSG / ISR", "SEO Optimization"],
-    price: "from $400",
+    endpoint: "/ai-agent-development",
+    title: "Custom AI Agents & Tool Calling",
+    description: "Autonomous agentic systems utilizing OpenAI, Claude, Gemini, and Local LLMs (Ollama) with tool-calling, RAG, and memory architecture.",
+    params: ["Tool Calling", "RAG & Vector Search", "Ollama & Local LLMs", "MCP Architecture"],
+    price: "Custom Scope",
     status: 200,
   },
   {
     method: "POST",
-    endpoint: "/node-backend-api",
-    title: "Node.js Backend & APIs",
-    description: "Robust server-side applications and RESTful APIs with Express.js, authentication, and scalable architecture.",
-    params: ["REST APIs", "Auth & Authorization", "Database Integration", "Security Implementation"],
-    price: "from $500",
+    endpoint: "/voice-ai-systems",
+    title: "Voice AI & Realtime Telephony",
+    description: "Production phone and voice conversation agents using Vapi, LiveKit, Twilio, Deepgram, and Whisper with low latency audio streaming.",
+    params: ["LiveKit WebRTC", "Vapi & Twilio Integration", "Deepgram STT & TTS", "Realtime Lead Callers"],
+    price: "Custom Scope",
+    status: 200,
+  },
+  {
+    method: "POST",
+    endpoint: "/ai-workflow-automation",
+    title: "AI Workflow & Lead Automation",
+    description: "End-to-end process automation connecting CRMs, webhooks, lead qualification pipelines, email processing, and n8n workflows.",
+    params: ["n8n & Trigger.dev", "Webhook Processing", "Lead Qualification", "Document Processing"],
+    price: "Custom Scope",
+    status: 200,
+  },
+  {
+    method: "POST",
+    endpoint: "/backend-architecture",
+    title: "High-Performance Backend Systems",
+    description: "Scalable microservices, distributed session managers, task queues, and APIs built with Node.js, NestJS, Postgres, and Redis.",
+    params: ["Distributed Session Locks", "BullMQ & RabbitMQ", "Postgres & Redis", "RESTful & WebSockets"],
+    price: "Custom Scope",
     status: 200,
   },
   {
     method: "PUT",
-    endpoint: "/cloud-deployment",
-    title: "Cloud Deployment & DevOps",
-    description: "Professional deployment on AWS, Hetzner, Hostinger with CI/CD, Docker, PM2, and server configuration.",
-    params: ["Linux Server Setup", "Docker & PM2", "CI/CD Pipeline", "SSL & HTTPS"],
-    price: "from $200",
+    endpoint: "/infrastructure-devops",
+    title: "Linux Infrastructure & GPU Deployment",
+    description: "Production Linux server administration, Docker containerization, Hetzner/AWS provisioning, GPU model hosting, and Nginx reverse proxies.",
+    params: ["Ubuntu & Docker Clusters", "Ollama GPU Workstations", "Nginx & SSL Proxying", "Monitoring & Security"],
+    price: "Custom Scope",
     status: 201,
-  },
-  {
-    method: "POST",
-    endpoint: "/ai-automation",
-    title: "AI Automation & Workflows",
-    description: "AI-powered workflows and process automation. Connecting APIs, building intelligent pipelines and triggers.",
-    params: ["AI Workflow Design", "API Orchestration", "Process Automation", "System Integration"],
-    price: "from $350",
-    status: 200,
-  },
-  {
-    method: "GET",
-    endpoint: "/maintenance-support",
-    title: "Maintenance & Support",
-    description: "Ongoing maintenance, updates, and technical support to keep your application running smoothly.",
-    params: ["Bug Fixes", "Feature Updates", "Performance Monitoring", "Security Patches"],
-    price: "from $150/mo",
-    status: 200,
   },
 ];
 
@@ -89,12 +80,12 @@ const Services = () => {
           className="mb-6"
         >
           <div className="flex items-center gap-4">
-            <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">01 /</p>
+            <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">00 /</p>
             <h2
               id="services-heading"
               className="text-white font-bold text-2xl md:text-3xl shrink-0"
             >
-              Full Stack Development Services
+              AI Systems &amp; Infrastructure Engineering Services
             </h2>
             <div className="flex-1 h-px bg-[#1a3a5c]" />
           </div>

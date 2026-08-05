@@ -9,39 +9,39 @@ const storyBlocks = [
   {
     tag: "// who_i_am",
     label: "Background",
-    text: "Ubaid Bin Waris - Backend-focused Full Stack Engineer from Islamabad, Pakistan. I build production-ready systems that are clean, scalable, and deployed.",
+    text: "Ubaid Bin Waris - AI Systems & Infrastructure Engineer based in Islamabad, Pakistan. I design and deploy autonomous AI agents, voice telephony systems, high-concurrency backends, and Linux cloud infrastructure.",
   },
   {
     tag: "// what_i_do",
     label: "Focus",
-    text: "Backend architecture, REST API design, AI automation pipelines, and full-stack delivery. I handle everything from database schema to cloud deployment.",
+    text: "Building production AI systems: OpenAI/Claude/Gemini tool-calling agents, LiveKit/Vapi Voice AI callers, Redis distributed session managers, and n8n workflow automation.",
   },
   {
-    tag: "// how_i_think",
+    tag: "// hardware_infrastructure",
+    label: "On-Prem Workstation",
+    text: "I run a dedicated HP Z840 dual-Xeon workstation (96GB RAM) running Linux & Ollama for local LLM benchmarking (Qwen/Gemma), model quantization, and self-hosted agent testing.",
+  },
+  {
+    tag: "// core_philosophy",
     label: "Approach",
-    text: "Start with constraints. Design for scale. Ship with confidence. Every system decision is deliberate - I don't add complexity without reason.",
-  },
-  {
-    tag: "// what_matters",
-    label: "Priority",
-    text: "Systems that work under load. Code that the next engineer can read. Infrastructure that doesn't require babysitting at 2AM.",
+    text: "Design for scale and resiliency. Use distributed locks for concurrent workers, persistent queues for webhook retries, and strict isolation for production agent environments.",
   },
 ];
 
 const capabilities = [
-  { area: "Backend", items: ["Node.js", "Express", "REST APIs", "GraphQL"] },
-  { area: "Automation", items: ["n8n Workflows", "AI Pipelines", "Webhooks", "Schedulers"] },
-  { area: "Infrastructure", items: ["Linux Admin", "Docker", "PM2", "Nginx"] },
-  { area: "Cloud", items: ["AWS", "Hetzner", "Hostinger", "CI/CD"] },
-  { area: "Database", items: ["MongoDB", "PostgreSQL", "Redis", "Schema Design"] },
-  { area: "Frontend", items: ["Next.js", "React", "TypeScript", "Tailwind"] },
+  { area: "AI Agents", items: ["OpenAI & Claude APIs", "Tool Calling & MCP", "Ollama Local LLMs", "RAG & Vector Search"] },
+  { area: "Voice AI", items: ["LiveKit WebRTC", "Vapi & Twilio", "Deepgram STT", "Cartesia Realtime TTS"] },
+  { area: "Backend Systems", items: ["Node.js & NestJS", "Distributed Session Locks", "BullMQ & RabbitMQ", "Postgres & Redis"] },
+  { area: "Automation", items: ["n8n Workflows", "Trigger.dev", "Webhook Pipelines", "Lead Qualification"] },
+  { area: "Infrastructure", items: ["Linux / Ubuntu Admin", "Docker & Compose", "HP Z840 Workstation", "Hetzner & AWS"] },
+  { area: "Supporting Stack", items: ["Next.js & React", "TypeScript", "Tailwind CSS", "RESTful & WebSockets"] },
 ];
 
 const philosophy = [
-  { key: "QUALITY_FIRST", desc: "Clean, maintainable, scalable code following industry best practices." },
-  { key: "FULL_STACK", desc: "Frontend, backend, databases, and infrastructure - complete solutions." },
-  { key: "PERF_SECURITY", desc: "Apps optimized for speed, scalability, and secure deployment." },
-  { key: "REAL_IMPACT", desc: "Building projects that solve actual problems, not just practice code." },
+  { key: "AI_SYSTEMS", desc: "Building deterministic, tool-calling AI agents with memory and safety guardrails." },
+  { key: "CONCURRENCY", desc: "Distributed locks and message queues to eliminate race conditions under load." },
+  { key: "PRODUCTION_DEVOPS", desc: "Dockerized deployments on Linux servers with monitoring and SSL proxies." },
+  { key: "BUSINESS_IMPACT", desc: "Automating core sales, qualification, and data processes for high ROI." },
 ];
 
 /* ─── Staggered reveal hook ─── */

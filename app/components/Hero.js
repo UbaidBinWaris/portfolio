@@ -3,19 +3,19 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const ROLES = [
-  "Senior Full Stack Engineer",
-  "Senior Backend Engineer",
-  "AI Automation Developer",
-  "System Builder",
-  "n8n Workflow Architect",
+  "AI Systems Engineer",
+  "Voice AI Architect",
+  "Backend Infrastructure Engineer",
+  "Multi-Agent System Builder",
+  "AI Automation Specialist",
 ];
 
 const STACK_ITEMS = [
-  { label: "NODE", value: "v20.x", color: "#63B8B2" },
-  { label: "NEXT", value: "16.x", color: "#63B8B2" },
+  { label: "LLMS", value: "active", color: "#63B8B2" },
+  { label: "VOICE", value: "vapi/livekit", color: "#63B8B2" },
+  { label: "REDIS", value: "cluster", color: "#22c55e" },
   { label: "DOCKER", value: "running", color: "#22c55e" },
-  { label: "LINUX", value: "arch", color: "#63B8B2" },
-  { label: "AI", value: "active", color: "#22c55e" },
+  { label: "LINUX", value: "ubuntu/arch", color: "#63B8B2" },
 ];
 
 const fadeUp = {
@@ -99,8 +99,6 @@ export const Hero = () => {
         aria-hidden="true"
       />
 
-
-
       {/* Content */}
       <div
         className="relative w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
@@ -130,14 +128,14 @@ export const Hero = () => {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.9] tracking-tight text-white mb-8"
+            className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white mb-6"
           >
-            <span className="sr-only">Ubaid Bin Waris, Full Stack Developer in Pakistan - </span>
-            BACKEND.
+            <span className="sr-only">Ubaid Bin Waris, AI Systems Engineer - </span>
+            AI SYSTEMS.
             <br />
-            <span className="text-[#63B8B2]">AI.</span>
+            <span className="text-[#63B8B2]">AUTOMATION.</span>
             <br />
-            SYSTEMS.
+            INFRASTRUCTURE.
           </motion.h1>
 
           {/* Role typing */}
@@ -146,9 +144,9 @@ export const Hero = () => {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="mb-8"
+            className="mb-6"
           >
-            <p className="text-gray-400 text-sm font-mono mb-1">// current_role</p>
+            <p className="text-gray-400 text-sm font-mono mb-1">// specialized_engineering</p>
             <p className="text-white text-xl md:text-2xl font-medium min-h-[2rem] flex items-center gap-2">
               {displayText}
               <span className="inline-block w-0.5 h-6 bg-[#63B8B2] animate-[cursor-blink_1s_step-end_infinite]" />
@@ -161,11 +159,25 @@ export const Hero = () => {
             variants={fadeUp}
             initial="hidden"
             animate="show"
-            className="text-gray-400 text-base max-w-md leading-relaxed mb-10"
+            className="text-gray-300 text-base max-w-lg leading-relaxed mb-6 font-sans"
           >
-            Building production-ready systems - from REST APIs and databases to
-            AI automation pipelines and Linux-deployed infrastructure.
+            I build production AI systems, voice telephony agents, and high-concurrency 
+            backend infrastructure designed to scale.
           </motion.p>
+
+          {/* Quick tech tags */}
+          <motion.div
+            custom={3.5}
+            variants={fadeUp}
+            initial="hidden"
+            animate="show"
+            className="mb-8 flex flex-wrap gap-2 text-xs font-mono"
+          >
+            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">AI Agents &amp; Tool Calling</span>
+            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">Voice AI &amp; Telephony</span>
+            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">Distributed Redis Locks</span>
+            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">n8n Automation</span>
+          </motion.div>
 
           {/* CTAs */}
           <motion.div
