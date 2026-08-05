@@ -8,9 +8,15 @@ Disallow: /hero-background.mp4
 # Googlebot
 User-agent: Googlebot
 Allow: /
+Allow: /ubaid/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /hero-background.mp4
+
+# Googlebot-Image
+User-agent: Googlebot-Image
+Allow: /ubaid/
+Allow: /
 
 # Bingbot
 User-agent: Bingbot

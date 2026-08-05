@@ -13,13 +13,17 @@ module.exports = {
     policies: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/ubaid/"],
         disallow: ["/api/", "/admin/", "/hero-background.mp4"],
       },
       {
         userAgent: "Googlebot",
-        allow: "/",
+        allow: ["/", "/ubaid/"],
         disallow: ["/api/", "/admin/", "/hero-background.mp4"],
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: ["/", "/ubaid/"],
       },
       {
         userAgent: "Bingbot",

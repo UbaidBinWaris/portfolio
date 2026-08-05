@@ -101,16 +101,6 @@ export const Hero = () => {
 
 
 
-      {/* Teal accent glow — top-right */}
-      <div
-        className="absolute top-0 right-0 w-[40vw] h-[40vw] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(99,184,178,0.08) 0%, transparent 70%)",
-          zIndex: 2,
-        }}
-        aria-hidden="true"
-      />
-
       {/* Content */}
       <div
         className="relative w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"

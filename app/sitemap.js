@@ -24,6 +24,18 @@
 export default function sitemap() {
   const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ubaidbinwaris.com';
   const currentDate = new Date();
+
+  const ubaidImages = [
+    '20260503_172113.jpg',
+    '20260504_163046.jpg',
+    '20260504_163922.jpg',
+    '20260504_164453.jpg',
+    '20260504_164618.jpg',
+    '20260505_140106.jpg',
+    '20260505_184302.jpg',
+    '20260505_184329.jpg',
+    '20260507_153851.jpg',
+  ].map((img) => `${siteUrl}/ubaid/${img}`);
   
   return [
     {
@@ -31,13 +43,13 @@ export default function sitemap() {
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
+      images: ubaidImages,
     },
-    // When you add new pages, add them here:
-    // {
-    //   url: `${siteUrl}/blog`,
-    //   lastModified: currentDate,
-    //   changeFrequency: 'daily',
-    //   priority: 0.8,
-    // },
+    ...ubaidImages.map((imgUrl) => ({
+      url: imgUrl,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    })),
   ];
 }
