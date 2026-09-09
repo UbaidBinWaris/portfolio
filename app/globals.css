@@ -42,10 +42,7 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: #63b8b2 #0a1930;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  /* Text stays selectable for visitors copying contact details and excerpts. */
 }
 
 ::-webkit-scrollbar {

@@ -160,8 +160,7 @@ export const TerminalSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-gray-500 font-mono text-sm mb-8"
-        >
-          // Type a command and press Enter. Try: <span className="text-[#63B8B2]">whoami</span>, <span className="text-[#63B8B2]">ls projects</span>, <span className="text-[#63B8B2]">cat skills.txt</span>
+        >{"\n          // Type a command and press Enter. Try: "}<span className="text-[#63B8B2]">whoami</span>, <span className="text-[#63B8B2]">ls projects</span>, <span className="text-[#63B8B2]">cat skills.txt</span>
         </motion.p>
 
         {/* Terminal window */}

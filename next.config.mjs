@@ -18,6 +18,10 @@ const nextConfig = {
   // Redirects - HTTP to HTTPS and www to non-www
   async redirects() {
     return [
+      { source: '/services/voice-ai-developer', destination: '/voice-ai-developer', permanent: true },
+      { source: '/services/ai-automation-n8n', destination: '/ai-automation-n8n', permanent: true },
+      { source: '/voice-ai-systems', destination: '/voice-ai-developer', permanent: true },
+      { source: '/ai-workflow-automation', destination: '/ai-automation-n8n', permanent: true },
       // Note: Vercel handles HTTPS redirects automatically, but we add this for other hosts
       // The middleware also handles this for redundancy
     ];
@@ -85,10 +89,6 @@ const nextConfig = {
           {
             key: 'X-Robots-Tag',
             value: 'index, follow'
-          },
-          {
-            key: 'Link',
-            value: '<https://ubaidbinwaris.com>; rel="canonical"'
           }
         ]
       },

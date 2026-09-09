@@ -1,35 +1,33 @@
-// FAQ data for SEO
 const faqData = [
   {
-    id: 1,
-    question: "What services do you offer as a Full-Stack Developer?",
-    answer: "I provide end-to-end web development services including frontend UI/UX development, backend API creation, database modeling, cloud deployment, and full system architecture. I build responsive, fast, and scalable web applications tailored to your business needs."
+    question: "What does Ubaid Bin Waris build?",
+    answer:
+      "I build AI agents, voice AI systems, workflow automation, Node.js backends and Next.js applications. I also configure Linux infrastructure for those systems.",
   },
   {
-    id: 2,
-    question: "Which technologies and tools do you specialize in?",
-    answer: "I work with modern technologies such as Next.js, React, Node.js, Express, MongoDB, PostgreSQL, Tailwind CSS, TypeScript, REST APIs, Git, Docker, and cloud hosting platforms like Vercel and AWS. My tech stack ensures high performance, security, and long-term scalability."
+    question: "Where are you based, and can we work remotely?",
+    answer:
+      "I am based in Islamabad, Pakistan (UTC+5), and work remotely with international clients. We agree on communication channels and overlapping working hours during scoping.",
   },
   {
-    id: 3,
-    question: "Can you build a complete website or web application from scratch?",
-    answer: "Yes. I can handle everything from planning and design to development, deployment, and maintenance. Whether it's a business website, dashboard, SaaS product, or full-stack application, I provide complete solutions."
+    question: "Can I see your project source code?",
+    answer:
+      "Some repositories are private or client-owned. The portfolio includes architecture walkthroughs that explain the approach without publishing source code or confidential client information.",
   },
   {
-    id: 4,
-    question: "What is your development process?",
-    answer: "My workflow includes requirement analysis, UI/UX planning, clean coding, optimization, testing, deployment, and post-launch support. I use an agile approach to ensure transparency, timely updates, and high-quality results."
+    question: "How are project cost and timeline determined?",
+    answer:
+      "I scope the deliverables, integrations, hosting requirements and target date with you before providing a proposal. Third-party usage and hosting costs are identified separately.",
   },
   {
-    id: 5,
-    question: "Will my website be mobile-friendly and SEO optimized?",
-    answer: "Absolutely. I ensure every website is fully responsive on all screen sizes, optimized for fast loading speed, follows SEO best practices, and provides a smooth user experience."
+    question: "Do you provide deployment and ongoing support?",
+    answer:
+      "Deployment and handover can be included in the project. Ongoing maintenance is scoped separately with clear ownership, response expectations and support boundaries.",
   },
   {
-    id: 6,
-    question: "How can I contact you for a project?",
-    answer: "You can reach me through the contact form on this website, or via email, LinkedIn, or GitHub. I respond quickly and am always open to discussing new ideas and collaborations."
-  }
+    question: "How can I discuss a project?",
+    answer:
+      "Email ubaidwaris34@gmail.com with your goals, existing systems and target date. You can also contact me through the linked Upwork or LinkedIn profile.",
+  },
 ];
-
 export default faqData;

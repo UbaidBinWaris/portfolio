@@ -17,8 +17,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "postbuild": "next-sitemap && node scripts/submit-indexnow.js",
+    "lint": "eslint .",
+    "verify:seo": "node scripts/verify-seo.mjs",
     "indexnow": "node scripts/submit-indexnow.js"
   },
   "dependencies": {

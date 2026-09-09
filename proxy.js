@@ -6,18 +6,17 @@ export function proxy(request) {
   const proto = requestHeaders.get("x-forwarded-proto") || "https";
 
   // Redirect HTTP to HTTPS (for production only)
-  if (proto === "http" && process.env.NODE_ENV === "production") {
+  if (proto === "http" && process.env.NODE_ENV === "production" && request.nextUrl.hostname === "ubaidbinwaris.com") {
     const url = request.nextUrl.clone();
     url.protocol = "https:";
     return NextResponse.redirect(url, 301);
   }
 
-  // Strip query parameters from homepage and redirect to canonical URL
-  // This prevents duplicate indexing of URLs like /?q={search_term_string}
-  if (request.nextUrl.pathname === "/" && request.nextUrl.search !== "") {
+  // Preserve attribution parameters (UTM, etc.). Canonical metadata handles duplicates.
+  if (request.nextUrl.hostname === "www.ubaidbinwaris.com") {
     const url = request.nextUrl.clone();
-    url.search = ""; // Remove all query parameters
-    return NextResponse.redirect(url, 301);
+    url.hostname = "ubaidbinwaris.com";
+    return NextResponse.redirect(url, 308);
   }
 
   const response = NextResponse.next();

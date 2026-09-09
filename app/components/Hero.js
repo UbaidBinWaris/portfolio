@@ -2,14 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const ROLES = [
-  "AI Systems Engineer",
-  "Voice AI Architect",
-  "Backend Infrastructure Engineer",
-  "Multi-Agent System Builder",
-  "AI Automation Specialist",
-];
-
 const STACK_ITEMS = [
   { label: "LLMS", value: "active", color: "#63B8B2" },
   { label: "VOICE", value: "vapi/livekit", color: "#63B8B2" },
@@ -28,10 +20,6 @@ const fadeUp = {
 };
 
 export const Hero = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [charIndex, setCharIndex] = useState(0);
   const [uptime, setUptime] = useState("00:00:00");
 
   // Uptime clock
@@ -47,51 +35,13 @@ export const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Typing effect
-  useEffect(() => {
-    const current = ROLES[roleIndex];
-    let timeout;
-
-    if (!isDeleting && charIndex < current.length) {
-      timeout = setTimeout(() => setCharIndex((c) => c + 1), 65);
-    } else if (!isDeleting && charIndex === current.length) {
-      timeout = setTimeout(() => setIsDeleting(true), 1800);
-    } else if (isDeleting && charIndex > 0) {
-      timeout = setTimeout(() => setCharIndex((c) => c - 1), 35);
-    } else if (isDeleting && charIndex === 0) {
-      setIsDeleting(false);
-      setRoleIndex((i) => (i + 1) % ROLES.length);
-    }
-
-    setDisplayText(current.slice(0, charIndex));
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, roleIndex]);
-
-  const scrollTo = (id) => {
-    const el = document.querySelector(id);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
     <section
       id="home"
       className="relative min-h-screen w-full flex items-center overflow-hidden text-white"
       aria-labelledby="hero-heading"
     >
-      {/* Background video */}
-      <video
-        src="/hero-background.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ zIndex: 0 }}
-        tabIndex="-1"
-        aria-hidden="true"
-        preload="none"
-      />
-
+      <div className="absolute inset-0 grid-overlay" aria-hidden="true" />
       {/* Heavy overlay */}
       <div
         className="absolute inset-0"
@@ -110,7 +60,7 @@ export const Hero = () => {
           <motion.div
             custom={0}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="flex items-center gap-2 mb-6"
           >
@@ -126,7 +76,7 @@ export const Hero = () => {
             id="hero-heading"
             custom={1}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white mb-6"
           >
@@ -142,13 +92,13 @@ export const Hero = () => {
           <motion.div
             custom={2}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="mb-6"
           >
-            <p className="text-gray-400 text-sm font-mono mb-1">// specialized_engineering</p>
+            <p className="text-gray-400 text-sm font-mono mb-1">Specialized engineering</p>
             <p className="text-white text-xl md:text-2xl font-medium min-h-[2rem] flex items-center gap-2">
-              {displayText}
+              AI Systems &amp; Full-Stack Engineer
               <span className="inline-block w-0.5 h-6 bg-[#63B8B2] animate-[cursor-blink_1s_step-end_infinite]" />
             </p>
           </motion.div>
@@ -157,7 +107,7 @@ export const Hero = () => {
           <motion.p
             custom={3}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="text-gray-300 text-base max-w-lg leading-relaxed mb-6 font-sans"
           >
@@ -169,7 +119,7 @@ export const Hero = () => {
           <motion.div
             custom={3.5}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="mb-8 flex flex-wrap gap-2 text-xs font-mono"
           >
@@ -183,12 +133,12 @@ export const Hero = () => {
           <motion.div
             custom={4}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="flex flex-wrap gap-4"
           >
-            <button
-              onClick={() => scrollTo("#projects")}
+            <a
+              href="#projects"
               className="group flex items-center gap-2 px-7 py-3 bg-[#63B8B2] text-[#0A1930] font-bold text-sm rounded-sm hover:bg-[#85d1cc] transition-all duration-300 custom-pointer"
             >
               <span className="font-mono">&gt;_</span>
@@ -196,21 +146,21 @@ export const Hero = () => {
               <svg viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
                 <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
               </svg>
-            </button>
+            </a>
 
-            <button
-              onClick={() => scrollTo("#contact")}
+            <a
+              href="#contact"
               className="flex items-center gap-2 px-7 py-3 border border-[#63B8B2] text-[#63B8B2] font-mono text-sm rounded-sm hover:bg-[#63B8B2]/10 transition-all duration-300 custom-pointer"
             >
               ./hire_me.sh
-            </button>
+            </a>
           </motion.div>
 
           {/* Social quick links */}
           <motion.div
             custom={5}
             variants={fadeUp}
-            initial="hidden"
+            initial={false}
             animate="show"
             className="flex items-center gap-6 mt-10"
           >
@@ -234,7 +184,7 @@ export const Hero = () => {
 
         {/* ── RIGHT: System status terminal card ── */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={false}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="w-full lg:w-[380px] xl:w-[420px] shrink-0"
@@ -317,9 +267,9 @@ export const Hero = () => {
           {/* Stats strip below card */}
           <div className="grid grid-cols-3 gap-px mt-px bg-[#1a3a5c]">
             {[
-              { n: "3+", label: "Years" },
-              { n: "20+", label: "Projects" },
-              { n: "10+", label: "Clients" },
+              { n: "AI", label: "Agents" },
+              { n: "Voice", label: "Systems" },
+              { n: "Web", label: "Applications" },
             ].map(({ n, label }) => (
               <div
                 key={label}

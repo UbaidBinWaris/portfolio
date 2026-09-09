@@ -1,154 +1,81 @@
 import { Geist, Geist_Mono, Source_Code_Pro } from "next/font/google";
 import "./globals.css";
-import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
+import "./detail-pages.css";
 import ClarityAnalytics from "./components/ClarityAnalytics";
 import GoogleAnalytics from "./components/GoogleAnalytics";
 import Footer from "./components/Footer";
-import ScrollToTop from "./components/ScrollToTop";
 import { aggregateSchemas } from "./lib/seo.config";
+import { site } from "./data/site";
+import { jsonLd, pageMetadata } from "./lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  adjustFontFallback: true,
 });
-
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
   display: "swap",
-  preload: true,
-  adjustFontFallback: true,
+  preload: false,
 });
-
 const sourceCodePro = Source_Code_Pro({
   variable: "--font-source-code-pro",
   subsets: ["latin"],
   display: "swap",
-  weight: ["200", "300", "400", "500", "600", "700", "800", "900"],
-  preload: true,
-  adjustFontFallback: true,
+  weight: ["400", "500", "600", "700"],
+  preload: false,
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_DOMAIN_URL || "https://ubaidbinwaris.com";
-
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  ...pageMetadata(site.role, site.description, "/"),
+  metadataBase: new URL(site.url),
   title: {
-    default: "Ubaid Bin Waris | Senior Full Stack Developer - React & Next.js",
-    template: "%s | Ubaid Bin Waris"
+    default: `${site.role} | ${site.name}`,
+    template: `%s | ${site.name}`,
   },
-  description:
-    "Senior Full Stack Developer from Pakistan specializing in React, Next.js & Node.js. Building scalable web apps and APIs. Available for freelance worldwide.",
-  keywords: [
-    "Ubaid Bin Waris",
-    "Full Stack Developer",
-    "React Developer",
-    "Next.js Developer",
-    "Node.js Developer",
-    "MERN Stack",
-    "Web Development",
-    "Software Engineer"
-  ],
-  authors: [
-    { name: "Ubaid Bin Waris", url: siteUrl },
-  ],
-  creator: "Ubaid Bin Waris",
-  publisher: "Ubaid Bin Waris",
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
+  authors: [{ name: site.name, url: site.url }],
+  creator: site.name,
+  icons: { icon: "/icon", apple: "/apple-icon" },
   manifest: "/manifest.json",
-  openGraph: {
-    title: "Ubaid Bin Waris | Full Stack Developer | React & Next.js",
-    description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
-    url: siteUrl,
-    siteName: "Ubaid Bin Waris | Full Stack Developer",
-    images: [
-      {
-        url: `${siteUrl}/og-image.jpg`,
-        width: 1200,
-        height: 630,
-        alt: "Ubaid Bin Waris - Full Stack Developer Portfolio",
-        type: "image/jpeg",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "large",
+    "max-snippet": -1,
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Ubaid Bin Waris | Full Stack Developer - React & Next.js",
-    description:
-      "Professional Full Stack Developer specializing in React, Next.js, Node.js & MongoDB. Building scalable web applications. Available for freelance.",
-    creator: "@ubaidbinwaris",
-    site: "@ubaidbinwaris",
-    images: [`${siteUrl}/og-image.jpg`],
-  },
-  alternates: {
-    canonical: siteUrl,
-  },
-  category: "technology",
-  verification: {
-    google: "vN8kWYvZe-GTgsgohr-LWu7PF0wEXlx5CWppxpFHD-I",
-  },
+  verification: { google: "vN8kWYvZe-GTgsgohr-LWu7PF0wEXlx5CWppxpFHD-I" },
 };
-
 export const viewport = {
-  themeColor: "#0A1930",
+  themeColor: "#081426",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
-        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
-        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:0" />
-        
-        {/* Resource hints for performance */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://www.clarity.ms" />
-        <link rel="dns-prefetch" href="https://scripts.clarity.ms" />
-        <link rel="dns-prefetch" href="https://c.clarity.ms" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        
-        {/* Social Profile Links for SEO - Helps search engines verify your identity across platforms */}
-        <link rel="me" href="https://github.com/UbaidBinWaris" />
-        <link rel="me" href="https://www.linkedin.com/in/ubaidbinwaris" />
-        <link rel="me" href="https://twitter.com/ubaidbinwaris" />
-        <link rel="me" href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296" />
-        <link rel="me" href="https://www.fiverr.com/ubaidwaris655" />
-        <link rel="me" href="https://discord.com/users/1194654569578373121" />
-        <link rel="me" href="https://ubaidbinwaris.com" />
-        <link rel="author" href="mailto:ubaidwaris34@gmail.com" />
-        
-        {/* Enhanced Structured Data (JSON-LD) for better SEO */}
+        {site.profiles.map((url) => (
+          <link key={url} rel="me" href={url} />
+        ))}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(aggregateSchemas) }}
+          dangerouslySetInnerHTML={{ __html: jsonLd(aggregateSchemas) }}
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${sourceCodePro.variable} antialiased scroll-smooth`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sourceCodePro.variable} antialiased`}
       >
-        <ScrollToTop />
-        <ServiceWorkerRegistration />
-        <ClarityAnalytics />
-        <GoogleAnalytics />
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
+        {process.env.VERCEL_ENV === "production" && (
+          <>
+            <ClarityAnalytics />
+            <GoogleAnalytics />
+          </>
+        )}
         {children}
         <Footer />
       </body>

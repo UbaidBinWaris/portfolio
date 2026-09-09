@@ -38,8 +38,8 @@ const capabilities = [
 ];
 
 const philosophy = [
-  { key: "AI_SYSTEMS", desc: "Building deterministic, tool-calling AI agents with memory and safety guardrails." },
-  { key: "CONCURRENCY", desc: "Distributed locks and message queues to eliminate race conditions under load." },
+  { key: "AI_SYSTEMS", desc: "Building tool-calling AI agents with memory, evaluations and explicit permissions." },
+  { key: "CONCURRENCY", desc: "Distributed coordination, idempotent jobs and queues to manage concurrency." },
   { key: "PRODUCTION_DEVOPS", desc: "Dockerized deployments on Linux servers with monitoring and SSL proxies." },
   { key: "BUSINESS_IMPACT", desc: "Automating core sales, qualification, and data processes for high ROI." },
 ];
@@ -59,7 +59,7 @@ function StaggerBlock({ children, index = 0, className = "" }) {
     <motion.div
       custom={index}
       variants={fadeUpVariant}
-      initial="hidden"
+      initial={false}
       whileInView="visible"
       viewport={{ once: true, margin: "-60px" }}
       className={className}
@@ -74,10 +74,7 @@ function ProgressBar({ level, delay = 0 }) {
   return (
     <div
       className="w-full bg-[#1a3a5c] h-[3px] rounded-none"
-      role="progressbar"
-      aria-valuenow={level}
-      aria-valuemin={0}
-      aria-valuemax={100}
+      aria-hidden="true"
     >
       <motion.div
         initial={{ width: 0 }}
@@ -114,7 +111,7 @@ function SectionHeader() {
 /* ─── Left column: Story blocks + philosophy ─── */
 function StoryColumn() {
   return (
-    <div className="space-y-5">
+    <div className="space-y-5 min-w-0">
       {/* Profile Image & Quick Info Header Card */}
       <StaggerBlock index={0.5}>
         <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-5 relative overflow-hidden group hover:border-[#63B8B2]/50 transition-colors duration-300">
@@ -126,7 +123,7 @@ function StoryColumn() {
                 fill
                 sizes="(max-width: 640px) 128px, 144px"
                 className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                priority
+                loading="lazy"
               />
             </div>
             {/* Status indicator badge */}
@@ -148,7 +145,7 @@ function StoryColumn() {
                 <HiMapPin className="text-[#63B8B2] text-xs" /> Islamabad, PK
               </span>
               <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
-                <HiBolt className="text-[#63B8B2] text-xs" /> 3+ Yrs Exp
+                <HiBolt className="text-[#63B8B2] text-xs" /> Systems Engineer
               </span>
               <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
                 <HiGlobeAlt className="text-[#63B8B2] text-xs" /> Node / Next.js / AI
@@ -178,7 +175,7 @@ function StoryColumn() {
                 key={i}
                 custom={i}
                 variants={fadeUpVariant}
-                initial="hidden"
+                initial={false}
                 whileInView="visible"
                 viewport={{ once: true, margin: "-40px" }}
                 className={`flex gap-0 ${i !== storyBlocks.length - 1 ? "border-b border-[#0f2744]" : ""}`}
@@ -210,7 +207,7 @@ function StoryColumn() {
                 key={i}
                 custom={i}
                 variants={fadeUpVariant}
-                initial="hidden"
+                initial={false}
                 whileInView="visible"
                 viewport={{ once: true }}
                 className="flex gap-3"
@@ -236,7 +233,7 @@ function SystemColumn() {
       {/* Capability grid */}
       <StaggerBlock index={1}>
         <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
-          <div className="flex items-center justify-between px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
+          <div className="flex flex-wrap gap-2 items-center justify-between px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
             <p className="text-gray-600 text-xs font-mono">$ ls -la /proc/capabilities/</p>
             <span className="text-[#63B8B2] text-xs font-mono">6 domains</span>
           </div>
@@ -246,7 +243,7 @@ function SystemColumn() {
                 key={i}
                 custom={i}
                 variants={fadeUpVariant}
-                initial="hidden"
+                initial={false}
                 whileInView="visible"
                 viewport={{ once: true }}
                 className="border border-[#1a3a5c] p-3 hover:border-[#63B8B2]/40 transition-colors duration-300 group"
@@ -269,10 +266,10 @@ function SystemColumn() {
           </div>
 
           {/* Uptime-style footer */}
-          <div className="px-4 py-2 border-t border-[#0f2744] flex items-center gap-4">
+          <div className="px-4 py-2 border-t border-[#0f2744] flex flex-wrap items-center gap-3">
             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-status-pulse shrink-0" />
             <span className="text-gray-600 text-xs font-mono">all systems operational</span>
-            <span className="ml-auto text-[#63B8B2] text-xs font-mono">3+ years production</span>
+            <span className="ml-auto text-[#63B8B2] text-xs font-mono">Engineering & deployment</span>
           </div>
         </div>
       </StaggerBlock>
@@ -346,20 +343,14 @@ const About = () => {
       style={{ backgroundColor: bgLightness }}
       aria-labelledby="about-heading"
     >
-      {/* SEO-friendly hidden capabilities list */}
-      <ul className="sr-only">
-        {capabilities.flatMap((cap) =>
-          cap.items.map((item) => <li key={item}>{item} - {cap.area}</li>)
-        )}
-      </ul>
-
       <div className="max-w-7xl mx-auto">
         <SectionHeader />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
           {/* Left: Story */}
           <motion.div
-            initial={{ opacity: 0, x: -28 }}
+            className="min-w-0"
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -369,7 +360,8 @@ const About = () => {
 
           {/* Right: System */}
           <motion.div
-            initial={{ opacity: 0, x: 28 }}
+            className="min-w-0"
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}

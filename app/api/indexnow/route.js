@@ -41,7 +41,7 @@ export async function POST(request) {
     const apiKey = request.headers.get('x-api-key');
     const validApiKey = process.env.INTERNAL_API_KEY;
     
-    if (validApiKey && apiKey !== validApiKey) {
+    if (!validApiKey || apiKey !== validApiKey) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -59,8 +59,11 @@ export async function POST(request) {
       );
     }
 
-    const host = process.env.NEXT_PUBLIC_DOMAIN_URL || 'https://ubaidbinwaris.com';
-    const key = process.env.INDEXNOW_API_KEY || '34010ce9592af026867e6c742c168f94';
+    const host = 'https://ubaidbinwaris.com';
+    if (urls.some(url => new URL(url).origin !== host)) {
+      return NextResponse.json({ error: 'Only canonical portfolio URLs may be submitted' }, { status: 400 });
+    }
+    const key = '34010ce9592af026867e6c742c168f94';
     const keyLocation = `${host}/${key}.txt`;
 
     // Submit to IndexNow

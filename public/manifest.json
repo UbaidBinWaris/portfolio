@@ -1,33 +1,20 @@
 {
-  "name": "Ubaid Bin Waris (ubaidbinwaris) - Full Stack Developer Portfolio",
-  "short_name": "ubaidbinwaris",
-  "description": "Professional portfolio of Ubaid Bin Waris (ubaidbinwaris, ubaid bin waris, ubaidbin), a Full Stack Developer specializing in React, Next.js, and modern web technologies",
+  "name": "Ubaid Bin Waris — AI Systems & Full-Stack Engineer",
+  "short_name": "UBW",
+  "description": "Voice AI, automation and full-stack engineering by Ubaid Bin Waris.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A1930",
-  "theme_color": "#0A1930",
-  "orientation": "portrait-primary",
+  "background_color": "#081426",
+  "theme_color": "#081426",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
+      "src": "/icon",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ],
-  "categories": ["business", "education", "lifestyle"],
-  "lang": "en-US",
+  "lang": "en",
   "dir": "ltr",
   "prefer_related_applications": false
 }
