@@ -2,12 +2,12 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { Navbar } from "../components/Navbar";
 import { ProjectCTA } from "../components/ServicePage";
-import { work } from "../data/workData";
+import { work, projectStatus } from "../data/workData";
 import { site } from "../data/site";
 import { pageMetadata, jsonLd, breadcrumbSchema } from "../lib/metadata";
 export const metadata = pageMetadata(
-  "Full-Stack Engineering Portfolio",
-  "Explore Ubaid Bin Waris’s private project architecture: voice AI, backend systems, n8n automation and local model infrastructure.",
+  "Full-Stack & AI Engineering Portfolio",
+  "Projects by Ubaid Bin Waris: an AI voice receptionist, local sales call transcription, an open-source QA browser, n8n video automation, Next.js and AWS builds.",
   "/full-stack-developer-portfolio",
 );
 export default function Portfolio() {
@@ -18,7 +18,7 @@ export default function Portfolio() {
         "@type": "CollectionPage",
         "@id": `${site.url}/full-stack-developer-portfolio#webpage`,
         url: `${site.url}/full-stack-developer-portfolio`,
-        name: "Full-Stack Engineering Portfolio",
+        name: "Full-Stack & AI Engineering Portfolio",
         author: { "@id": `${site.url}/#person` },
         mainEntity: {
           "@type": "ItemList",
@@ -64,15 +64,17 @@ export default function Portfolio() {
             </p>
           </header>
           <p className="work-note">
-            These projects include private repositories and client-owned work.
-            The walkthroughs explain the architecture without publishing source
-            code, client identities or confidential implementation details.
+            Live and open-source projects link straight to the product or the
+            code. Private and client-owned work is covered by architecture
+            walkthroughs that leave out source code and confidential details.
           </p>
           <section className="work-grid" aria-label="Project walkthroughs">
             {work.map((project, i) => (
               <article className="work-card" key={project.slug}>
                 <p className="eyebrow">
-                  0{i + 1} / {project.category}
+                  {String(i + 1).padStart(2, "0")} / {project.category} ·{" "}
+                  {projectStatus(project)}
+                  {project.period && ` · ${project.period}`}
                 </p>
                 <h2>{project.title}</h2>
                 <p>{project.summary}</p>
@@ -82,7 +84,7 @@ export default function Portfolio() {
                   ))}
                 </div>
                 <Link className="quiet-link" href={`/work/${project.slug}`}>
-                  Explore the architecture <ArrowUpRight size={18} />
+                  Read the case study <ArrowUpRight size={18} />
                 </Link>
               </article>
             ))}

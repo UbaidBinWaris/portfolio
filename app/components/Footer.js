@@ -1,16 +1,21 @@
 import Link from "next/link";
 import { services } from "../data/servicesData";
 import { site } from "../data/site";
+import contactLinks from "../data/contactLinks";
+
+const profiles = contactLinks.filter((l) =>
+  ["GitHub", "LinkedIn", "Upwork", "Fiverr"].includes(l.name),
+);
 export default function Footer() {
   return (
-    <footer className="bg-[#081426] text-[#a9becb] border-t border-[#29404e]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-14 grid md:grid-cols-[1.3fr_1fr_1fr] gap-10">
+    <footer className="bg-background text-fg-muted border-t border-line">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-14 grid md:grid-cols-[1.3fr_1fr_1fr] gap-10">
         <div>
           <Link
             href="/"
-            className="text-white text-xl font-semibold tracking-tight"
+            className="text-fg font-mono text-lg font-semibold tracking-tight"
           >
-            UBW<span className="text-[#9cddce]">.</span>
+            UBW<span className="text-accent-fg">.</span>
           </Link>
           <p className="text-sm leading-7 mt-5 max-w-xs">
             {site.role}. Building useful software with thoughtful interfaces and
@@ -18,7 +23,7 @@ export default function Footer() {
           </p>
           <a
             href={`mailto:${site.email}`}
-            className="inline-block mt-5 text-sm text-[#9cddce] break-all"
+            className="inline-block mt-5 text-sm text-accent-fg break-all"
           >
             {site.email}
           </a>
@@ -28,7 +33,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             {services.map((s) => (
               <li key={s.slug}>
-                <Link href={`/${s.slug}`} className="hover:text-white">
+                <Link href={`/${s.slug}`} className="hover:text-fg">
                   {s.shortTitle}
                 </Link>
               </li>
@@ -41,20 +46,27 @@ export default function Footer() {
             <li>
               <Link
                 href="/full-stack-developer-portfolio"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 Engineering portfolio
               </Link>
             </li>
-            {["GitHub", "LinkedIn", "Upwork", "Fiverr"].map((label, i) => (
-              <li key={label}>
+            {profiles.map((link) => (
+              <li key={link.id}>
                 <a
-                  href={site.profiles[i]}
+                  href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-white"
+                  style={{ "--brand": link.color }}
+                  className="group inline-flex items-center gap-2 hover:text-fg"
                 >
-                  {label} ↗
+                  <span
+                    className="text-fg-subtle group-hover:text-(--brand) group-focus-visible:text-(--brand) transition-colors"
+                    aria-hidden="true"
+                  >
+                    {link.icon}
+                  </span>
+                  {link.name} ↗
                 </a>
               </li>
             ))}
@@ -63,7 +75,7 @@ export default function Footer() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-white"
+                className="hover:text-fg"
               >
                 Resume ↗
               </a>
@@ -71,7 +83,7 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-6 border-t border-[#29404e] flex flex-wrap justify-between gap-4 text-[10px] font-mono">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 py-6 border-t border-line flex flex-wrap justify-between gap-4 text-xs font-mono">
         <span>
           © {new Date().getFullYear()} {site.name}
         </span>

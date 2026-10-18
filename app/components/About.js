@@ -1,29 +1,22 @@
-"use client";
-import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import Image from "next/image";
-import { HiMapPin, HiBolt, HiGlobeAlt } from "react-icons/hi2";
+import { MapPin, Cpu, Globe } from "lucide-react";
+import { site } from "../data/site";
 
-/* ─── Data ─── */
 const storyBlocks = [
   {
-    tag: "// who_i_am",
-    label: "Background",
-    text: "Ubaid Bin Waris - AI Systems & Infrastructure Engineer based in Islamabad, Pakistan. I design and deploy autonomous AI agents, voice telephony systems, high-concurrency backends, and Linux cloud infrastructure.",
+    tag: "who_i_am",
+    text: "Ubaid Bin Waris — a full-stack developer and backend engineer based in Islamabad, Pakistan. I build complete products across React interfaces, APIs, databases, AI systems, deployment pipelines, and Linux infrastructure.",
   },
   {
-    tag: "// what_i_do",
-    label: "Focus",
-    text: "Building production AI systems: OpenAI/Claude/Gemini tool-calling agents, LiveKit/Vapi Voice AI callers, Redis distributed session managers, and n8n workflow automation.",
+    tag: "what_i_do",
+    text: "My backend work spans Node.js, NestJS, Express.js, Java and Spring Boot. I also build production AI automation, LiveKit and Vapi voice agents, Redis-backed services, and n8n workflows.",
   },
   {
-    tag: "// hardware_infrastructure",
-    label: "On-Prem Workstation",
-    text: "I run a dedicated HP Z840 dual-Xeon workstation (96GB RAM) running Linux & Ollama for local LLM benchmarking (Qwen/Gemma), model quantization, and self-hosted agent testing.",
+    tag: "hardware",
+    text: "I use Arch, BTW. Arch Linux has been my permanent daily driver for years. I also run a dedicated HP Z840 dual-Xeon workstation with 96GB RAM for local LLM experiments and self-hosted system testing.",
   },
   {
-    tag: "// core_philosophy",
-    label: "Approach",
+    tag: "philosophy",
     text: "Design for scale and resiliency. Use distributed locks for concurrent workers, persistent queues for webhook retries, and strict isolation for production agent environments.",
   },
 ];
@@ -31,347 +24,152 @@ const storyBlocks = [
 const capabilities = [
   { area: "AI Agents", items: ["OpenAI & Claude APIs", "Tool Calling & MCP", "Ollama Local LLMs", "RAG & Vector Search"] },
   { area: "Voice AI", items: ["LiveKit WebRTC", "Vapi & Twilio", "Deepgram STT", "Cartesia Realtime TTS"] },
-  { area: "Backend Systems", items: ["Node.js & NestJS", "Distributed Session Locks", "BullMQ & RabbitMQ", "Postgres & Redis"] },
+  { area: "Backend Systems", items: ["Node.js, NestJS & Express", "Java & Spring Boot", "BullMQ & RabbitMQ", "REST & WebSockets"] },
   { area: "Automation", items: ["n8n Workflows", "Trigger.dev", "Webhook Pipelines", "Lead Qualification"] },
-  { area: "Infrastructure", items: ["Linux / Ubuntu Admin", "Docker & Compose", "HP Z840 Workstation", "Hetzner & AWS"] },
-  { area: "Supporting Stack", items: ["Next.js & React", "TypeScript", "Tailwind CSS", "RESTful & WebSockets"] },
+  { area: "Infrastructure", items: ["Arch Linux & Server Admin", "Docker & Compose", "Nginx, Apache & Certbot", "CI/CD & GitHub Actions"] },
+  { area: "Product & Data", items: ["Next.js & React", "PostgreSQL & Supabase", "MongoDB & MySQL", "TypeScript & Tailwind"] },
 ];
 
 const philosophy = [
-  { key: "AI_SYSTEMS", desc: "Building tool-calling AI agents with memory, evaluations and explicit permissions." },
-  { key: "CONCURRENCY", desc: "Distributed coordination, idempotent jobs and queues to manage concurrency." },
-  { key: "PRODUCTION_DEVOPS", desc: "Dockerized deployments on Linux servers with monitoring and SSL proxies." },
-  { key: "BUSINESS_IMPACT", desc: "Automating core sales, qualification, and data processes for high ROI." },
+  { key: "ai_systems", desc: "Building tool-calling AI agents with memory, evaluations and explicit permissions." },
+  { key: "concurrency", desc: "Distributed coordination, idempotent jobs and queues to manage concurrency." },
+  { key: "production_devops", desc: "Dockerized deployments on Linux servers with monitoring and SSL proxies." },
+  { key: "business_impact", desc: "Automating core sales, qualification, and data processes for high ROI." },
 ];
 
-/* ─── Staggered reveal hook ─── */
-const fadeUpVariant = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
+const facts = [
+  [MapPin, "Islamabad, PK"],
+  [Cpu, "Systems Engineer"],
+  [Globe, "Node / Next.js / AI"],
+];
 
-function StaggerBlock({ children, index = 0, className = "" }) {
+export default function About() {
   return (
-    <motion.div
-      custom={index}
-      variants={fadeUpVariant}
-      initial={false}
-      whileInView="visible"
-      viewport={{ once: true, margin: "-60px" }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-/* ─── Animated progress bar ─── */
-function ProgressBar({ level, delay = 0 }) {
-  return (
-    <div
-      className="w-full bg-[#1a3a5c] h-[3px] rounded-none"
-      aria-hidden="true"
-    >
-      <motion.div
-        initial={{ width: 0 }}
-        whileInView={{ width: `${level}%` }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.1, delay, ease: "easeOut" }}
-        className="bg-[#63B8B2] h-[3px]"
-      />
-    </div>
-  );
-}
-
-/* ─── Section header (consistent with site pattern) ─── */
-function SectionHeader() {
-  return (
-    <StaggerBlock index={0} className="mb-16">
-      <div className="flex items-center gap-4">
-        <p className="text-[#63B8B2] font-mono text-sm tracking-widest shrink-0">00 /</p>
-        <h2
-          id="about-heading"
-          className="text-white font-bold text-2xl md:text-3xl shrink-0"
-        >
-          About<span className="sr-only"> Ubaid Bin Waris</span>
-        </h2>
-        <div className="flex-1 h-px bg-[#1a3a5c]" />
-        <p className="text-gray-600 font-mono text-xs shrink-0 hidden md:block">
-          ~/ubaid/about.md
-        </p>
-      </div>
-    </StaggerBlock>
-  );
-}
-
-/* ─── Left column: Story blocks + philosophy ─── */
-function StoryColumn() {
-  return (
-    <div className="space-y-5 min-w-0">
-      {/* Profile Image & Quick Info Header Card */}
-      <StaggerBlock index={0.5}>
-        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm p-4 sm:p-5 flex flex-col sm:flex-row items-center gap-5 relative overflow-hidden group hover:border-[#63B8B2]/50 transition-colors duration-300">
-          <div className="relative shrink-0 w-32 h-32 sm:w-36 sm:h-36 rounded-sm overflow-hidden border-2 border-[#63B8B2]/40 p-1 bg-[#0f2744]">
-            <div className="relative w-full h-full rounded-xs overflow-hidden">
-              <Image
-                src="/me.jpeg"
-                alt="Ubaid Bin Waris"
-                fill
-                sizes="(max-width: 640px) 128px, 144px"
-                className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            </div>
-            {/* Status indicator badge */}
-            <div className="absolute bottom-2 right-2 bg-[#060e1f]/90 border border-[#63B8B2] px-1.5 py-0.5 rounded text-[10px] font-mono text-[#63B8B2] flex items-center gap-1 shadow-lg backdrop-blur-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-              ONLINE
-            </div>
-          </div>
-
-          <div className="flex-1 text-center sm:text-left font-mono">
-            <h3 className="text-white text-lg font-bold tracking-wide mb-1">
-              Ubaid Bin Waris
-            </h3>
-            <p className="text-[#63B8B2] text-xs mb-3">
-              Senior Full Stack & AI Systems Engineer
-            </p>
-            <div className="flex flex-wrap justify-center sm:justify-start gap-2 text-[11px] text-gray-400">
-              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
-                <HiMapPin className="text-[#63B8B2] text-xs" /> Islamabad, PK
-              </span>
-              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
-                <HiBolt className="text-[#63B8B2] text-xs" /> Systems Engineer
-              </span>
-              <span className="bg-[#0f2744] px-2 py-1 border border-[#1a3a5c] rounded-xs flex items-center gap-1">
-                <HiGlobeAlt className="text-[#63B8B2] text-xs" /> Node / Next.js / AI
-              </span>
-            </div>
-          </div>
-        </div>
-      </StaggerBlock>
-
-      {/* Code-file wrapper */}
-      <StaggerBlock index={1}>
-        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
-          {/* Titlebar */}
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
-            <div className="flex gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
-              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
-              <span className="w-2.5 h-2.5 rounded-full bg-green-500/50" />
-            </div>
-            <span className="text-gray-600 text-xs font-mono ml-2">about.md</span>
-          </div>
-
-          {/* Story blocks with line numbers */}
-          <div className="font-mono text-sm">
-            {storyBlocks.map((block, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                variants={fadeUpVariant}
-                initial={false}
-                whileInView="visible"
-                viewport={{ once: true, margin: "-40px" }}
-                className={`flex gap-0 ${i !== storyBlocks.length - 1 ? "border-b border-[#0f2744]" : ""}`}
-              >
-                {/* Line number gutter */}
-                <div className="w-9 shrink-0 py-4 text-right pr-3 text-[#1a3a5c] text-xs select-none border-r border-[#0f2744]">
-                  {(i * 5).toString().padStart(2, "0")}
-                </div>
-                {/* Content */}
-                <div className="flex-1 px-4 py-4">
-                  <p className="text-[#63B8B2]/60 text-xs mb-1.5">{block.tag}</p>
-                  <p className="text-gray-300 leading-relaxed text-sm">{block.text}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </StaggerBlock>
-
-      {/* Philosophy / process log */}
-      <StaggerBlock index={2}>
-        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
-          <div className="px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
-            <p className="text-gray-600 text-xs font-mono">$ cat work_philosophy.log</p>
-          </div>
-          <div className="p-5 space-y-3 font-mono text-xs">
-            {philosophy.map((item, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                variants={fadeUpVariant}
-                initial={false}
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="flex gap-3"
-              >
-                <span className="text-green-500 shrink-0 mt-px">✓</span>
-                <div>
-                  <span className="text-[#63B8B2]">[{item.key}]</span>
-                  <span className="text-gray-400 ml-2">{item.desc}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </StaggerBlock>
-    </div>
-  );
-}
-
-/* ─── Right column: Capability grid + hire CTA ─── */
-function SystemColumn() {
-  return (
-    <div className="space-y-5">
-      {/* Capability grid */}
-      <StaggerBlock index={1}>
-        <div className="bg-[#060e1f] border border-[#1a3a5c] rounded-sm overflow-hidden">
-          <div className="flex flex-wrap gap-2 items-center justify-between px-4 py-2.5 bg-[#0f2744] border-b border-[#1a3a5c]">
-            <p className="text-gray-600 text-xs font-mono">$ ls -la /proc/capabilities/</p>
-            <span className="text-[#63B8B2] text-xs font-mono">6 domains</span>
-          </div>
-          <div className="p-4 grid grid-cols-2 gap-3">
-            {capabilities.map((cap, i) => (
-              <motion.div
-                key={i}
-                custom={i}
-                variants={fadeUpVariant}
-                initial={false}
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="border border-[#1a3a5c] p-3 hover:border-[#63B8B2]/40 transition-colors duration-300 group"
-              >
-                <p className="text-[#63B8B2] text-[10px] font-mono tracking-widest mb-2 uppercase">
-                  {cap.area}
-                </p>
-                <div className="flex flex-wrap gap-1">
-                  {cap.items.map((item) => (
-                    <span
-                      key={item}
-                      className="text-gray-400 text-[11px] font-mono bg-[#0f2744] px-1.5 py-0.5 group-hover:text-gray-300 transition-colors duration-200"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Uptime-style footer */}
-          <div className="px-4 py-2 border-t border-[#0f2744] flex flex-wrap items-center gap-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-status-pulse shrink-0" />
-            <span className="text-gray-600 text-xs font-mono">all systems operational</span>
-            <span className="ml-auto text-[#63B8B2] text-xs font-mono">Engineering & deployment</span>
-          </div>
-        </div>
-      </StaggerBlock>
-
-      {/* Hire CTA */}
-      <StaggerBlock index={2}>
-        <div className="bg-[#060e1f] border border-[#63B8B2]/40 rounded-sm p-6 relative overflow-hidden glow-teal">
-          {/* Corner accent */}
-          <div
-            className="absolute top-0 right-0 w-32 h-32 pointer-events-none"
-            style={{ background: "radial-gradient(circle at top right, rgba(99,184,178,0.08) 0%, transparent 70%)" }}
-          />
-
-          <div className="flex items-center gap-2.5 mb-3">
-            <span className="w-2 h-2 rounded-full bg-green-500 animate-status-pulse" />
-            <p className="text-white font-bold text-base font-mono">AVAILABLE_FOR_HIRE</p>
-          </div>
-
-          <p className="text-gray-400 text-sm leading-relaxed mb-5 font-mono">
-            Open to freelance contracts and full-time roles.<br />
-            Let&apos;s build something that&apos;s worth building.
-          </p>
-
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://www.upwork.com/freelancers/~01d2f557e6c01a0296"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-[#63B8B2] text-[#0A1930] font-bold text-sm font-mono rounded-sm hover:bg-[#85d1cc] transition-colors duration-200 custom-pointer"
-            >
-              Hire on Upwork
-            </a>
-            <a
-              href="https://www.fiverr.com/ubaidwaris655"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 border border-[#1a3a5c] text-gray-300 text-sm font-mono rounded-sm hover:border-[#63B8B2]/60 hover:text-white transition-all duration-200 custom-pointer"
-            >
-              Hire on Fiverr
-            </a>
-          </div>
-        </div>
-      </StaggerBlock>
-    </div>
-  );
-}
-
-/* ─── Main component ─── */
-const About = () => {
-  const sectionRef = useRef(null);
-
-  // Subtle background shift as user scrolls through the section
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Shift background from #0A1930 → #081528 → #0A1930 (dark-only, no harsh jumps)
-  const bgLightness = useTransform(scrollYProgress, [0, 0.4, 0.7, 1], [
-    "hsl(218,66%,11%)",
-    "hsl(218,66%,9%)",
-    "hsl(218,66%,8%)",
-    "hsl(218,66%,11%)",
-  ]);
-
-  return (
-    <motion.section
-      ref={sectionRef}
+    <section
       id="about"
-      className="w-full py-24 px-6 md:px-10"
-      style={{ backgroundColor: bgLightness }}
+      className="w-full bg-background py-24 px-6 md:px-10 border-b border-line"
       aria-labelledby="about-heading"
     >
       <div className="max-w-7xl mx-auto">
-        <SectionHeader />
+        <p className="eyebrow">04 / ABOUT</p>
+        <h2
+          id="about-heading"
+          className="text-fg text-3xl md:text-4xl font-semibold tracking-tight mb-12"
+        >
+          The engineer behind the work.{" "}
+          <span className="sr-only">About Ubaid Bin Waris</span>
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
-          {/* Left: Story */}
-          <motion.div
-            className="min-w-0"
-            initial={false}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <StoryColumn />
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xl:gap-8">
+          <div className="space-y-6 min-w-0">
+            <div className="bg-surface border border-line rounded-card p-6 flex flex-col sm:flex-row items-center gap-6">
+              <div className="relative shrink-0 w-28 h-28 rounded-lg overflow-hidden border border-line">
+                <Image
+                  src="/me.jpeg"
+                  alt="Ubaid Bin Waris"
+                  fill
+                  sizes="112px"
+                  className="object-cover object-center"
+                />
+              </div>
+              <div className="flex-1 text-center sm:text-left">
+                <h3 className="text-fg text-lg font-semibold">Ubaid Bin Waris</h3>
+                <p className="text-accent-fg font-mono text-xs mt-1">
+                  Senior Full Stack & AI Systems Engineer
+                </p>
+                <ul className="flex flex-wrap justify-center sm:justify-start gap-2 mt-4">
+                  {facts.map(([Icon, label]) => (
+                    <li key={label} className="tag flex items-center gap-1.5">
+                      <Icon size={12} aria-hidden="true" /> {label}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
 
-          {/* Right: System */}
-          <motion.div
-            className="min-w-0"
-            initial={false}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <SystemColumn />
-          </motion.div>
+            <dl className="bg-surface border border-line rounded-card divide-y divide-line">
+              {storyBlocks.map((block) => (
+                <div key={block.tag} className="p-6">
+                  <dt className="font-mono text-xs text-fg-subtle mb-2">
+                    {`// ${block.tag}`}
+                  </dt>
+                  <dd className="text-fg-muted text-sm leading-7">{block.text}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="space-y-6 min-w-0">
+            <div className="bg-surface border border-line rounded-card p-6">
+              <div className="flex items-center justify-between mb-5">
+                <h3 className="text-fg text-base font-semibold">Capabilities</h3>
+                <span className="font-mono text-xs text-fg-subtle">6 domains</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {capabilities.map((cap) => (
+                  <div key={cap.area}>
+                    <p className="font-mono text-xs text-accent-fg uppercase tracking-wide mb-2">
+                      {cap.area}
+                    </p>
+                    <ul className="flex flex-wrap gap-1.5">
+                      {cap.items.map((item) => (
+                        <li key={item} className="tag">
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <ul className="bg-surface border border-line rounded-card p-6 space-y-4">
+              {philosophy.map((item) => (
+                <li key={item.key} className="flex gap-3 text-sm leading-6">
+                  <span className="text-success shrink-0" aria-hidden="true">
+                    ✓
+                  </span>
+                  <p>
+                    <span className="font-mono text-xs text-accent-fg">
+                      {item.key}
+                    </span>
+                    <span className="block text-fg-muted">{item.desc}</span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            <div className="bg-surface border border-line rounded-card p-6">
+              <p className="status-pill">
+                <span className="status-dot" aria-hidden="true" />
+                <span>Available for hire</span>
+              </p>
+              <p className="text-fg-muted text-sm leading-7 mt-4 mb-6">
+                Open to freelance contracts and full-time roles. Let&apos;s build
+                something that&apos;s worth building.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href={site.profiles[2]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Hire on Upwork
+                </a>
+                <a
+                  href={site.profiles[3]}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-secondary"
+                >
+                  Hire on Fiverr
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
-};
-
-export default About;
+}

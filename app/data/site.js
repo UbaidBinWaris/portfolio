@@ -3,9 +3,9 @@
 export const site = {
   url: "https://ubaidbinwaris.com",
   name: "Ubaid Bin Waris",
-  role: "AI Systems & Full-Stack Engineer",
+  role: "Full-Stack Developer, AI & Backend Engineer",
   description:
-    "AI systems and full-stack engineering by Ubaid Bin Waris. Voice AI, workflow automation and backend infrastructure. Islamabad, Pakistan; working worldwide.",
+    "Full-stack developer and backend engineer building Next.js and React products, NestJS, Express, Node.js and Spring Boot services, AI automation, voice agents, databases, CI/CD pipelines and Linux infrastructure.",
   email: "ubaidwaris34@gmail.com",
   location: "Islamabad, Pakistan",
   profiles: [

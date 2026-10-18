@@ -47,7 +47,7 @@ export const services = [
       "Document intake and classification",
       "Customer operations copilots",
     ],
-    project: "ai-session-manager",
+    project: "orenyx-ai-assistant",
     faqs: [
       {
         question: "What is the difference between a chatbot and an AI agent?",
@@ -113,7 +113,7 @@ export const services = [
       "Appointment booking",
       "Support triage and routing",
     ],
-    project: "voice-qualification",
+    project: "orenyx-voice-dispatch",
     faqs: [
       {
         question: "Do you build with LiveKit or Vapi?",
@@ -184,7 +184,7 @@ export const services = [
       "Document processing",
       "Internal operations alerts",
     ],
-    project: "lead-automation",
+    project: "telegram-ai-video-automation",
     faqs: [
       {
         question: "Can you self-host n8n?",
@@ -255,7 +255,7 @@ export const services = [
       "AI session coordination",
       "API integration services",
     ],
-    project: "ai-session-manager",
+    project: "sales-call-intelligence",
     faqs: [
       {
         question: "Can you scale my existing Node.js API?",
@@ -326,7 +326,7 @@ export const services = [
       "Self-hosted automation",
       "Private model inference",
     ],
-    project: "local-llm-workstation",
+    project: "aws-spring-boot-deployment",
     faqs: [
       {
         question: "Which hosting providers do you work with?",
@@ -397,7 +397,7 @@ export const services = [
       "SaaS application interfaces",
       "React to Next.js migrations",
     ],
-    project: "seo-content-engine",
+    project: "gixiai-website",
     faqs: [
       {
         question: "Where are you based and do you work remotely?",

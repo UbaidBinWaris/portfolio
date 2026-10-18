@@ -3,7 +3,7 @@ import { ArrowUpRight, ArrowRight, Check, Plus } from "lucide-react";
 import { Navbar } from "./Navbar";
 import ServiceVisual from "./ServiceVisual";
 import { services } from "../data/servicesData";
-import { getWork } from "../data/workData";
+import { getWork, isPrivate, projectStatus } from "../data/workData";
 import { site } from "../data/site";
 import { absoluteUrl, breadcrumbSchema, jsonLd } from "../lib/metadata";
 
@@ -255,10 +255,14 @@ export default function ServicePage({ service }) {
                 <h2>{project.title}</h2>
                 <p>{project.summary}</p>
                 <p className="privacy-note">
-                  Private project · Source code is not publicly available
+                  {isPrivate(project)
+                    ? "Private project · Source code is not publicly available"
+                    : [projectStatus(project), project.period]
+                        .filter(Boolean)
+                        .join(" · ")}
                 </p>
                 <Link className="quiet-link" href={`/work/${project.slug}`}>
-                  Read the architecture walkthrough <ArrowUpRight size={18} />
+                  Read the case study <ArrowUpRight size={18} />
                 </Link>
               </div>
             </section>

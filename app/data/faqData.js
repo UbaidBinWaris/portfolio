@@ -2,7 +2,7 @@ const faqData = [
   {
     question: "What does Ubaid Bin Waris build?",
     answer:
-      "I build AI agents, voice AI systems, workflow automation, Node.js backends and Next.js applications. I also configure Linux infrastructure for those systems.",
+      "I build AI agents, voice AI and call center systems, workflow automation, Node.js backends and Next.js applications, plus the Linux and AWS infrastructure they run on. Recent work includes an AI voice receptionist platform, a local sales call transcription and QA system, and an open-source cross-browser QA app.",
   },
   {
     question: "Where are you based, and can we work remotely?",
@@ -12,7 +12,7 @@ const faqData = [
   {
     question: "Can I see your project source code?",
     answer:
-      "Some repositories are private or client-owned. The portfolio includes architecture walkthroughs that explain the approach without publishing source code or confidential client information.",
+      "Yes, for public work. Proxy QA Browser is open source under Apache 2.0, and Sales Call Intelligence is on GitHub. Orenyx Voice Dispatch, Gixiai and LetsScall are live in production. Client-owned repositories stay private; for those, the portfolio has architecture walkthroughs instead.",
   },
   {
     question: "How are project cost and timeline determined?",

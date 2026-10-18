@@ -1,290 +1,95 @@
-"use client";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { work, projectStatus } from "../data/workData";
 
-const STACK_ITEMS = [
-  { label: "LLMS", value: "active", color: "#63B8B2" },
-  { label: "VOICE", value: "vapi/livekit", color: "#63B8B2" },
-  { label: "REDIS", value: "cluster", color: "#22c55e" },
-  { label: "DOCKER", value: "running", color: "#22c55e" },
-  { label: "LINUX", value: "ubuntu/arch", color: "#63B8B2" },
+const deliveryPath = [
+  { code: "01", title: "Interface", tools: "Next.js · React" },
+  { code: "02", title: "Application", tools: "NestJS · Express · Spring Boot" },
+  { code: "03", title: "Data", tools: "PostgreSQL · MongoDB · MySQL" },
+  { code: "04", title: "Runtime", tools: "Linux · Nginx · CI/CD" },
+];
+// Evidence, not a fourth list of tools: counts derive from the case studies.
+const count = (status) =>
+  work.filter((p) => status.includes(projectStatus(p))).length;
+const proof = [
+  [work.length, "case studies"],
+  [count(["Live"]), "live in production"],
+  [count(["Open source", "Public repo"]), "public on GitHub"],
+  ["24h", "typical reply"],
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 32 },
-  show: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] },
-  }),
-};
-
-export const Hero = () => {
-  const [uptime, setUptime] = useState("00:00:00");
-
-  // Uptime clock
-  useEffect(() => {
-    const start = Date.now();
-    const timer = setInterval(() => {
-      const elapsed = Math.floor((Date.now() - start) / 1000);
-      const h = String(Math.floor(elapsed / 3600)).padStart(2, "0");
-      const m = String(Math.floor((elapsed % 3600) / 60)).padStart(2, "0");
-      const s = String(elapsed % 60).padStart(2, "0");
-      setUptime(`${h}:${m}:${s}`);
-    }, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
+export default function Hero() {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen w-full flex items-center overflow-hidden text-white"
-      aria-labelledby="hero-heading"
-    >
-      <div className="absolute inset-0 grid-overlay" aria-hidden="true" />
-      {/* Heavy overlay */}
-      <div
-        className="absolute inset-0"
-        style={{ background: "linear-gradient(135deg, rgba(10,25,48,0.96) 0%, rgba(10,25,48,0.88) 60%, rgba(10,25,48,0.96) 100%)", zIndex: 1 }}
-        aria-hidden="true"
-      />
-
-      {/* Content */}
-      <div
-        className="relative w-full max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 pt-24 pb-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
-        style={{ zIndex: 3 }}
-      >
-        {/* ── LEFT: Identity block ── */}
-        <div className="flex-1 min-w-0">
-          {/* Topline */}
-          <motion.div
-            custom={0}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="flex items-center gap-2 mb-6"
-          >
-            <span className="inline-block w-6 h-px bg-[#63B8B2]" />
-            <span className="text-[#63B8B2] font-mono text-sm tracking-widest">
-              &gt; Ubaid Bin Waris
-            </span>
-            <span className="w-2 h-3 bg-[#63B8B2] inline-block cursor-blink" />
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            id="hero-heading"
-            custom={1}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="text-[clamp(2.5rem,6vw,5.5rem)] font-bold leading-[0.95] tracking-tight text-white mb-6"
-          >
-            <span className="sr-only">Ubaid Bin Waris, AI Systems Engineer - </span>
-            AI SYSTEMS.
-            <br />
-            <span className="text-[#63B8B2]">AUTOMATION.</span>
-            <br />
-            INFRASTRUCTURE.
-          </motion.h1>
-
-          {/* Role typing */}
-          <motion.div
-            custom={2}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="mb-6"
-          >
-            <p className="text-gray-400 text-sm font-mono mb-1">Specialized engineering</p>
-            <p className="text-white text-xl md:text-2xl font-medium min-h-[2rem] flex items-center gap-2">
-              AI Systems &amp; Full-Stack Engineer
-              <span className="inline-block w-0.5 h-6 bg-[#63B8B2] animate-[cursor-blink_1s_step-end_infinite]" />
-            </p>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            custom={3}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="text-gray-300 text-base max-w-lg leading-relaxed mb-6 font-sans"
-          >
-            I build production AI systems, voice telephony agents, and high-concurrency 
-            backend infrastructure designed to scale.
-          </motion.p>
-
-          {/* Quick tech tags */}
-          <motion.div
-            custom={3.5}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="mb-8 flex flex-wrap gap-2 text-xs font-mono"
-          >
-            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">AI Agents &amp; Tool Calling</span>
-            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">Voice AI &amp; Telephony</span>
-            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">Distributed Redis Locks</span>
-            <span className="bg-[#63B8B2]/10 text-[#63B8B2] px-2.5 py-1 rounded-sm border border-[#63B8B2]/30">n8n Automation</span>
-          </motion.div>
-
-          {/* CTAs */}
-          <motion.div
-            custom={4}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="flex flex-wrap gap-4"
-          >
-            <a
-              href="#projects"
-              className="group flex items-center gap-2 px-7 py-3 bg-[#63B8B2] text-[#0A1930] font-bold text-sm rounded-sm hover:bg-[#85d1cc] transition-all duration-300 custom-pointer"
-            >
-              <span className="font-mono">&gt;_</span>
-              View Projects
-              <svg viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 group-hover:translate-x-1 transition-transform">
-                <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-              </svg>
+    <section id="home" className="hero" aria-labelledby="hero-heading">
+      <div className="hero-inner">
+        <div>
+          <p className="status-pill">
+            <span className="status-dot" aria-hidden="true" />
+            <span>Available for new projects</span>
+          </p>
+          <p className="hero-overline">UBAID BIN WARIS / FULL-STACK DEVELOPER</p>
+          <h1 id="hero-heading">
+            I engineer the <span>whole product.</span>
+          </h1>
+          <p className="hero-lede">
+            From polished React interfaces to production APIs, AI automation,
+            voice agents, databases, deployment pipelines, and the Linux servers
+            that keep everything running.
+          </p>
+          <div className="hero-actions">
+            <a href="#contact" className="btn-primary">
+              Start a project <ArrowUpRight size={16} aria-hidden="true" />
             </a>
-
-            <a
-              href="#contact"
-              className="flex items-center gap-2 px-7 py-3 border border-[#63B8B2] text-[#63B8B2] font-mono text-sm rounded-sm hover:bg-[#63B8B2]/10 transition-all duration-300 custom-pointer"
-            >
-              ./hire_me.sh
+            <a href="#projects" className="btn-secondary">
+              View my work <ArrowDownRight size={16} aria-hidden="true" />
             </a>
-          </motion.div>
-
-          {/* Social quick links */}
-          <motion.div
-            custom={5}
-            variants={fadeUp}
-            initial={false}
-            animate="show"
-            className="flex items-center gap-6 mt-10"
-          >
-            {[
-              { href: "https://github.com/UbaidBinWaris", label: "GitHub" },
-              { href: "https://linkedin.com/in/ubaidbinwaris", label: "LinkedIn" },
-              { href: "https://www.upwork.com/freelancers/~01d2f557e6c01a0296", label: "Upwork" },
-            ].map(({ href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 hover:text-[#63B8B2] text-xs font-mono transition-colors duration-200 custom-pointer"
-              >
-                {label}
-              </a>
+          </div>
+          <dl className="hero-proof" aria-label="At a glance">
+            {proof.map(([value, label]) => (
+              <div key={label}>
+                <dt className="sr-only">{label}</dt>
+                <dd>
+                  <strong>{value}</strong>
+                  <span>{label}</span>
+                </dd>
+              </div>
             ))}
-          </motion.div>
+          </dl>
         </div>
 
-        {/* ── RIGHT: System status terminal card ── */}
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="w-full lg:w-[380px] xl:w-[420px] shrink-0"
-        >
-          <div className="bg-[#060e1f]/90 border border-[#1a3a5c] rounded-sm overflow-hidden glow-teal">
-            {/* Terminal title bar */}
-            <div className="flex items-center gap-2 px-4 py-3 bg-[#0f2744] border-b border-[#1a3a5c]">
-              <div className="flex gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                <span className="w-3 h-3 rounded-full bg-green-500/70" />
-              </div>
-              <span className="ml-2 text-gray-500 text-xs font-mono">
-                ubaid@portfolio:~$ status
-              </span>
-            </div>
-
-            {/* Status body */}
-            <div className="p-5 font-mono text-sm space-y-4">
-              {/* Online status */}
-              <div className="flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-status-pulse shrink-0" />
-                <span className="text-gray-500">STATUS</span>
-                <span className="text-green-400 ml-auto">ONLINE</span>
-              </div>
-
-              <div className="h-px bg-[#1a3a5c]" />
-
-              {/* Role */}
-              <div>
-                <p className="text-gray-600 text-xs mb-1"># role</p>
-                <p className="text-[#63B8B2]">Full Stack Dev @ GixiAI</p>
-              </div>
-
-              {/* Location */}
-              <div>
-                <p className="text-gray-600 text-xs mb-1"># location</p>
-                <p className="text-gray-300">Islamabad, Pakistan</p>
-              </div>
-
-              {/* Stack items */}
-              <div>
-                <p className="text-gray-600 text-xs mb-2"># stack_processes</p>
-                <div className="space-y-1">
-                  {STACK_ITEMS.map(({ label, value, color }) => (
-                    <div key={label} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: color }} />
-                      <span className="text-gray-400 w-14 text-xs">{label}</span>
-                      <span className="text-xs" style={{ color }}>{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="h-px bg-[#1a3a5c]" />
-
-              {/* Uptime */}
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600 text-xs">uptime</span>
-                <span className="text-[#63B8B2] text-xs ml-auto" suppressHydrationWarning>
-                  {uptime}
-                </span>
-              </div>
-
-              {/* Availability */}
-              <div className="bg-[#63B8B2]/8 border border-[#63B8B2]/20 rounded-sm px-3 py-2">
-                <p className="text-[#63B8B2] text-xs">
-                  &gt; Available for freelance &amp; full-time roles
-                </p>
-              </div>
-
-              {/* Prompt */}
-              <div className="flex items-center gap-1 text-gray-600 text-xs">
-                <span>ubaid@portfolio:~$</span>
-                <span className="w-2 h-3 bg-[#63B8B2] animate-[cursor-blink_1s_step-end_infinite] opacity-80" />
-              </div>
-            </div>
+        <div className="system-map" aria-label="Full-stack delivery architecture">
+          <div className="system-map-head">
+            <span>production / delivery-path</span>
+            <span>
+              <span className="status-dot" aria-hidden="true" /> online
+            </span>
           </div>
-
-          {/* Stats strip below card */}
-          <div className="grid grid-cols-3 gap-px mt-px bg-[#1a3a5c]">
-            {[
-              { n: "AI", label: "Agents" },
-              { n: "Voice", label: "Systems" },
-              { n: "Web", label: "Applications" },
-            ].map(({ n, label }) => (
-              <div
-                key={label}
-                className="bg-[#0A1930] py-3 text-center"
-              >
-                <p className="text-[#63B8B2] font-bold text-lg">{n}</p>
-                <p className="text-gray-600 text-xs font-mono">{label}</p>
-              </div>
+          <ol className="system-map-body">
+            {deliveryPath.map((layer, index) => (
+              <li className="system-map-layer" key={layer.code}>
+                <span className="system-map-index">{layer.code}</span>
+                <div>
+                  <strong>{layer.title}</strong>
+                  <span>{layer.tools}</span>
+                </div>
+                <span className="system-map-signal" aria-hidden="true">
+                  {index === deliveryPath.length - 1 ? "●" : "↓"}
+                </span>
+              </li>
+            ))}
+          </ol>
+          <div className="system-map-console">
+            <span>$ deploy --env production</span>
+            <span>✓ build passed</span>
+          </div>
+          <div className="system-map-tags">
+            {["Arch Linux", "GitHub Actions", "Nginx", "Docker"].map((tool) => (
+              <span className="tag" key={tool}>
+                {tool}
+              </span>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-      
     </section>
   );
-};
-
-export default Hero;
+}

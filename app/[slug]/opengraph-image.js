@@ -17,17 +17,17 @@ export default async function Image({ params }) {
         justifyContent: "space-between",
         width: "100%",
         height: "100%",
-        background: "#081426",
-        color: "#edf4f5",
+        background: "#ffffff",
+        color: "#0a0a0a",
         padding: "60px 72px",
-        border: "2px solid #284b56",
+        border: "2px solid #e5e5e5",
       }}
     >
       <div
         style={{
           display: "flex",
           justifyContent: "space-between",
-          color: "#83d5ca",
+          color: "#6b6b6b",
           fontSize: 22,
         }}
       >
@@ -43,7 +43,7 @@ export default async function Image({ params }) {
             fontSize: 62,
             fontWeight: 700,
             letterSpacing: -2,
-            color: "#83d5ca",
+            color: "#6b6b6b",
           }}
         >
           {service.accent}
@@ -54,7 +54,7 @@ export default async function Image({ params }) {
           display: "flex",
           justifyContent: "space-between",
           fontSize: 24,
-          borderTop: "1px solid #284b56",
+          borderTop: "1px solid #e5e5e5",
           paddingTop: 24,
         }}
       >

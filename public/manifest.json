@@ -1,17 +1,30 @@
 {
-  "name": "Ubaid Bin Waris — AI Systems & Full-Stack Engineer",
+  "name": "Ubaid Bin Waris — Full-Stack Developer",
   "short_name": "UBW",
-  "description": "Voice AI, automation and full-stack engineering by Ubaid Bin Waris.",
+  "id": "/",
+  "description": "Full-stack, backend, AI automation and infrastructure engineering by Ubaid Bin Waris.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#081426",
-  "theme_color": "#081426",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
   "icons": [
     {
-      "src": "/icon",
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ],
   "lang": "en",

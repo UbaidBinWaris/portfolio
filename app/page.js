@@ -6,8 +6,7 @@ import Services from "./components/Services";
 import About from "./components/About";
 import ProjectSection from "./components/ProjectSection";
 import FAQSection from "./components/FAQSection";
-import ArchitectureSection from "./components/ArchitectureSection";
-import CurrentlyBuilding from "./components/CurrentlyBuilding";
+import StackMatrix from "./components/StackMatrix";
 import { pageMetadata, jsonLd } from "./lib/metadata";
 import { site } from "./data/site";
 
@@ -34,14 +33,13 @@ export default function Home() {
       />
       <main
         id="main-content"
-        className="flex min-h-screen w-full flex-col items-center font-code justify-between relative"
+        className="flex min-h-screen w-full flex-col items-center justify-between relative"
       >
         <Navbar />
         <Hero />
-        <CurrentlyBuilding />
-        <Services />
-        <ArchitectureSection />
         <ProjectSection />
+        <StackMatrix />
+        <Services />
         <About />
         <Experience />
         <FAQSection />
