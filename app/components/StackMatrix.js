@@ -18,7 +18,7 @@ export default function StackMatrix() {
           <p className="eyebrow">02 / FULL-STACK PRACTICE</p>
           <h2 id="stack-heading">One engineer across<br /><span>the entire delivery path.</span></h2>
         </div>
-        <p>I work where product engineering, backend systems, AI, and operations meet—so features are designed with deployment and long-term ownership in mind.</p>
+        <p>I work where product engineering, backend systems, AI and operations meet, so features are designed with deployment and long-term ownership in mind.</p>
       </div>
       <div className="stack-matrix-grid">
         {disciplines.map((discipline) => (
@@ -35,7 +35,7 @@ export default function StackMatrix() {
         <div>
           <p className="arch-command">$ uname -daily-driver</p>
           <strong>I use Arch, BTW.</strong>
-          <span>Permanently running Arch Linux for years—building, deploying, and managing systems from the same environment I trust every day.</span>
+          <span>Permanently running Arch Linux for years: building, deploying and managing systems from the same environment I trust every day.</span>
         </div>
         <span className="arch-status">● system stable</span>
       </div>

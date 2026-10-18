@@ -5,7 +5,7 @@ import { site } from "../data/site";
 export const dynamic = "force-static";
 export function GET() {
   const text = [
-    `# ${site.name} — ${site.role}`,
+    `# ${site.name}: ${site.role}`,
     "",
     `> ${site.description}`,
     "",

@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { getService } from "../data/servicesData";
 import { notFound } from "next/navigation";
 
-export const alt = "Ubaid Bin Waris — engineering services";
+export const alt = "Ubaid Bin Waris: engineering services";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

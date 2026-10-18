@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
 import { getWork, projectStatus } from "../../data/workData";
 
-export const alt = "Ubaid Bin Waris — project case study";
+export const alt = "Ubaid Bin Waris: project case study";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

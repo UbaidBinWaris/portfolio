@@ -5,7 +5,7 @@ import { site } from "../data/site";
 const storyBlocks = [
   {
     tag: "who_i_am",
-    text: "Ubaid Bin Waris — a full-stack developer and backend engineer based in Islamabad, Pakistan. I build complete products across React interfaces, APIs, databases, AI systems, deployment pipelines, and Linux infrastructure.",
+    text: "I am Ubaid Bin Waris, a full-stack developer and backend engineer based in Islamabad, Pakistan. I build complete products across React interfaces, APIs, databases, AI systems, deployment pipelines, and Linux infrastructure.",
   },
   {
     tag: "what_i_do",
