@@ -210,17 +210,23 @@ export const work = [
   },
   {
     slug: "scrap-exchange-valuation",
-    title: "Scrap EX: AI Scrap Valuation App",
-    seoTitle: "Scrap EX: AI Scrap Valuation Android App",
-    category: "Mobile & computer vision",
+    title: "Scrap Exchange: AI Scrap Valuation Marketplace",
+    seoTitle: "Scrap Exchange: AI Scrap Valuation Marketplace",
+    category: "Mobile, web & computer vision",
     service: "backend-architecture",
-    status: "Private",
+    status: "Live",
+    featured: true,
     organization: szabist,
     period: "Mar 2026 – present",
     started: "2026-03",
+    links: [
+      { label: "Live marketplace", url: "https://scrapex.ubaidbinwaris.com" },
+      { label: "Documentation", url: "https://docs.scrapex.ubaidbinwaris.com" },
+    ],
     summary:
-      "An Android app that uses computer vision to identify scrap materials, estimate size, weight and market value, and list items for sale on a built-in marketplace.",
+      "A live scrap marketplace for Pakistan on Android and the web: photograph scrap for an instant AI price estimate, get offers from nearby dealers, and check daily scrap rates by city.",
     stack: [
+      "Next.js",
       "Kotlin",
       "Jetpack Compose",
       "Node.js",
@@ -244,6 +250,11 @@ export const work = [
       "Automated price calculation",
       "Personalized analysis history",
       "Digital marketplace for listing items",
+      "Daily scrap-rate pages for cities across Pakistan, plus a help center",
+    ],
+    results: [
+      "Live on Android and the web at scrapex.ubaidbinwaris.com",
+      "City scrap-rate and material pages (Multan, Rawalpindi, Lahore, copper, cardboard, tyres) rank and earn clicks on Google",
     ],
     tradeoff:
       "Photo-based estimates depend on lighting, angle and scale, so a single image is not enough. Multi-image analysis costs more processing per item but gives the valuation more evidence to work from.",
@@ -284,7 +295,6 @@ export const work = [
     category: "Workflow automation",
     service: "ai-automation-n8n",
     status: "Private",
-    featured: true,
     organization: gixiai,
     period: "Mar 2026",
     started: "2026-03",

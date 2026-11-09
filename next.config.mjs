@@ -22,6 +22,11 @@ const nextConfig = {
       { source: '/services/ai-automation-n8n', destination: '/ai-automation-n8n', permanent: true },
       { source: '/voice-ai-systems', destination: '/voice-ai-developer', permanent: true },
       { source: '/ai-workflow-automation', destination: '/ai-automation-n8n', permanent: true },
+      // URLs from earlier builds that Google still knows: the next-sitemap index
+      // and the generated favicon routes replaced by static icon files.
+      { source: '/sitemap-0.xml', destination: '/sitemap.xml', permanent: true },
+      { source: '/icon', destination: '/icon.svg', permanent: true },
+      { source: '/apple-icon', destination: '/apple-icon.png', permanent: true },
       // Note: Vercel handles HTTPS redirects automatically, but we add this for other hosts
       // The middleware also handles this for redundancy
     ];

@@ -12,7 +12,7 @@ const faqData = [
   {
     question: "Can I see your project source code?",
     answer:
-      "Yes, for public work. Proxy QA Browser is open source under Apache 2.0, and Sales Call Intelligence is on GitHub. Orenyx Voice Dispatch, Gixiai and LetsScall are live in production. Client-owned repositories stay private; for those, the portfolio has architecture walkthroughs instead.",
+      "Yes, for public work. Proxy QA Browser is open source under Apache 2.0, and Sales Call Intelligence is on GitHub. Scrap Exchange, Orenyx Voice Dispatch, Gixiai and LetsScall are live in production. Client-owned repositories stay private; for those, the portfolio has architecture walkthroughs instead.",
   },
   {
     question: "How are project cost and timeline determined?",
