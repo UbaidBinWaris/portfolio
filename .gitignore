@@ -43,3 +43,6 @@ next-env.d.ts
 
 .remember
 .serena
+
+# Playwright MCP browser-tool artifacts
+.playwright-mcp/

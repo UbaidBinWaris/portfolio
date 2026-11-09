@@ -1,6 +1,7 @@
 import { services } from "../data/servicesData";
 import { work, isPrivate, projectStatus } from "../data/workData";
 import { site } from "../data/site";
+import { publishedArticles } from "../data/articlesData";
 
 export const dynamic = "force-static";
 export function GET() {
@@ -36,6 +37,16 @@ export function GET() {
         (p) => `- [${p.title}](${site.url}/work/${p.slug}): ${p.summary}`,
       ),
     "",
+    ...(publishedArticles.length
+      ? [
+          "## Articles",
+          "",
+          ...publishedArticles.map(
+            (a) => `- [${a.title}](${site.url}/articles/${a.slug}) (${a.published}): ${a.description}`,
+          ),
+          "",
+        ]
+      : []),
     "## Profiles",
     "",
     ...site.profiles.map((url) => `- ${url}`),

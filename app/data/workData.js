@@ -76,6 +76,7 @@ export const work = [
     period: "Sep 2026",
     started: "2026-09",
     links: [
+      { label: "Product site", url: "https://orenyxvoicedispatch.com" },
       {
         label: "Live platform",
         url: "https://portal.orenyxvoicedispatch.com",

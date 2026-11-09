@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, ArrowUpRight } from "lucide-react";
+import { publishedArticles } from "../data/articlesData";
 // Same order as the homepage sections.
 const links = [
   ["/#projects", "Work"],
@@ -10,6 +11,8 @@ const links = [
   ["/#services", "Services"],
   ["/#about", "About"],
   ["/#experience", "Experience"],
+  // Shown once at least one article is published.
+  ...(publishedArticles.length ? [["/articles", "Articles"]] : []),
 ];
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);

@@ -968,3 +968,68 @@ html {
     transform: none;
   }
 }
+
+/* ===== Articles ===== */
+.article {
+  max-width: 720px;
+}
+.article-header {
+  padding: 32px 0 8px;
+}
+.article-header h1 {
+  font-size: clamp(32px, 4.4vw, 52px);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+.article-header .hero-description {
+  max-width: none;
+}
+.article-body h2 {
+  font-size: 26px;
+  margin: 48px 0 16px;
+}
+.article-body h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 32px 0 12px;
+}
+.article-body p:not(.eyebrow) {
+  margin: 0 0 20px;
+}
+.article-body a {
+  color: var(--color-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body code {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--color-raised);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+.article-body blockquote {
+  margin: 24px 0;
+  padding-left: 20px;
+  border-left: 2px solid var(--color-line-strong);
+  color: var(--color-fg-muted);
+  font-size: 18px;
+  line-height: 1.8;
+}
+.article-discuss {
+  padding-top: 24px;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-fg-muted);
+  font-size: 14px;
+}
+.article-discuss a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

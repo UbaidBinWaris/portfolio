@@ -2,6 +2,7 @@ import Link from "next/link";
 import { services } from "../data/servicesData";
 import { site } from "../data/site";
 import contactLinks from "../data/contactLinks";
+import { publishedArticles } from "../data/articlesData";
 
 const profiles = contactLinks.filter((l) =>
   ["GitHub", "LinkedIn", "Upwork", "Fiverr"].includes(l.name),
@@ -51,6 +52,13 @@ export default function Footer() {
                 Engineering portfolio
               </Link>
             </li>
+            {publishedArticles.length > 0 && (
+              <li>
+                <Link href="/articles" className="hover:text-fg">
+                  Articles
+                </Link>
+              </li>
+            )}
             {profiles.map((link) => (
               <li key={link.id}>
                 <a
